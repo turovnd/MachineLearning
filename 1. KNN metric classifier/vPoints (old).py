@@ -40,7 +40,7 @@ def getDataset():
     testNumberGroup0 = 59 - trainingNumberGroup0
     testNumberGroup1 = 59 - trainingNumberGroup1
 
-    for line in open('chips.txt').readlines():
+    for line in open('dataset.txt').readlines():
         # разделение входного датасета и заполение списка data
         newline = ""
         newline = line.replace(',', ' ')

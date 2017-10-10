@@ -26,7 +26,7 @@ def getDataset(t):
     trainingDotsWithClass = []
     testDotsWithClass = []
 
-    f = open('chips.txt')
+    f = open('dataset.txt')
     for line in f:
         dot_x, dot_y, dot_class = line.split(',')
         data.append([[float(dot_x), float(dot_y)], int(dot_class)])
