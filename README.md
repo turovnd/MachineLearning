@@ -3,7 +3,7 @@ Discipline "Intellectual systems and technologies"
 Used software:
 - Python-IDE: PyCharm Community 2017.2;
 - Project Interpreter: python 3.5.3 (amd64);
-- Used python packeges: matplotlib v2.1.0
+- Used python packeges: matplotlib v2.1.0.
 --------------------------------------------------- 
 1. KNN metric classifier.
   Dataset.txt - set of objects: coordinates of the dot(x,y),class{0,1}.
