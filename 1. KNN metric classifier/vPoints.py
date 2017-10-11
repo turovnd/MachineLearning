@@ -488,51 +488,51 @@ if __name__ == '__main__':
     data, trainDots, testDots = getDataset(t)
     buildPlot(trainDots, testDots)
     buildPlotWithUnknownDot(trainDots, testDots, 50)
-    #start
+    # start
     testClasses = [testDots[i][1] for i in range(len(testDots))]
     print('testClasses', testClasses)
-    #
-    # print("*" * 50)
-    # print("classifyKNN_center")
-    # testClassesClassified = classifyKNNCircle(trainDots, testDots)
-    # F1_measure(testClassesClassified, testClasses)
-    #
+
+    print("*" * 50)
+    print("classifyKNN_center")
+    testClassesClassified = classifyKNNCentroid(trainDots, testDots)
+    F1_measure(testClassesClassified, testClasses)
+
     k = 5
-    core = ["gaussian","logistic"]
-    # print("*" * 50)
-    # buildPlotCircle(trainDots,testDots, 50, k)
-    # print("classifyKNN_circle  without core")
-    # testClassesClassified = classifyKNN_circle(trainDots, testDots, k, 0)
-    # F1_measure(testClassesClassified, testClasses)
-    #
-    # print("*" * 50)
-    # print("classifyKNN_circle  " + core[0])
+    core = ["gaussian", "logistic"]
+    print("*" * 50)
+    buildPlotCircle(trainDots, testDots, 50, k)
+    print("classifyKNN_circle  without core")
+    testClassesClassified = classifyKNNCircle(trainDots, testDots, k, 0)
+    F1_measure(testClassesClassified, testClasses)
+
+    print("*" * 50)
+    print("classifyKNN_circle  " + core[0])
     # finish
     testClassesClassified = classifyKNNCircle(trainDots, testDots, k, core[0])
     print('testClassesClassified', testClassesClassified)
-    # F1_measure(testClassesClassified, testClasses)
-    #
-    # print("*" * 50)
-    # print("classifyKNN_circle  " + core[1])
-    # testClassesClassified = classifyKNN_circle(trainDots, testDots, k, core[1])
-    # F1_measure(testClassesClassified, testClasses)
-    #
-    # arr = []
-    # for i in range(len(testDots)):
-    #     arr.append([[trainDots[i][0][0] * math.pi, trainDots[i][0][1]], trainDots[i][1]])
-    # trainDots = arr
-    #
-    # print("*" * 50)
-    # print("classifyKNN_circle  " + core[1] + "  пространственное преобразование")
-    # testClassesClassified = classifyKNN_circle(trainDots, testDots, k, core[1])
-    # F1_measure(testClassesClassified, testClasses)
-    #
-    # arr = []
-    # for i in range(len(testDots)):
-    #     arr.append([[trainDots[i][0][0] * 10 * math.pi, trainDots[i][0][1] * 10 * math.pi], trainDots[i][1]])
-    # trainDots = arr
-    #
-    # print("*" * 50)
-    # print("classifyKNN_circle  " + core[1] + "  пространственное преобразование 2 ")
-    # testClassesClassified = classifyKNN_circle(trainDots, testDots, k, core[1])
-    # F1_measure(testClassesClassified, testClasses)
+    F1_measure(testClassesClassified, testClasses)
+
+    print("*" * 50)
+    print("classifyKNN_circle  " + core[1])
+    testClassesClassified = classifyKNNCircle(trainDots, testDots, k, core[1])
+    F1_measure(testClassesClassified, testClasses)
+
+    arr = []
+    for i in range(len(testDots)):
+        arr.append([[trainDots[i][0][0] * math.pi, trainDots[i][0][1]], trainDots[i][1]])
+    trainDots = arr
+
+    print("*" * 50)
+    print("classifyKNN_circle  " + core[1] + "  пространственное преобразование")
+    testClassesClassified = classifyKNNCircle(trainDots, testDots, k, core[1])
+    F1_measure(testClassesClassified, testClasses)
+
+    arr = []
+    for i in range(len(testDots)):
+        arr.append([[trainDots[i][0][0] * 10 * math.pi, trainDots[i][0][1] * 10 * math.pi], trainDots[i][1]])
+    trainDots = arr
+
+    print("*" * 50)
+    print("classifyKNN_circle  " + core[1] + "  пространственное преобразование 2 ")
+    testClassesClassified = classifyKNNCircle(trainDots, testDots, k, core[1])
+    F1_measure(testClassesClassified, testClasses)
