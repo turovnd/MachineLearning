@@ -7,7 +7,32 @@ Used software:
 --------------------------------------------------- 
 1. KNN metric classifier.
   Dataset.txt - set of objects: coordinates of the dot(x,y),class{0,1}.
-  
+  Program structure:
+    Main:
+	    - started point.
+    Plot:
+      - buildPlotWithAllDots;
+      - buildPlotCentroid;
+      - buildPlotCircle.
+    Statistic:
+      - compareClasses;
+      - computingRecall;
+      - computingSpecificity;
+      - computingPrecision;
+      - computingAccuracy;
+      - computingF1_measure.
+    DatasetProcessing:
+      - getDataset;
+      - getDotsByClass;
+      - getManhattanDistance;
+      - getEuclideanDistance;
+      - getCentroid;
+      - classifyDotCentroid;
+      - classifyDotCircle;
+      - classifyKNNCentroid;
+      - classifyKNNCircle.
+
+
 Число фолдов для кросс-валидации определите и обоснуйте сами исходя из числа объектов в датасете.
 Можно попробовать несколько способов выбора k.
 - Рандомный выбор для тестирования
