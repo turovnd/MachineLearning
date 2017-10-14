@@ -129,8 +129,8 @@ class DatasetProcessing(object):
     def classifyDotCentroid(trainingDot0, trainingDot1, unknownDot):
         centerDots0 = DatasetProcessing.getCentroid(trainingDot0)
         centerDots1 = DatasetProcessing.getCentroid(trainingDot1)
-        euclideanDistance0 = DatasetProcessing.getEuclideanDistance(unknownDot, centerDots0)
-        euclideanDistance1 = DatasetProcessing.getEuclideanDistance(unknownDot, centerDots1)
+        euclideanDistance0 = DatasetProcessing.computingEuclideanDistance(unknownDot, centerDots0)
+        euclideanDistance1 = DatasetProcessing.computingEuclideanDistance(unknownDot, centerDots1)
         if euclideanDistance0 < euclideanDistance1:
             return 0
         else:
@@ -154,7 +154,7 @@ class DatasetProcessing(object):
         testDist = []
         for i in range(len(trainingDotsWithClass)):
             testDist.append(
-                [DatasetProcessing.getEuclideanDistance(testDotsWithClass, trainingDotsWithClass[i][0]),
+                [DatasetProcessing.computingEuclideanDistance(testDotsWithClass, trainingDotsWithClass[i][0]),
                  trainingDotsWithClass[i][1]])
 
         n = 1

@@ -174,7 +174,7 @@ class Plot(object):
         #     testDistance.append([DatasetProcessing.computingEuclideanDistance
         #                          (testDot[0], trainDots[i][0]), trainDots[i][1]])
         for i in range(len(trainingDotsWithClass)):
-            testDistance.append([DatasetProcessing.computingEuclideanDistance()
+            testDistance.append([DatasetProcessing.computingEuclideanDistance
                                  (testDot[0], trainingDotsWithClass[i][0]), trainingDotsWithClass[i][1]])
         # сортировка листа расстояний от меньшего к большему
         n = 1
