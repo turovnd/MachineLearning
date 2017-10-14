@@ -1,9 +1,44 @@
 from DatasetProcessing import *
 
 """
-
 """
+
+
 class Statistic(object):
+    """Initialization variables"""
+    def __init__(self):
+        pass
+
+    """Метод сравнения совпадения номеров классов точек из начального датасета, с получившимися.
+
+            Args:
+                algorithmDotClasses: лист, содержащий датасет с классами неизвестных точк, определенных в алгоритме.
+                startDatasetDotClasses: лист, содержащий датасет с классами неизвестных точк, определенных в начальном датасете.
+
+            Returns:
+                TP - True Positive: количество истино-положительных решений.
+                FP - False Positive: количество ложно-положительных решений.
+                FN - False Negative: количество ложно-отрицательных решений.
+                TN - True Negative: количество истино-отрицательных решений.
+            """
+    @staticmethod
+    def compareClasses(algorithmDotClasses, startDatasetDotClasses):
+        TP = 0
+        FP = 0
+        TN = 0
+        FN = 0
+        for i in range(len(startDatasetDotClasses)):
+            if algorithmDotClasses[i] == startDatasetDotClasses[i]:
+                if algorithmDotClasses[i] == 1:
+                    TP += 1
+                else:
+                    TN += 1
+            else:
+                if algorithmDotClasses[i] == 1:
+                    FP += 1
+                else:
+                    FN += 1
+        return TP, FP, TN, FN
 
     """Вычисление F1-меры для конечной оценки алгоритма
     
@@ -21,8 +56,9 @@ class Statistic(object):
     Returns:
         0: удачное исполнение.
     """
-    def F1_measure(classified, not_classified):
-        TP, FP, TN, FN = DatasetProcessing.getClassify(classified, not_classified)
+    @staticmethod
+    def computingF1_measure(classified, not_classified):
+        TP, FP, TN, FN = Statistic.compareClasses(classified, not_classified)
         P = TP + FN
         N = FP + TN
         Recall = TP / P

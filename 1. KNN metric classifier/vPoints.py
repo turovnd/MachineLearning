@@ -7,7 +7,6 @@ from Plot import *
 from Statistic import *
 
 if __name__ == '__main__':
-
     tVAR = 50
     data, trainDots, testDots = DatasetProcessing.getDataset(tVAR)
     Plot.buildPlotWithAllDots(trainDots, testDots)
@@ -19,7 +18,7 @@ if __name__ == '__main__':
     print("*" * 50)
     print("classifyKNN_center")
     testClassesClassified = DatasetProcessing.classifyKNNCentroid(trainDots, testDots)
-    Statistic.F1_measure(testClassesClassified, testClasses)
+    Statistic.computingF1_measure(testClassesClassified, testClasses)
 
     k = 5
     core = ["gaussian", "logistic"]
@@ -27,19 +26,19 @@ if __name__ == '__main__':
     Plot.buildPlotCircle(trainDots, testDots, 50, k)
     print("classifyKNN_circle  without core")
     testClassesClassified = DatasetProcessing.classifyKNNCircle(trainDots, testDots, k, 0)
-    Statistic.F1_measure(testClassesClassified, testClasses)
+    Statistic.computingF1_measure(testClassesClassified, testClasses)
 
     print("*" * 50)
     print("classifyKNN_circle  " + core[0])
     # finish
     testClassesClassified = DatasetProcessing.classifyKNNCircle(trainDots, testDots, k, core[0])
     print('testClassesClassified', testClassesClassified)
-    Statistic.F1_measure(testClassesClassified, testClasses)
+    Statistic.computingF1_measure(testClassesClassified, testClasses)
 
     print("*" * 50)
     print("classifyKNN_circle  " + core[1])
     testClassesClassified = DatasetProcessing.classifyKNNCircle(trainDots, testDots, k, core[1])
-    Statistic.F1_measure(testClassesClassified, testClasses)
+    Statistic.computingF1_measure(testClassesClassified, testClasses)
 
     arr = []
     for i in range(len(testDots)):
@@ -49,7 +48,7 @@ if __name__ == '__main__':
     print("*" * 50)
     print("classifyKNN_circle  " + core[1] + "  пространственное преобразование")
     testClassesClassified = DatasetProcessing.classifyKNNCircle(trainDots, testDots, k, core[1])
-    Statistic.F1_measure(testClassesClassified, testClasses)
+    Statistic.computingF1_measure(testClassesClassified, testClasses)
 
     arr = []
     for i in range(len(testDots)):
@@ -59,4 +58,4 @@ if __name__ == '__main__':
     print("*" * 50)
     print("classifyKNN_circle  " + core[1] + "  пространственное преобразование 2 ")
     testClassesClassified = DatasetProcessing.classifyKNNCircle(trainDots, testDots, k, core[1])
-    Statistic.F1_measure(testClassesClassified, testClasses)
+    Statistic.computingF1_measure(testClassesClassified, testClasses)

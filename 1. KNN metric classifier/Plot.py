@@ -5,7 +5,13 @@ import matplotlib.pyplot as plt
 
 """
 """
+
+
 class Plot(object):
+    """Initialization variables"""
+    def __init__(self):
+        pass
+
     """Метод визуализации полученных датасетов на графике двумерного простраства (x,y).
 
     График включает четыре группы точек: две обучающих и две тестирующих выборки.
@@ -17,6 +23,7 @@ class Plot(object):
     Returns:
         0: удачное исполнение.
     """
+    @staticmethod
     def buildPlotWithAllDots(trainingDotsWithClass, testDotsWithClass):
         trainingDots0 = DatasetProcessing.getDotsByClass(trainingDotsWithClass, 0)
         trainingDots1 = DatasetProcessing.getDotsByClass(trainingDotsWithClass, 1)
@@ -71,6 +78,8 @@ class Plot(object):
     Returns:
         0: удачное исполнение.    
     """
+
+    @staticmethod
     def buildPlotCentroid(trainingDotsWithClass, testDotsWithClass, num):
         colors = ['red', 'blue', 'green']
 
@@ -140,6 +149,8 @@ class Plot(object):
     Returns:
         0: удачное исполнение.    
     """
+
+    @staticmethod
     def buildPlotCircle(trainingDotsWithClass, testDotsWithClass, num, k):
         colors = ['red', 'blue', 'green']
 

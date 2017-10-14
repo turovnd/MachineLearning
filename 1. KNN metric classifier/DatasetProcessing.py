@@ -1,8 +1,14 @@
 import math
 
+
 """
 """
+
+
 class DatasetProcessing(object):
+    """Initialization variables"""
+    def __init__(self):
+        pass
 
     """Метод обработки входного датасета и подсчета количества точек.
 
@@ -19,6 +25,7 @@ class DatasetProcessing(object):
         trainingDotsWithClass: лист, содержащий датасет обучающих точек в виде ([x,y],classDot).
         testDotsWithClass: лист, содержащий датасет тестирующих точек в виде ([x,y],classDot).
     """
+    @staticmethod
     def getDataset(t):
         data = []
         trainingDotsWithClass = []
@@ -55,6 +62,7 @@ class DatasetProcessing(object):
     Returns:
         dots: лист, содержащий датасет точек в виде ([x,y]).
     """
+    @staticmethod
     def getDotsByClass(DotsWithClass, classDot):
         dots = []
         for i in range(len(DotsWithClass)):
@@ -72,6 +80,7 @@ class DatasetProcessing(object):
     Returns:
         Действительное число, евклидово расстояние между двумя точками.
     """
+    @staticmethod
     def getEuclideanDistance(trainingDot, unknownDot):
         return math.sqrt(math.pow(trainingDot[0] - unknownDot[0], 2)
                          + math.pow(trainingDot[1] - unknownDot[1], 2))
@@ -85,6 +94,7 @@ class DatasetProcessing(object):
     Returns: 
         Лист, содержащий координату центра класса в виде (x,y).
     """
+    @staticmethod
     def getCentroid(trainingDots):
         x = sum([trainingDots[i][0] for i in range(len(trainingDots))])
         y = sum([trainingDots[i][1] for i in range(len(trainingDots))])
@@ -101,6 +111,7 @@ class DatasetProcessing(object):
         0: неизвестная точка принадлежит классу 0.    
         1: неизвестная точка принадлежит классу 1.    
     """
+    @staticmethod
     def classifyDotCentroid(trainingDot0, trainingDot1, unknownDot):
         centerDots0 = DatasetProcessing.getCentroid(trainingDot0)
         centerDots1 = DatasetProcessing.getCentroid(trainingDot1)
@@ -124,6 +135,7 @@ class DatasetProcessing(object):
         0: неизвестная точка принадлежит классу 0.    
         1: неизвестная точка принадлежит классу 1.
     """
+    @staticmethod
     def classifyDotCircle(trainingDotsWithClass, testDotsWithClass, k, core):
         testDist = []
         for i in range(len(trainingDotsWithClass)):
@@ -178,6 +190,7 @@ class DatasetProcessing(object):
     Returns:
         testClasses: лист, содержащий датасет с классами неизвестных точек, определенных в алгоритме.
     """
+    @staticmethod
     def classifyKNNCentroid(trainingDots, unknownDots):
         trainingDots0 = DatasetProcessing.getDotsByClass(trainingDots, 0)
         trainingDots1 = DatasetProcessing.getDotsByClass(trainingDots, 1)
@@ -203,6 +216,7 @@ class DatasetProcessing(object):
     Returns:
         testClasses: лист, содержащий датасет с классами неизвестных точек, определенных в алгоритме.
     """
+    @staticmethod
     def classifyKNNCircle(trainingDots, unknownDots, k, core):
         training = trainingDots
         testClasses = []
@@ -211,33 +225,3 @@ class DatasetProcessing(object):
             training.append(unknownDots[i])
             testClasses.append(dot_class)
         return testClasses
-
-    """Метод сравнения совпадения номеров классов точек из начального датасета, с получившимися.
-
-        Args:
-            algorithmDotClasses: лист, содержащий датасет с классами неизвестных точк, определенных в алгоритме.
-            startDatasetDotClasses: лист, содержащий датасет с классами неизвестных точк, определенных в начальном датасете.
-
-        Returns:
-            TP - True Positive: количество истино-положительных решений.
-            FP - False Positive: количество ложно-положительных решений.
-            FN - False Negative: количество ложно-отрицательных решений.
-            TN - True Negative: количество истино-отрицательных решений.
-        """
-    def getClassify(algorithmDotClasses, startDatasetDotClasses):
-        TP = 0
-        FP = 0
-        TN = 0
-        FN = 0
-        for i in range(len(startDatasetDotClasses)):
-            if algorithmDotClasses[i] == startDatasetDotClasses[i]:
-                if algorithmDotClasses[i] == 1:
-                    TP += 1
-                else:
-                    TN += 1
-            else:
-                if algorithmDotClasses[i] == 1:
-                    FP += 1
-                else:
-                    FN += 1
-        return TP, FP, TN, FN
