@@ -70,6 +70,20 @@ class DatasetProcessing(object):
                 dots.append(DotsWithClass[i][0])
         return dots
 
+    """Метод расчета манхэттенского расстояния для двух точек двумерного пространства (x,y).
+        Формула: p(x,y) = abs(x0[i]-x1[i])+abs(y0[i]-y1[i]).
+
+        Args:
+            trainingDot: совокупность координат (x,y) обучающей точки (из обучающей выборки).
+            unknownDot:  совокупность координат (x,y) неизвестной точки (из тестирующей выборки).
+
+        Returns:
+            Действительное число, манхэттенское расстояние между двумя точками.
+        """
+    @staticmethod
+    def computingManhattanDistance(trainingDot, unknownDot):
+        return abs(trainingDot[0] - unknownDot[0]) + abs(trainingDot[1] - unknownDot[1])
+
     """Метод расчета евлидового расстояния для двух точек двумерного пространства (x,y).
     Формула: p(x,y) = sqrt((x0[i]-x1[i])^2)+(y0[i]-y1[i])^2).
     
@@ -81,7 +95,7 @@ class DatasetProcessing(object):
         Действительное число, евклидово расстояние между двумя точками.
     """
     @staticmethod
-    def getEuclideanDistance(trainingDot, unknownDot):
+    def computingEuclideanDistance(trainingDot, unknownDot):
         return math.sqrt(math.pow(trainingDot[0] - unknownDot[0], 2)
                          + math.pow(trainingDot[1] - unknownDot[1], 2))
 

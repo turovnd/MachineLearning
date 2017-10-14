@@ -101,8 +101,8 @@ class Plot(object):
         groupTrainingCenter0 = plt.scatter(centroid0[0], centroid0[1], marker='*', color=colors[0])
         groupTrainingCenter1 = plt.scatter(centroid1[0], centroid1[1], marker='*', color=colors[1])
         unknownDot = plt.scatter(testDot[0][0], testDot[0][1], color=colors[2])
-        euclideanDistance0 = DatasetProcessing.getEuclideanDistance(testDot[0], centroid0)
-        euclideanDistance1 = DatasetProcessing.getEuclideanDistance(testDot[0], centroid1)
+        euclideanDistance0 = DatasetProcessing.computingEuclideanDistance(testDot[0], centroid0)
+        euclideanDistance1 = DatasetProcessing.computingEuclideanDistance(testDot[0], centroid1)
 
         # тестовые данные
         print('кооридинаты неизвестной точки', testDot[0][0], testDot[0][1])
@@ -171,10 +171,10 @@ class Plot(object):
         testDistance = []
         # TODO
         # for i in range(len(trainDots)):
-        #     testDistance.append([DatasetProcessing.getEuclideanDistance
+        #     testDistance.append([DatasetProcessing.computingEuclideanDistance
         #                          (testDot[0], trainDots[i][0]), trainDots[i][1]])
         for i in range(len(trainingDotsWithClass)):
-            testDistance.append([DatasetProcessing.getEuclideanDistance
+            testDistance.append([DatasetProcessing.computingEuclideanDistance()
                                  (testDot[0], trainingDotsWithClass[i][0]), trainingDotsWithClass[i][1]])
         # сортировка листа расстояний от меньшего к большему
         n = 1
