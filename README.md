@@ -42,12 +42,14 @@ Program structure:
 | | | none | euclidean | none | | | | | |
 | | | gaussian | euclidean | none | | | | | |
 | | | logistic | euclidean | none | | | | | |
+|-|-|-|-|-|-|-|-|-|-|
 | | | none | manhattan | elliptic | | | | | |
 | | | gaussian | manhattan | elliptic | | | | | |
 | | | logistic | manhattan | elliptic | | | | | |
 | | | none | euclidean | elliptic | | | | | |
 | | | gaussian | euclidean | elliptic | | | | | |
 | | | logistic | euclidean | elliptic | | | | | |
+|-|-|-|-|-|-|-|-|-|-|
 | | | none | manhattan | hyperbolic | | | | | |
 | | | gaussian | manhattan | hyperbolic | | | | | |
 | | | logistic | manhattan | hyperbolic | | | | | |
