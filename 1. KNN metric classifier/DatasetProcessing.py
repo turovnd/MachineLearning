@@ -13,20 +13,24 @@ class DatasetProcessing(object):
     """Метод обработки входного датасета и подсчета количества точек.
 
     file 'chips.txt': входной датасет, содержащий информацию о точках в виде (x,y,classDot).
-
+    z = (x^2/a^2)+(y^2/b^2); a=1; b=1 (случае пространственного преобразования).
+    
     Args:
         t: число, обозначающее количество точек, разделяющих входной датасет
          на обучающий, тестирующий датасет.
-         (например, 10 первых с начала и конца входят в обучающий датасет,
-         остальные в тестирующий).
-
+         (например, 10 первых с начала и конца входят в обучающий датасет, остальные в тестирующий).
+        coordinateTransformation - пространственное преобразование:
+            none - без преобразования;
+            elliptic - преобразование эллиптического параболоида;
+            hyperbolic - преобразование гиперболического параболоида.
+            
     Returns:
         data: лист, содержащий входной датасет в виде ([x,y],classDot).
         trainingDotsWithClass: лист, содержащий датасет обучающих точек в виде ([x,y],classDot).
         testDotsWithClass: лист, содержащий датасет тестирующих точек в виде ([x,y],classDot).
     """
     @staticmethod
-    def getDataset(t):
+    def getDataset(t, coordinateTransformation):
         data = []
         trainingDotsWithClass = []
         testDotsWithClass = []
@@ -34,7 +38,14 @@ class DatasetProcessing(object):
         f = open('dataset.txt')
         for line in f:
             dot_x, dot_y, dot_class = line.split(',')
-            data.append([[float(dot_x), float(dot_y)], int(dot_class)])
+            if coordinateTransformation == "none":
+                data.append([[float(dot_x), float(dot_y)], int(dot_class)])
+            elif coordinateTransformation == "elliptic":
+                dot_z = math.pow(float(dot_x), 2) + math.pow(float(dot_y), 2)
+                data.append([[float(dot_x), float(dot_y), float(dot_z)], int(dot_class)])
+            elif coordinateTransformation == "hyperbolic":
+                dot_z = math.pow(float(dot_x), 2) - math.pow(float(dot_y), 2)
+                data.append([[float(dot_x), float(dot_y), float(dot_z)], int(dot_class)])
         f.close()
         for i in range(len(data)):
             if t % 2 == 0:
@@ -180,23 +191,38 @@ class DatasetProcessing(object):
         metrics: метрика расстояния:
             manhattan - манхэттенское расстояние;
             euclidean - евлидово расстояние.
+        coordinateTransformation - пространственное преобразование:
+            none - без преобразования;
+            elliptic - преобразование эллиптического параболоида;
+            hyperbolic - преобразование гиперболического параболоида.
             
     Returns:
         0: неизвестная точка принадлежит классу 0.    
         1: неизвестная точка принадлежит классу 1.
     """
     @staticmethod
-    def classifyDotCircle(trainingDotsWithClass, testDotsWithClass, k, kernelFunction, metrics):
+    def classifyDotCircle(trainingDotsWithClass, testDotsWithClass, k, kernelFunction, metrics,
+                          coordinateTransformation):
         testDist = []
         for i in range(len(trainingDotsWithClass)):
-            if metrics == "manhattan":
-                testDist.append(
-                    [DatasetProcessing.computingManhattanDistance2D(trainingDotsWithClass[i][0], testDotsWithClass),
-                     trainingDotsWithClass[i][1]])
-            elif metrics == "euclidean":
-                testDist.append(
-                    [DatasetProcessing.computingEuclideanDistance2D(trainingDotsWithClass[i][0], testDotsWithClass),
-                     trainingDotsWithClass[i][1]])
+            if coordinateTransformation == "none":
+                if metrics == "manhattan":
+                    testDist.append(
+                        [DatasetProcessing.computingManhattanDistance2D(trainingDotsWithClass[i][0], testDotsWithClass),
+                         trainingDotsWithClass[i][1]])
+                elif metrics == "euclidean":
+                    testDist.append(
+                        [DatasetProcessing.computingEuclideanDistance2D(trainingDotsWithClass[i][0], testDotsWithClass),
+                         trainingDotsWithClass[i][1]])
+            elif coordinateTransformation == "elliptic" or coordinateTransformation == "hyperbolic":
+                if metrics == "manhattan":
+                    testDist.append(
+                        [DatasetProcessing.computingManhattanDistance3D(trainingDotsWithClass[i][0], testDotsWithClass),
+                         trainingDotsWithClass[i][1]])
+                elif metrics == "euclidean":
+                    testDist.append(
+                        [DatasetProcessing.computingEuclideanDistance3D(trainingDotsWithClass[i][0], testDotsWithClass),
+                         trainingDotsWithClass[i][1]])
 
         n = 1
         while n < len(testDist):
@@ -270,16 +296,21 @@ class DatasetProcessing(object):
         metrics: метрика расстояния:
                 manhattan - манхэттенское расстояние;
                 euclidean - евлидово расстояние.
-                
+        coordinateTransformation - пространственное преобразование:
+            none - без преобразования;
+            elliptic - преобразование эллиптического параболоида;
+            hyperbolic - преобразование гиперболического параболоида.
+            
     Returns:
         testClasses: лист, содержащий датасет с классами неизвестных точек, определенных в алгоритме.
     """
     @staticmethod
-    def classifyKNNCircle(trainingDots, unknownDots, k, kernelFunction, metrics):
+    def classifyKNNCircle(trainingDots, unknownDots, k, kernelFunction, metrics, coordinateTransformation):
         training = trainingDots
         testClasses = []
         for i in range(len(unknownDots)):
-            dot_class = DatasetProcessing.classifyDotCircle(training, unknownDots[i][0], k, kernelFunction, metrics)
+            dot_class = DatasetProcessing.classifyDotCircle(training, unknownDots[i][0], k, kernelFunction, metrics,
+                                                            coordinateTransformation)
             training.append(unknownDots[i])
             testClasses.append(dot_class)
         return testClasses

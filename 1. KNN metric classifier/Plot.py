@@ -78,7 +78,6 @@ class Plot(object):
     Returns:
         0: удачное исполнение.    
     """
-
     @staticmethod
     def buildPlotCentroid(trainingDotsWithClass, testDotsWithClass, num):
         colors = ['red', 'blue', 'green']
@@ -148,13 +147,17 @@ class Plot(object):
         metrics: метрика расстояния:
             manhattan - манхэттенское расстояние;
             euclidean - евлидово расстояние.
-
+        coordinateTransformation - пространственное преобразование:
+            none - без преобразования;
+            elliptic - преобразование эллиптического параболоида;
+            hyperbolic - преобразование гиперболического параболоида.
+            
     Returns:
         0: удачное исполнение.    
     """
-
+    #TODO ax = Axes3D(fig)
     @staticmethod
-    def buildPlotCircle(trainingDotsWithClass, testDotsWithClass, num, k, metrics):
+    def buildPlotCircle(trainingDotsWithClass, testDotsWithClass, num, k, metrics, coordinateTransformation):
         colors = ['red', 'blue', 'green']
 
         if num > len(testDotsWithClass):
@@ -174,13 +177,20 @@ class Plot(object):
         testDistance = []
 
         for i in range(len(trainingDotsWithClass)):
-            if metrics == "manhattan":
-                testDistance.append([DatasetProcessing.computingManhattanDistance2D
-                                     (testDot[0], trainingDotsWithClass[i][0]), trainingDotsWithClass[i][1]])
-            elif metrics == "euclidean":
-                testDistance.append([DatasetProcessing.computingEuclideanDistance2D
-                                     (testDot[0], trainingDotsWithClass[i][0]), trainingDotsWithClass[i][1]])
-
+            if coordinateTransformation == "none":
+                if metrics == "manhattan":
+                    testDistance.append([DatasetProcessing.computingManhattanDistance2D
+                                         (testDot[0], trainingDotsWithClass[i][0]), trainingDotsWithClass[i][1]])
+                elif metrics == "euclidean":
+                    testDistance.append([DatasetProcessing.computingEuclideanDistance2D
+                                         (testDot[0], trainingDotsWithClass[i][0]), trainingDotsWithClass[i][1]])
+            elif coordinateTransformation == "elliptic" or coordinateTransformation == "hyperbolic":
+                if metrics == "manhattan":
+                    testDistance.append([DatasetProcessing.computingManhattanDistance3D
+                                         (testDot[0], trainingDotsWithClass[i][0]), trainingDotsWithClass[i][1]])
+                elif metrics == "euclidean":
+                    testDistance.append([DatasetProcessing.computingEuclideanDistance3D
+                                         (testDot[0], trainingDotsWithClass[i][0]), trainingDotsWithClass[i][1]])
         # сортировка листа расстояний от меньшего к большему
         n = 1
         while n < len(testDistance):
