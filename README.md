@@ -27,6 +27,7 @@ Program structure:
 	- computingF1_measure.
 - DatasetProcessing:
 	- getDataset;
+	- getDatasetElliptic3D;
 	- getDotsByClass;
 	- computingManhattanDistance2D;
 	- computingManhattanDistance3D;
