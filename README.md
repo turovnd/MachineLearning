@@ -89,5 +89,5 @@ Tasks:
 
 писать какие-нибудь формулы и рисовать примеры при обосновании выборов.
 
-
+[Info](https://github.com/flyingleafe/ML-Course-ITMO/blob/master/Homework.org):
 
