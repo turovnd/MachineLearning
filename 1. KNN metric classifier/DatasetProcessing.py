@@ -81,8 +81,23 @@ class DatasetProcessing(object):
             Действительное число, манхэттенское расстояние между двумя точками.
         """
     @staticmethod
-    def computingManhattanDistance(trainingDot, unknownDot):
+    def computingManhattanDistance2D(trainingDot, unknownDot):
         return abs(trainingDot[0] - unknownDot[0]) + abs(trainingDot[1] - unknownDot[1])
+
+    """Метод расчета манхэттенского расстояния для двух точек трехмерного пространства (x,y,z).
+    Формула: p(x,y) = abs(x0[i]-x1[i])+abs(y0[i]-y1[i])+abs(z0[i]-z1[i]).
+
+    Args:
+        trainingDot: совокупность координат (x,y,z) обучающей точки (из обучающей выборки).
+        unknownDot:  совокупность координат (x,y,z) неизвестной точки (из тестирующей выборки).
+
+    Returns:
+        Действительное число, манхэттенское расстояние между двумя точками.
+    """
+    @staticmethod
+    def computingManhattanDistance3D(trainingDot, unknownDot):
+        return (abs(trainingDot[0] - unknownDot[0]) + abs(trainingDot[1] - unknownDot[1])
+                + abs(trainingDot[2] - unknownDot[2]))
 
     """Метод расчета евлидового расстояния для двух точек двумерного пространства (x,y).
     Формула: p(x,y) = sqrt((x0[i]-x1[i])^2)+(y0[i]-y1[i])^2).
@@ -95,9 +110,24 @@ class DatasetProcessing(object):
         Действительное число, евклидово расстояние между двумя точками.
     """
     @staticmethod
-    def computingEuclideanDistance(trainingDot, unknownDot):
+    def computingEuclideanDistance2D(trainingDot, unknownDot):
         return math.sqrt(math.pow(trainingDot[0] - unknownDot[0], 2)
                          + math.pow(trainingDot[1] - unknownDot[1], 2))
+
+    """Метод расчета евлидового расстояния для двух точек трехмерного пространства (x,y,z).
+        Формула: p(x,y) = sqrt((x0[i]-x1[i])^2)+(y0[i]-y1[i])^2+(z0[i]-z1[i])^2).
+
+        Args:
+            trainingDot: совокупность координат (x,y,z) обучающей точки (из обучающей выборки).
+            unknownDot:  совокупность координат (x,y,z) неизвестной точки (из тестирующей выборки).
+
+        Returns:
+            Действительное число, евклидово расстояние между тремя точками.
+        """
+    @staticmethod
+    def computingEuclideanDistance3D(trainingDot, unknownDot):
+        return math.sqrt(math.pow(trainingDot[0] - unknownDot[0], 2) + math.pow(trainingDot[1] - unknownDot[1], 2)
+                         + math.pow(trainingDot[2] - unknownDot[2], 2))
 
     """Метод расчета центрода класса точек двумерного пространства (x,y).
     Формула: sum(x[i]/len(x)).
@@ -129,8 +159,8 @@ class DatasetProcessing(object):
     def classifyDotCentroid(trainingDot0, trainingDot1, unknownDot):
         centerDots0 = DatasetProcessing.getCentroid(trainingDot0)
         centerDots1 = DatasetProcessing.getCentroid(trainingDot1)
-        euclideanDistance0 = DatasetProcessing.computingEuclideanDistance(unknownDot, centerDots0)
-        euclideanDistance1 = DatasetProcessing.computingEuclideanDistance(unknownDot, centerDots1)
+        euclideanDistance0 = DatasetProcessing.computingEuclideanDistance2D(unknownDot, centerDots0)
+        euclideanDistance1 = DatasetProcessing.computingEuclideanDistance2D(unknownDot, centerDots1)
         if euclideanDistance0 < euclideanDistance1:
             return 0
         else:
@@ -161,11 +191,11 @@ class DatasetProcessing(object):
         for i in range(len(trainingDotsWithClass)):
             if metrics == "manhattan":
                 testDist.append(
-                    [DatasetProcessing.computingManhattanDistance(trainingDotsWithClass[i][0], testDotsWithClass),
+                    [DatasetProcessing.computingManhattanDistance2D(trainingDotsWithClass[i][0], testDotsWithClass),
                      trainingDotsWithClass[i][1]])
             elif metrics == "euclidean":
                 testDist.append(
-                    [DatasetProcessing.computingEuclideanDistance(trainingDotsWithClass[i][0], testDotsWithClass),
+                    [DatasetProcessing.computingEuclideanDistance2D(trainingDotsWithClass[i][0], testDotsWithClass),
                      trainingDotsWithClass[i][1]])
 
         n = 1

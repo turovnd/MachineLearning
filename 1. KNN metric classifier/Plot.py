@@ -101,8 +101,8 @@ class Plot(object):
         groupTrainingCenter0 = plt.scatter(centroid0[0], centroid0[1], marker='*', color=colors[0])
         groupTrainingCenter1 = plt.scatter(centroid1[0], centroid1[1], marker='*', color=colors[1])
         unknownDot = plt.scatter(testDot[0][0], testDot[0][1], color=colors[2])
-        euclideanDistance0 = DatasetProcessing.computingEuclideanDistance(testDot[0], centroid0)
-        euclideanDistance1 = DatasetProcessing.computingEuclideanDistance(testDot[0], centroid1)
+        euclideanDistance0 = DatasetProcessing.computingEuclideanDistance2D(testDot[0], centroid0)
+        euclideanDistance1 = DatasetProcessing.computingEuclideanDistance2D(testDot[0], centroid1)
 
         # тестовые данные
         print('кооридинаты неизвестной точки', testDot[0][0], testDot[0][1])
@@ -175,10 +175,10 @@ class Plot(object):
 
         for i in range(len(trainingDotsWithClass)):
             if metrics == "manhattan":
-                testDistance.append([DatasetProcessing.computingManhattanDistance
+                testDistance.append([DatasetProcessing.computingManhattanDistance2D
                                      (testDot[0], trainingDotsWithClass[i][0]), trainingDotsWithClass[i][1]])
             elif metrics == "euclidean":
-                testDistance.append([DatasetProcessing.computingEuclideanDistance
+                testDistance.append([DatasetProcessing.computingEuclideanDistance2D
                                      (testDot[0], trainingDotsWithClass[i][0]), trainingDotsWithClass[i][1]])
 
         # сортировка листа расстояний от меньшего к большему
