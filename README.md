@@ -60,7 +60,7 @@ Output table
 | | | | | gaussian | euclidean | hyperbolic | | | | |
 | | | | | logistic | euclidean | hyperbolic | | | | |
 
-- 2 Spatial coordinate transformations:
+- 2 [Spatial coordinate transformations](https://en.wikipedia.org/wiki/Paraboloid):
 	- [elliptic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Elliptic_paraboloid);
 	- [hyperbolic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Hyperbolic_paraboloid).
 - 2 [Kernel functions](https://en.wikipedia.org/wiki/Kernel_(statistics)):
