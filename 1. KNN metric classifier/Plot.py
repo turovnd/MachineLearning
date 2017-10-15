@@ -144,14 +144,17 @@ class Plot(object):
         testDotsWithClass: лист, содержащий датасет тестирующих точек в виде ([x,y],classDot).
         num: номер тестового значения (частный случай, в общем случае прогоняются все точки
          без графиков).
-        k: количество соседей тестируемой точки, для определения её класса.
+        k: количество соседей тестируемой точки, для определения её класса;
+        metrics: метрика расстояния:
+            manhattan - манхэттенское расстояние;
+            euclidean - евлидово расстояние.
 
     Returns:
         0: удачное исполнение.    
     """
 
     @staticmethod
-    def buildPlotCircle(trainingDotsWithClass, testDotsWithClass, num, k):
+    def buildPlotCircle(trainingDotsWithClass, testDotsWithClass, num, k, metrics):
         colors = ['red', 'blue', 'green']
 
         if num > len(testDotsWithClass):
@@ -169,13 +172,15 @@ class Plot(object):
         testDot = testDotsWithClass[num]
         unknownDot = plt.scatter(testDot[0][0], testDot[0][1], color=colors[2])
         testDistance = []
-        # TODO
-        # for i in range(len(trainDots)):
-        #     testDistance.append([DatasetProcessing.computingEuclideanDistance
-        #                          (testDot[0], trainDots[i][0]), trainDots[i][1]])
+
         for i in range(len(trainingDotsWithClass)):
-            testDistance.append([DatasetProcessing.computingEuclideanDistance
-                                 (testDot[0], trainingDotsWithClass[i][0]), trainingDotsWithClass[i][1]])
+            if metrics == "manhattan":
+                testDistance.append([DatasetProcessing.computingManhattanDistance
+                                     (testDot[0], trainingDotsWithClass[i][0]), trainingDotsWithClass[i][1]])
+            elif metrics == "euclidean":
+                testDistance.append([DatasetProcessing.computingEuclideanDistance
+                                     (testDot[0], trainingDotsWithClass[i][0]), trainingDotsWithClass[i][1]])
+
         # сортировка листа расстояний от меньшего к большему
         n = 1
         while n < len(testDistance):
@@ -192,11 +197,11 @@ class Plot(object):
             else:
                 class_0 += 1
 
-        # тестовые данные
-        if class_0 > class_1:
-            print('неизвестная точка принадлежит классу 0')
-        else:
-            print('неизвестная точка принадлежит классу 1')
+        # # тестовые данные
+        # if class_0 > class_1:
+        #     print('неизвестная точка принадлежит классу 0')
+        # else:
+        #     print('неизвестная точка принадлежит классу 1')
 
         # построение окружности радиуса kой точки с центром неизвестной точки
         circle = matplotlib.patches.Circle(testDot[0], float(testDistance[k - 1][0]), fill=False)

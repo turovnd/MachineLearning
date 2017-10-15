@@ -47,10 +47,10 @@ class DatasetProcessing(object):
                     trainingDotsWithClass.append(data[i])
                 else:
                     testDotsWithClass.append(data[i])
-        # тестовые данные
-        print("Total dots:", len(data))
-        print("Training dots:", len(trainingDotsWithClass))
-        print("Test dots:", len(testDotsWithClass))
+        # # тестовые данные
+        # print("Total dots:", len(data))
+        # print("Training dots:", len(trainingDotsWithClass))
+        # print("Test dots:", len(testDotsWithClass))
         return data, trainingDotsWithClass, testDotsWithClass
 
     """Метод формирования датасета точек одного класса в виде ([x,y]).
@@ -143,19 +143,30 @@ class DatasetProcessing(object):
         trainingDotsWithClass: лист, содержащий датасет обучающих точек в виде ([x,y],classDot).
         testDotsWithClass: лист, содержащий датасет тестирующих точек в виде ([x,y],classDot).
         k: количество соседей тестируемой точки, для определения её класса.
-        core: ядро используемой функции.
-    
+        kernelFunction: ядро используемой функции:
+            none - без ядра;
+            gaussian - нормальное распределение (gaussian);
+            logistic - логистическое распределение (logistic).
+        metrics: метрика расстояния:
+            manhattan - манхэттенское расстояние;
+            euclidean - евлидово расстояние.
+            
     Returns:
         0: неизвестная точка принадлежит классу 0.    
         1: неизвестная точка принадлежит классу 1.
     """
     @staticmethod
-    def classifyDotCircle(trainingDotsWithClass, testDotsWithClass, k, core):
+    def classifyDotCircle(trainingDotsWithClass, testDotsWithClass, k, kernelFunction, metrics):
         testDist = []
         for i in range(len(trainingDotsWithClass)):
-            testDist.append(
-                [DatasetProcessing.computingEuclideanDistance(testDotsWithClass, trainingDotsWithClass[i][0]),
-                 trainingDotsWithClass[i][1]])
+            if metrics == "manhattan":
+                testDist.append(
+                    [DatasetProcessing.computingManhattanDistance(trainingDotsWithClass[i][0], testDotsWithClass),
+                     trainingDotsWithClass[i][1]])
+            elif metrics == "euclidean":
+                testDist.append(
+                    [DatasetProcessing.computingEuclideanDistance(trainingDotsWithClass[i][0], testDotsWithClass),
+                     trainingDotsWithClass[i][1]])
 
         n = 1
         while n < len(testDist):
@@ -164,23 +175,7 @@ class DatasetProcessing(object):
                     testDist[i], testDist[i + 1] = testDist[i + 1], testDist[i]
             n += 1
 
-        if core == "gaussian":
-            class_0 = 0
-            class_1 = 0
-            for i in range(k):
-                if testDist[i][1] == 1:
-                    class_1 = 1 / (math.sqrt(2 * math.pi) * math.exp(-1 / 2 * math.pow(class_1, 2)))
-                else:
-                    class_0 = 1 / (math.sqrt(2 * math.pi) * math.exp(-1 / 2 * math.pow(class_0, 2)))
-        elif core == "logistic":
-            class_0 = 0
-            class_1 = 0
-            for i in range(k):
-                if testDist[i][1] == 1:
-                    class_1 = 1 / (math.exp(class_1) + 2 + math.exp(-class_1))
-                else:
-                    class_0 = 1 / (math.exp(class_0) + 2 + math.exp(-class_0))
-        else:
+        if kernelFunction == "none":
             class_0 = 0
             class_1 = 0
             for i in range(k):
@@ -188,6 +183,22 @@ class DatasetProcessing(object):
                     class_1 += 1
                 else:
                     class_0 += 1
+        elif kernelFunction == "gaussian":
+            class_0 = 0
+            class_1 = 0
+            for i in range(k):
+                if testDist[i][1] == 1:
+                    class_1 = 1 / (math.sqrt(2 * math.pi) * math.exp(-1 / 2 * math.pow(class_1, 2)))
+                else:
+                    class_0 = 1 / (math.sqrt(2 * math.pi) * math.exp(-1 / 2 * math.pow(class_0, 2)))
+        elif kernelFunction == "logistic":
+            class_0 = 0
+            class_1 = 0
+            for i in range(k):
+                if testDist[i][1] == 1:
+                    class_1 = 1 / (math.exp(class_1) + 2 + math.exp(-class_1))
+                else:
+                    class_0 = 1 / (math.exp(class_0) + 2 + math.exp(-class_0))
 
         if class_0 > class_1:
             return 0
@@ -225,17 +236,20 @@ class DatasetProcessing(object):
         trainingDots: совокупность координат (x,y) обучающей точки (из обучающей выборки).
         unknownDots:  совокупность координат (x,y) неизвестной точки (из тестирующей выборки).
         k: количество соседей тестируемой точки, для определения её класса.
-        core: ядро используемой функции.
-    
+        kernelFunction: ядро используемой функции.
+        metrics: метрика расстояния:
+                manhattan - манхэттенское расстояние;
+                euclidean - евлидово расстояние.
+                
     Returns:
         testClasses: лист, содержащий датасет с классами неизвестных точек, определенных в алгоритме.
     """
     @staticmethod
-    def classifyKNNCircle(trainingDots, unknownDots, k, core):
+    def classifyKNNCircle(trainingDots, unknownDots, k, kernelFunction, metrics):
         training = trainingDots
         testClasses = []
         for i in range(len(unknownDots)):
-            dot_class = DatasetProcessing.classifyDotCircle(training, unknownDots[i][0], k, core)
+            dot_class = DatasetProcessing.classifyDotCircle(training, unknownDots[i][0], k, kernelFunction, metrics)
             training.append(unknownDots[i])
             testClasses.append(dot_class)
         return testClasses

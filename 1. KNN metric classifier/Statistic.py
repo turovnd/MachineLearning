@@ -59,7 +59,6 @@ class Statistic(object):
         TP, FP, TN, FN = Statistic.compareClasses(algorithmDotClasses, startDatasetDotClasses)
         P = TP + FN
         TPR = TP / P
-        print('Recall: ' + str(TPR))
         return TPR
 
     """Вычисление метрики специфичности Specificity.
@@ -80,7 +79,6 @@ class Statistic(object):
         TP, FP, TN, FN = Statistic.compareClasses(algorithmDotClasses, startDatasetDotClasses)
         N = FP + TN
         SPC = TN / N
-        print('Specificity: ' + str(SPC))
         return SPC
 
     """Вычисление метрики точности Precision.
@@ -100,7 +98,6 @@ class Statistic(object):
     def computingPrecision(algorithmDotClasses, startDatasetDotClasses):
         TP, FP, TN, FN = Statistic.compareClasses(algorithmDotClasses, startDatasetDotClasses)
         PPV = TP / (TP + FP)
-        print('Precision: ' + str(PPV))
         return PPV
 
     """Вычисление метрики правильности Accuracy.
@@ -121,7 +118,6 @@ class Statistic(object):
         P = TP + FN
         N = FP + TN
         ACC = (TP + TN) / (P + N)
-        print('Accuracy: ' + str(ACC))
         return ACC
 
     """Вычисление F1-меры для конечной оценки алгоритма.
@@ -142,8 +138,8 @@ class Statistic(object):
     """
     @staticmethod
     def computingF1_measure(algorithmDotClasses, startDatasetDotClasses):
-        TPR = Statistic.computingRecall(algorithmDotClasses, startDatasetDotClasses)
-        PPV = Statistic.computingPrecision(algorithmDotClasses, startDatasetDotClasses)
+        TP, FP, TN, FN = Statistic.compareClasses(algorithmDotClasses, startDatasetDotClasses)
+        TPR = TP / (TP + FN)
+        PPV = TP / (TP + FP)
         F1_measure = 2 * TPR * PPV / (TPR + PPV)
-        print('F1_measure: ' + str(F1_measure))
-        return 0
+        return F1_measure
