@@ -38,7 +38,7 @@ class OutputMethods(object):
         testClasses_4 = [testDots_4[i][1] for i in range(len(testDots_4))]
         testClasses_5 = [testDots_5[i][1] for i in range(len(testDots_5))]
         testClasses_6 = [testDots_6[i][1] for i in range(len(testDots_6))]
-        print("*" * 230)
+        print("*" * 248)
         # Plot.buildPlotCircle(trainDots, testDots, 50, k, "manhattan")
         # Plot.buildPlotCircle(trainDots, testDots, 50, k, "euclidean")
 
