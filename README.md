@@ -40,7 +40,7 @@ Output table
  ---
 | Training dots | Test dots | k (neighbors) | Kernel functions | Metrics for configuring kNN | Spatial coordinate transformations | F1-measure | Recall | Specificity | Precision | Accuracy |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| | | | | none | manhattan | none | | | | |
+|50|68|5| | none | manhattan | none | | | | |
 | | | | | gaussian | manhattan | none | | | | |
 | | | | | logistic | manhattan | none | | | | |
 | | | | | none | euclidean | none | | | | |
