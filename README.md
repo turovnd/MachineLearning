@@ -38,10 +38,10 @@ Program structure:
 - Рандомный выбор для тестирования
 Хотелось бы увидеть некоторую визуализацию данных.
 - Разделение и раскраска границ точек
-- 2 spatial coordinate transformations:
+- 2 Spatial coordinate transformations:
 	- [elliptic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Elliptic_paraboloid);
 	- [hyperbolic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Hyperbolic_paraboloid).
-- 2 [Kernel fuctions](https://en.wikipedia.org/wiki/Kernel_(statistics))
+- 2 [Kernel fuctions](https://en.wikipedia.org/wiki/Kernel_(statistics)):
 	- [Gaussian](https://en.wikipedia.org/wiki/Normal_distribution);
 	- [Logistic](https://en.wikipedia.org/wiki/Logistic_distribution).
 	
