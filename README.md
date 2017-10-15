@@ -3,7 +3,9 @@ Discipline "Intellectual systems and technologies"
 Used software:
 - Python-IDE: PyCharm Community 2017.2;
 - Project Interpreter: python 3.5.3 (amd64);
-- Used python packeges: matplotlib v2.1.0.
+- Used python packeges:
+	- matplotlib v2.1.0;
+	- tabulate v0.8.1.
 --------------------------------------------------- 
 1. KNN metric classifier.
   Dataset.txt - set of objects: coordinates of the dot(x,y),class{0,1}.
@@ -35,7 +37,7 @@ Program structure:
  ---
 Output table
  ---
-| Started dot groups | k (neighbors) | Kernel fuctions | Metrics for configuring kNN | Spatial coordinate transformations | F1-measure | Recall | Specificity | Precision | Accuracy |
+| Started dot groups | k (neighbors) | Kernel functions | Metrics for configuring kNN | Spatial coordinate transformations | F1-measure | Recall | Specificity | Precision | Accuracy |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | | | none | manhattan | none | | | | | |
 | | | gaussian | manhattan | none | | | | | |
@@ -61,7 +63,7 @@ Output table
 - 2 Spatial coordinate transformations:
 	- [elliptic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Elliptic_paraboloid);
 	- [hyperbolic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Hyperbolic_paraboloid).
-- 2 [Kernel fuctions](https://en.wikipedia.org/wiki/Kernel_(statistics)):
+- 2 [Kernel functions](https://en.wikipedia.org/wiki/Kernel_(statistics)):
 	- [gaussian](https://en.wikipedia.org/wiki/Normal_distribution);
 	- [logistic](https://en.wikipedia.org/wiki/Logistic_distribution).
 - 2 Metrics for configuring kNN:
