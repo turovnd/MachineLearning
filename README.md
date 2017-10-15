@@ -33,7 +33,7 @@ Program structure:
 	- classifyKNNCentroid;
 	- classifyKNNCircle.
  ---
-**Output table**
+Output table
 | Started dot groups | k (neighbors) | Kernel fuctions | Metrics for configuring kNN | Spatial coordinate transformations | F1-measure | Recall | Specificity | Precision | Accuracy |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | | | none | manhattan | none | | | | | |
