@@ -10,6 +10,7 @@ Used software:
   ---
 Program structure:
 - Main: started point.
+- OutputMethods;
 - Plot:
 	- buildPlotWithAllDots;
 	- buildPlotCentroid;
