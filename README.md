@@ -28,8 +28,10 @@ Program structure:
 - DatasetProcessing:
 	- getDataset;
 	- getDotsByClass;
-	- getManhattanDistance;
-	- getEuclideanDistance;
+	- computingManhattanDistance2D;
+	- computingManhattanDistance3D;
+	- computingEuclideanDistance2D;
+	- computingEuclideanDistance3D;
 	- getCentroid;
 	- classifyDotCentroid;
 	- classifyDotCircle;
