@@ -33,6 +33,12 @@ Program structure:
 	- classifyKNNCentroid;
 	- classifyKNNCircle.
  ---
+ 
+| Started dot groups | k (neighbors) | Kernel fuctions | Metrics for configuring kNN | Spatial coordinate transformations | F1-measure | Recall | Specificity | Precision | Accuracy |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| | | | | | | | | | |
+| | | | | | | | | | |
+
 - 2 Spatial coordinate transformations:
 	- [elliptic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Elliptic_paraboloid);
 	- [hyperbolic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Hyperbolic_paraboloid).
@@ -48,6 +54,8 @@ Program structure:
 	- [Precision](https://en.wikipedia.org/wiki/Precision_and_recall#Precision);
 	- [Accuracy](https://en.wikipedia.org/wiki/Accuracy_and_precision);
 	- [F1-measure](https://en.wikipedia.org/wiki/F1_score).
+
+
 
 Число фолдов для кросс-валидации определите и обоснуйте сами исходя из числа объектов в датасете.
 Можно попробовать несколько способов выбора k.
