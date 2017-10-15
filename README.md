@@ -42,26 +42,26 @@ Output table
  ---
 | Group number | Training dots | Test dots | k (neighbors) | Kernel functions | Metrics for configuring kNN | Spatial coordinate transformations | F1-measure | Recall | Specificity | Precision | Accuracy |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| | | |5| none | manhattan | none | | | | | |
-| | | |5| gaussian | manhattan | none | | | | | |
-| | | |5| logistic | manhattan | none | | | | | |
-| | | |5| none | euclidean | none | | | | | |
-| | | |5| gaussian | euclidean | none | | | | | |
-| | | |5| logistic | euclidean | none | | | | | |
+| | | | | none | manhattan | none | | | | | |
+| | | | | gaussian | manhattan | none | | | | | |
+| | | | | logistic | manhattan | none | | | | | |
+| | | | | none | euclidean | none | | | | | |
+| | | | | gaussian | euclidean | none | | | | | |
+| | | | | logistic | euclidean | none | | | | | |
 |-|-|-|-|-|-|-|-|-|-|-|-|
-| | | |5| none | manhattan | elliptic | | | | | |
-| | | |5| gaussian | manhattan | elliptic | | | | | |
-| | | |5| logistic | manhattan | elliptic | | | | | |
-| | | |5| none | euclidean | elliptic | | | | | |
-| | | |5| gaussian | euclidean | elliptic | | | | | |
-| | | |5| logistic | euclidean | elliptic | | | | | |
+| | | | | none | manhattan | elliptic | | | | | |
+| | | | | gaussian | manhattan | elliptic | | | | | |
+| | | | | logistic | manhattan | elliptic | | | | | |
+| | | | | none | euclidean | elliptic | | | | | |
+| | | | | gaussian | euclidean | elliptic | | | | | |
+| | | | | logistic | euclidean | elliptic | | | | | |
 |-|-|-|-|-|-|-|-|-|-|-|-|
-| | | |5| none | manhattan | hyperbolic | | | | | |
-| | | |5| gaussian | manhattan | hyperbolic | | | | | |
-| | | |5| logistic | manhattan | hyperbolic | | | | | |
-| | | |5| none | euclidean | hyperbolic | | | | | |
-| | | |5| gaussian | euclidean | hyperbolic | | | | | |
-| | | |5| logistic | euclidean | hyperbolic | | | | | |
+| | | | | none | manhattan | hyperbolic | | | | | |
+| | | | | gaussian | manhattan | hyperbolic | | | | | |
+| | | | | logistic | manhattan | hyperbolic | | | | | |
+| | | | | none | euclidean | hyperbolic | | | | | |
+| | | | | gaussian | euclidean | hyperbolic | | | | | |
+| | | | | logistic | euclidean | hyperbolic | | | | | |
 
 - 2 [Spatial coordinate transformations](https://en.wikipedia.org/wiki/Paraboloid):
 	- [elliptic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Elliptic_paraboloid);
