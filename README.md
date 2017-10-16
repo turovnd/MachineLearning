@@ -14,6 +14,8 @@ Program structure:
 - Main: started point.
 - OutputMethods:
 	- outputTable.
+- test:
+	make_computing.
 - Plot:
 	- buildPlotWithAllDots;
 	- buildPlotCentroid;
@@ -36,7 +38,8 @@ Program structure:
 	- classifyDotCentroid;
 	- classifyDotCircle;
 	- classifyKNNCentroid;
-	- classifyKNNCircle.
+	- classifyKNNCircle;
+	- getTrainTestDots.
  ---
 Output table
  ---
