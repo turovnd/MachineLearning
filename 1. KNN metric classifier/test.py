@@ -19,27 +19,14 @@ def make_computing(data, number_trainDots, k_neighbors, kernelFunction, metrics,
     return [F1_measure, Recall, Specificity, Precision, Accuracy]
 
 
-if __name__ == '__main__':
-    # kernelFunction: ядро используемой функции [none||gaussian||logistic]
-    # metrics: метрика расстояния [manhattan||euclidean]
-    # coordinateTransformation - пространственное преобразование [none||elliptic||hyperbolic]
-
-    kernelFunction = "gaussian"
-    metrics = "euclidean"
-    coordinateTransformation = "elliptic"
-    number_trainDots = 50
-    k_neighbors = 15
-    k = 10
-
-    data = DatasetProcessing.getDataset('dataset.txt', coordinateTransformation)
-
+def get_table_row(data, number_trainDots, k_fold, k_neighbors, kernelFunction, metrics, coordinateTransformation):
     F1_measure = []
     Recall = []
     Specificity = []
     Precision = []
     Accuracy = []
 
-    for i in range(k):
+    for i in range(k_fold):
         arr = make_computing(data, number_trainDots, k_neighbors, kernelFunction, metrics, coordinateTransformation)
         F1_measure.append(arr[0])
         Recall.append(arr[1])
@@ -47,14 +34,59 @@ if __name__ == '__main__':
         Precision.append(arr[3])
         Accuracy.append(arr[4])
 
-    F1_measure = sum(F1_measure[i] for i in range(len(F1_measure)))/len(F1_measure)
-    Recall = sum(Recall[i] for i in range(len(Recall)))/len(Recall)
-    Specificity = sum(Specificity[i] for i in range(len(Specificity)))/len(Specificity)
-    Precision = sum(Precision[i] for i in range(len(Precision)))/len(Precision)
-    Accuracy = sum(Accuracy[i] for i in range(len(Accuracy)))/len(Accuracy)
+    F1_measure = sum(F1_measure[i] for i in range(len(F1_measure))) / len(F1_measure)
+    Recall = sum(Recall[i] for i in range(len(Recall))) / len(Recall)
+    Specificity = sum(Specificity[i] for i in range(len(Specificity))) / len(Specificity)
+    Precision = sum(Precision[i] for i in range(len(Precision))) / len(Precision)
+    Accuracy = sum(Accuracy[i] for i in range(len(Accuracy))) / len(Accuracy)
 
-    print(tabulate([[number_trainDots, len(data) - number_trainDots, k_neighbors, k, kernelFunction,
-                    metrics, coordinateTransformation, F1_measure, Recall, Specificity, Precision, Accuracy]],
-                    headers=["Training dots", "Test dots", "k (neighbors)", "k", "Kernel functions",
-                                "Metrics for configuring kNN", "Spatial coordinate transformations", "F1-measure",
-                                "Recall", "Specificity", "Precision", "Accuracy"], tablefmt='orgtbl'))
+    return [kernelFunction, metrics, coordinateTransformation, F1_measure, Recall, Specificity, Precision, Accuracy]
+
+
+if __name__ == '__main__':
+    # ядро используемой функции
+    kernelFunctions = ["none", "gaussian", "logistic"]
+
+    # метрика расстояния
+    metrics = ["manhattan", "euclidean"]
+
+    # пространственное преобразование
+    coordinateTransformations = ["none", "elliptic", "hyperbolic"]
+
+    # количетсво тренировочных точек
+    number_trainDots = 50
+
+    # количество соседий
+    k_neighbors = 8
+    # k-fold - количество итераций, после которых значения апроксимируются
+    k_fold = 5
+
+    # Входной датасет, не изменяется в пределах одного `coordinateTransformation`
+    # индекс датасето соответстует индексу `coordinateTransformations`
+    data = [
+        DatasetProcessing.getDataset('dataset.txt', coordinateTransformations[0]),
+        DatasetProcessing.getDataset('dataset.txt', coordinateTransformations[1]),
+        DatasetProcessing.getDataset('dataset.txt', coordinateTransformations[2])
+    ]
+
+    print("Data length   = ", len(data[0]))
+    print("Training dots = ", number_trainDots)
+    print("Test dots     = ", len(data[0]) - number_trainDots)
+    print("k_neighbors   = ", k_neighbors)
+    print("k_fold        = ", k_fold)
+
+
+    rows = []
+    for coord in range(len(coordinateTransformations)):
+        for metric in range(len(metrics)):
+            for fun in range(len(kernelFunctions)):
+                rows.append(get_table_row(data[coord], number_trainDots, k_fold, k_neighbors, kernelFunctions[fun], metrics[metric],
+                            coordinateTransformations[coord]))
+        rows.append([])
+
+    print('_' * 162, '\n')
+
+    print(tabulate(rows,
+                   headers=["k_neighbors", "Kernel functions",
+                            "Metrics for configuring kNN", "Spatial coordinate transformations", "F1-measure",
+                            "Recall", "Specificity", "Precision", "Accuracy"], tablefmt='orgtbl'))
