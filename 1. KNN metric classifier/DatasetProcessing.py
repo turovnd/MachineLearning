@@ -1,5 +1,5 @@
 import math
-
+import random
 
 """
 """
@@ -25,17 +25,13 @@ class DatasetProcessing(object):
             hyperbolic - преобразование гиперболического параболоида.
             
     Returns:
-        data: лист, содержащий входной датасет в виде ([x,y],classDot).
-        trainingDotsWithClass: лист, содержащий датасет обучающих точек в виде ([x,y],classDot).
-        testDotsWithClass: лист, содержащий датасет тестирующих точек в виде ([x,y],classDot).
+        data: лист, содержащий входной датасет в виде ([x,y],classDot) или ([x,y,z],classDot) в зависимости от
+         coordinateTransformation.
     """
     @staticmethod
-    def getDataset(t, coordinateTransformation):
+    def getDataset(filename, coordinateTransformation):
         data = []
-        trainingDotsWithClass = []
-        testDotsWithClass = []
-
-        f = open('dataset.txt')
+        f = open(filename)
         for line in f:
             dot_x, dot_y, dot_class = line.split(',')
             if coordinateTransformation == "none":
@@ -47,22 +43,8 @@ class DatasetProcessing(object):
                 dot_z = math.pow(float(dot_x), 2) - math.pow(float(dot_y), 2)
                 data.append([[float(dot_x), float(dot_y), float(dot_z)], int(dot_class)])
         f.close()
-        for i in range(len(data)):
-            if t % 2 == 0:
-                if i < int(t / 2) or i >= len(data) - int(t / 2):
-                    trainingDotsWithClass.append(data[i])
-                else:
-                    testDotsWithClass.append(data[i])
-            else:
-                if i <= int(t / 2) or i >= len(data) - int(t / 2):
-                    trainingDotsWithClass.append(data[i])
-                else:
-                    testDotsWithClass.append(data[i])
-        # # тестовые данные
-        # print("Total dots:", len(data))
-        # print("Training dots:", len(trainingDotsWithClass))
-        # print("Test dots:", len(testDotsWithClass))
-        return data, trainingDotsWithClass, testDotsWithClass
+        random.shuffle(data)
+        return data
 
     """Метод формирования датасета точек одного класса в виде ([x,y]).
     
@@ -314,3 +296,9 @@ class DatasetProcessing(object):
             training.append(unknownDots[i])
             testClasses.append(dot_class)
         return testClasses
+
+    # TODO integrate method
+    @staticmethod
+    def getTrainTestDots(t, data):
+        random.shuffle(data)
+        return data[0:t], data[t+1:len(data)]
