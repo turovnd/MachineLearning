@@ -90,8 +90,9 @@ Tasks:
 - Хотелось бы увидеть некоторую визуализацию данных.
 	- Разделение и раскраска границ точек
 - дерево
-
 писать какие-нибудь формулы и рисовать примеры при обосновании выборов.
+
+[RESULTS](https://docs.google.com/spreadsheets/d/1IkHaIzaHMTVHIrxbvIXl9kbQINCencgx8dtkAhNKXRw/edit#gid=0)
 
 [Info](https://github.com/flyingleafe/ML-Course-ITMO/blob/master/Homework.org):
 
