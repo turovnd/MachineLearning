@@ -86,7 +86,7 @@
    What cross-validation is used?
    
    **Answer:**
-   Was implemented [k-fold cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)#k-fold_cross-validation)?
+   Was implemented [k-fold cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)#k-fold_cross-validation).
 
 5) **Question:**
    How to determine the optimal number of k-fold (k_fold)?
