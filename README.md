@@ -67,25 +67,24 @@ Output table
 | | | | | logistic | euclidean | hyperbolic | | | | | |
 
 
-FAQ:
----------------------------------------------------
-1. **Question**: What is [linear classifier](https://en.wikipedia.org/wiki/Linear_classifier)?
-- **Answer**: It is a classification algorithm, which based on the construcion of a linear separating surface. In the case of two classes of separating force is a hyperplane that divides the feature space into two half-spaces. Metric classifier is based on the concept of similarity between objects. In this task, the similarity measure between objects is *distance*.
+** FAQ:
+1) *Question:* What is [linear classifier](https://en.wikipedia.org/wiki/Linear_classifier)?
+   *Answer:* It is a classification algorithm, which based on the construcion of a linear separating surface. In the case of two classes of separating force is a hyperplane that divides the feature space into two half-spaces. Metric classifier is based on the concept of similarity between objects. In this task, the similarity measure between objects is *distance*.
 
-2. **Question**: What is [empirical risk](https://en.wikipedia.org/wiki/Empirical_risk_minimization) ([эмпирический риск])(http://www.machinelearning.ru/wiki/index.php?title=%D0%AD%D0%BC%D0%BF%D0%B8%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D1%80%D0%B8%D1%81%D0%BA))?
-- **Answer**: This is the average error value of the algorithm on the training sample.
+2) **Question**: What is [empirical risk](https://en.wikipedia.org/wiki/Empirical_risk_minimization) ([эмпирический риск])(http://www.machinelearning.ru/wiki/index.php?title=%D0%AD%D0%BC%D0%BF%D0%B8%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D1%80%D0%B8%D1%81%D0%BA))?
+   **Answer**: This is the average error value of the algorithm on the training sample.
 
-3. **Question**: How to determine the optimal number of neighbors (k_neighbors)?
-- **Answer**: As a rule, lt's processed  how: sqrt(datasetStartSample). In this problem datasetStartSample=118 => optimal k_neighbors≈10. You can check this experimentally.
+3) **Question**: How to determine the optimal number of neighbors (k_neighbors)?
+   **Answer**: As a rule, lt's processed  how: sqrt(datasetStartSample). In this problem datasetStartSample=118 => optimal k_neighbors≈10. You can check this experimentally.
 
-4. **Question**: What cross-validation is used?
-- **Answer**: Was implemented [k-fold cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)#k-fold_cross-validation).
+4) **Question**: What cross-validation is used?
+   **Answer**: Was implemented [k-fold cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)#k-fold_cross-validation).
 
-5. **Question**: How to determine the optimal number of k-fold (k_fold)?
-- **Answer**: Experimentally. I was get the best f1-measure (0,905819) when k_fold was equal 9 (of course, because of the random *shuffle* function, this number may vary slightly) . Think that 10 is the optimal k_fold value.
+5) **Question**: How to determine the optimal number of k-fold (k_fold)?
+   **Answer**: Experimentally. I was get the best f1-measure (0,905819) when k_fold was equal 9 (of course, because of the random *shuffle* function, this number may vary slightly) . Think that 10 is the optimal k_fold value.
 
-6. **Question**: What does your decision contain??
-- **Answer**:
+6) **Question**: What does your decision contain??
+   **Answer**:
 - 2 [Spatial coordinate transformations](https://en.wikipedia.org/wiki/Paraboloid):
 	- [elliptic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Elliptic_paraboloid);
 	- [hyperbolic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Hyperbolic_paraboloid).
