@@ -1,5 +1,5 @@
 # Discipline "Intellectual systems and technologies"
----------------------------------------------------
+
 ## Used software:
 - Python-IDE: PyCharm Community 2017.2;
 - Project Interpreter: python 3.5.3 (amd64);
