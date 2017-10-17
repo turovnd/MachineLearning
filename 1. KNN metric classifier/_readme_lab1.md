@@ -1,4 +1,5 @@
 # KNN metric classifier
+[Table of contents](https://github.com/fedy95/MachineLearning/blob/master/README.md)
 
 ## Used software:
 - Python-IDE: PyCharm Community 2017.2;
