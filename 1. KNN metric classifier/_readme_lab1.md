@@ -49,7 +49,7 @@
 	- [output_table](https://github.com/fedy95/MachineLearning/blob/master/1.%20KNN%20metric%20classifier/output_table%20(all%20vars%20fixed).py) (all vars fixed);
 	- [output_table](https://github.com/fedy95/MachineLearning/blob/master/1.%20KNN%20metric%20classifier/output_table%20(k_fold%20cycle).py) (k_fold cycle).
 	
-### Output table (one of the best result) [presentation files -> output_table (all vars fixed))]
+### Output table (one of the best result) *[presentation files -> output_table (all vars fixed)]*
 | Training dots | Test dots | k_neighbors | k_fold | Kernel functions | Metrics for configuring kNN | Spatial coordinate transformations | F1-measure | Recall | Specificity | Precision | Accuracy |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |30|88|10|1| none | manhattan | none |0,76087|0,833333|0,666667|0,7|0,747126|
