@@ -16,21 +16,21 @@
 5) To assess the quality, you can use the accuracy metric, but better - f1-measure;
 
 ### Start dataset
-	Dataset.txt - set of objects: coordinates of the dot(x,y),class{0,1}.
+	[Dataset.txt](https://github.com/fedy95/MachineLearning/blob/master/1.%20KNN%20metric%20classifier/dataset.txt) - set of objects: coordinates of the dot(x,y),class{0,1}.
 
 ### Program structure
-- Plot:
+- [Plot](https://github.com/fedy95/MachineLearning/blob/master/1.%20KNN%20metric%20classifier/Plot.py):
 	- buildPlotWithAllDots;
 	- buildPlotCentroid;
 	- buildPlotCircle.
-- Statistic:
+- [Statistic](https://github.com/fedy95/MachineLearning/blob/master/1.%20KNN%20metric%20classifier/Statistic.py):
 	- compareClasses;
 	- computingRecall;
 	- computingSpecificity;
 	- computingPrecision;
 	- computingAccuracy;
 	- computingF1_measure.
-- DatasetProcessing:
+- [DatasetProcessing](https://github.com/fedy95/MachineLearning/blob/master/1.%20KNN%20metric%20classifier/DatasetProcessing.py):
 	- getDataset;
 	- getTrainTestDots;
 	- getDotsByClass;
@@ -45,9 +45,9 @@
 	- classifyKNNCircle;
 	- getTrainTestDots.
 - *presentation files*:
-	- output_table (all vars fixed);
-	- output_mesh;
-	- output_table (k_fold cycle).
+	- [output_table](https://github.com/fedy95/MachineLearning/blob/master/1.%20KNN%20metric%20classifier/output_table%20(all%20vars%20fixed).py) (all vars fixed);
+	- [output_mesh](https://github.com/fedy95/MachineLearning/blob/master/1.%20KNN%20metric%20classifier/output_mesh.py);
+	- [output_table](https://github.com/fedy95/MachineLearning/blob/master/1.%20KNN%20metric%20classifier/output_table%20(k_fold%20cycle).py) (k_fold cycle).
 	
 ### Output table (one of the best result)
 | Training dots | Test dots | k_neighbors | k_fold | Kernel functions | Metrics for configuring kNN | Spatial coordinate transformations | F1-measure | Recall | Specificity | Precision | Accuracy |
@@ -98,7 +98,7 @@
    What does your decision contain??
 
    **Answer:**
-   Look at Program structure, also:
+   Look at [Program structure](https://github.com/fedy95/MachineLearning/blob/master/1.%20KNN%20metric%20classifier/_readme_lab1.md#program-structure), also:
 - 2 [Spatial coordinate transformations](https://en.wikipedia.org/wiki/Paraboloid):
 	- [elliptic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Elliptic_paraboloid);
 	- [hyperbolic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Hyperbolic_paraboloid).
