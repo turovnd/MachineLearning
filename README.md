@@ -66,8 +66,9 @@ Output table
 | | | | | gaussian | euclidean | hyperbolic | | | | | |
 | | | | | logistic | euclidean | hyperbolic | | | | | |
 
-
-** FAQ:
+ ---
+FAQ:
+ ---
 1) **Question:**
    What is [linear classifier](https://en.wikipedia.org/wiki/Linear_classifier)?
    
@@ -75,7 +76,7 @@ Output table
    It is a classification algorithm, which based on the construcion of a linear separating surface. In the case of two classes of separating force is a hyperplane that divides the feature space into two half-spaces. Metric classifier is based on the concept of similarity between objects. In this task, the similarity measure between objects is *distance*.
 
 2) **Question:**
-   What is [empirical risk](https://en.wikipedia.org/wiki/Empirical_risk_minimization) ([эмпирический риск])(http://www.machinelearning.ru/wiki/index.php?title=%D0%AD%D0%BC%D0%BF%D0%B8%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D1%80%D0%B8%D1%81%D0%BA))?
+   What is [empirical risk](https://en.wikipedia.org/wiki/Empirical_risk_minimization) ([эмпирический риск](http://www.machinelearning.ru/wiki/index.php?title=%D0%AD%D0%BC%D0%BF%D0%B8%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D1%80%D0%B8%D1%81%D0%BA))?)
    
    **Answer:**
    This is the average error value of the algorithm on the training sample.
@@ -102,16 +103,16 @@ Output table
    What does your decision contain??
    
    **Answer:** 
-- 2 [Spatial coordinate transformations](https://en.wikipedia.org/wiki/Paraboloid):
+   - 2 [Spatial coordinate transformations](https://en.wikipedia.org/wiki/Paraboloid):
 	- [elliptic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Elliptic_paraboloid);
 	- [hyperbolic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Hyperbolic_paraboloid).
-- 2 [Kernel functions](https://en.wikipedia.org/wiki/Kernel_(statistics)):
+   - 2 [Kernel functions](https://en.wikipedia.org/wiki/Kernel_(statistics)):
 	- [gaussian](https://en.wikipedia.org/wiki/Normal_distribution);
 	- [logistic](https://en.wikipedia.org/wiki/Logistic_distribution).
-- 2 Metrics for configuring kNN:
+   - 2 Metrics for configuring kNN:
 	- [manhattan distance (p=1)](https://en.wikipedia.org/wiki/Taxicab_geometry);
 	- [euclidean distance (p=2)](https://en.wikipedia.org/wiki/Euclidean_distance).
-- Quality assessment:
+   - Quality assessment:
 	- [Sensitivity](https://en.wikipedia.org/wiki/Sensitivity_and_specificity#Sensitivity) or [Recall](https://en.wikipedia.org/wiki/Precision_and_recall#Recall);
 	- [Specificity](https://en.wikipedia.org/wiki/Sensitivity_and_specificity#Specificity);
 	- [Precision](https://en.wikipedia.org/wiki/Precision_and_recall#Precision);
