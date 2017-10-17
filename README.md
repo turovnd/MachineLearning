@@ -1,28 +1,24 @@
-Discipline "Intellectual systems and technologies"
+# Discipline "Intellectual systems and technologies"
 ---------------------------------------------------
-Used software:
+## Used software:
 - Python-IDE: PyCharm Community 2017.2;
 - Project Interpreter: python 3.5.3 (amd64);
 - Used python packeges:
 	- matplotlib v2.1.0;
 	- tabulate v0.8.1.
 --------------------------------------------------- 
-1. KNN metric classifier.
- ---
- Problem
- ---
+### 1. KNN metric classifier.
+#### Problem
 1) Implement the metric classifier kNN;
 2) Make cross-validation; justify the choice of the number of folds for it;
 3) Perform data visualization;
 4) Configure the classifier with 2-3 metrics and 2-3 spatial transformations;
 5) To assess the quality, you can use the accuracy metric, but better - f1-measure;
- ---
- Start dataset
- ---
-Dataset.txt - set of objects: coordinates of the dot(x,y),class{0,1}.
- ---
-Program structure
- ---
+
+#### Start dataset
+	Dataset.txt - set of objects: coordinates of the dot(x,y),class{0,1}.
+
+#### Program structure
 - Main: started point.
 - OutputMethods:
 	- outputTable.
@@ -52,9 +48,8 @@ Program structure
 	- classifyKNNCentroid;
 	- classifyKNNCircle;
 	- getTrainTestDots.
- ---
-Output table (one of the best result)
- ---
+
+#### Output table (one of the best result)
 | Training dots | Test dots | k_neighbors | k_fold | Kernel functions | Metrics for configuring kNN | Spatial coordinate transformations | F1-measure | Recall | Specificity | Precision | Accuracy |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |30|88|10|1| none | manhattan | none |0,76087|0,833333|0,666667|0,7|0,747126|
@@ -68,9 +63,7 @@ Output table (one of the best result)
 |**30**|**88**|**10**|**9**|**none**|**manhattan**|**none**|**0,905819**|**0,953086**|**0,830688**|**0,865636**|**0,893997**|
 |30|88|10|10| none | euclidean | elliptic |0,900326|0,940909|0,839535|0,866322|0,890805|
 
- ---
-FAQ
- ---
+#### FAQ
 1) **Question:**
    What is [linear classifier](https://en.wikipedia.org/wiki/Linear_classifier)?
    
@@ -120,8 +113,8 @@ FAQ
 	- [Precision](https://en.wikipedia.org/wiki/Precision_and_recall#Precision);
 	- [Accuracy](https://en.wikipedia.org/wiki/Accuracy_and_precision);
 	- [F1-measure](https://en.wikipedia.org/wiki/F1_score).
- Links
- ---
+ 
+#### Links
 [RESULTS](https://docs.google.com/spreadsheets/d/1IkHaIzaHMTVHIrxbvIXl9kbQINCencgx8dtkAhNKXRw/edit#gid=0)
 [Задача классификации](https://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0_%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8)
 [Кластерный анализ](https://ru.wikipedia.org/wiki/%D0%9A%D0%BB%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%BD%D1%8B%D0%B9_%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7)
