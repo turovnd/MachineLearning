@@ -41,30 +41,20 @@ Program structure:
 	- classifyKNNCircle;
 	- getTrainTestDots.
  ---
-Output table
+Output table (one of the bests result)
  ---
-| Group number | Training dots | Test dots | k (neighbors) | Kernel functions | Metrics for configuring kNN | Spatial coordinate transformations | F1-measure | Recall | Specificity | Precision | Accuracy |
+| Training dots | Test dots | k_neighbors | k_fold | Kernel functions | Metrics for configuring kNN | Spatial coordinate transformations | F1-measure | Recall | Specificity | Precision | Accuracy |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| | | | | none | manhattan | none | | | | | |
-| | | | | gaussian | manhattan | none | | | | | |
-| | | | | logistic | manhattan | none | | | | | |
-| | | | | none | euclidean | none | | | | | |
-| | | | | gaussian | euclidean | none | | | | | |
-| | | | | logistic | euclidean | none | | | | | |
-|-|-|-|-|-|-|-|-|-|-|-|-|
-| | | | | none | manhattan | elliptic | | | | | |
-| | | | | gaussian | manhattan | elliptic | | | | | |
-| | | | | logistic | manhattan | elliptic | | | | | |
-| | | | | none | euclidean | elliptic | | | | | |
-| | | | | gaussian | euclidean | elliptic | | | | | |
-| | | | | logistic | euclidean | elliptic | | | | | |
-|-|-|-|-|-|-|-|-|-|-|-|-|
-| | | | | none | manhattan | hyperbolic | | | | | |
-| | | | | gaussian | manhattan | hyperbolic | | | | | |
-| | | | | logistic | manhattan | hyperbolic | | | | | |
-| | | | | none | euclidean | hyperbolic | | | | | |
-| | | | | gaussian | euclidean | hyperbolic | | | | | |
-| | | | | logistic | euclidean | hyperbolic | | | | | |
+|30|88|10|1| none | manhattan | none |0,76087|0,833333|0,666667|0,7|0,747126|
+|30|88|10|2| none | manhattan | elliptic |0,833846|0,904255|0,6875|0,774081|0,804598|
+|30|88|10|3| none | manhattan | elliptic |0,82012|0,875969|0,742424|0,773565|0,808429|
+|30|88|10|4| none | euclidean | elliptic |0,843119|0,914634|0,76087|0,787364|0,833333|
+|30|88|10|5| gaussian | manhattan | none |0,855745|0,904545|0,781395|0,812642|0,843678|
+|30|88|10|6| none | euclidean | elliptic |0,856968|0,909091|0,782946|0,812181|0,846743|
+|30|88|10|7| none | manhattan | elliptic |0,85414|0,904762|0,796825|0,811838|0,848933|
+|30|88|10|8| gaussian | manhattan | elliptic |0,901953|0,925|0,863095|0,881464|0,895115|
+|30|88|10|9| none | manhattan | none |**0,905819**|0,953086|0,830688|0,865636|0,893997|
+|30|88|10|10| none | euclidean | elliptic |0,900326|0,940909|0,839535|0,866322|0,890805|
 
  ---
 FAQ:
@@ -118,15 +108,6 @@ FAQ:
 	- [Precision](https://en.wikipedia.org/wiki/Precision_and_recall#Precision);
 	- [Accuracy](https://en.wikipedia.org/wiki/Accuracy_and_precision);
 	- [F1-measure](https://en.wikipedia.org/wiki/F1_score).
-
-Tasks:
-- Число фолдов для кросс-валидации определите и обоснуйте сами исходя из числа объектов в датасете.
-- Можно попробовать несколько способов выбора k.
-	- Рандомный выбор для тестирования
-- Хотелось бы увидеть некоторую визуализацию данных.
-	- Разделение и раскраска границ точек
-- дерево
-писать какие-нибудь формулы и рисовать примеры при обосновании выборов.
 
 [RESULTS](https://docs.google.com/spreadsheets/d/1IkHaIzaHMTVHIrxbvIXl9kbQINCencgx8dtkAhNKXRw/edit#gid=0)
 
