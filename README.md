@@ -19,11 +19,6 @@
 	Dataset.txt - set of objects: coordinates of the dot(x,y),class{0,1}.
 
 #### Program structure
-- Main: started point.
-- OutputMethods:
-	- outputTable.
-- test:
-	make_computing.
 - Plot:
 	- buildPlotWithAllDots;
 	- buildPlotCentroid;
@@ -37,6 +32,7 @@
 	- computingF1_measure.
 - DatasetProcessing:
 	- getDataset;
+	- getTrainTestDots;
 	- getDotsByClass;
 	- computingManhattanDistance2D;
 	- computingManhattanDistance3D;
@@ -48,7 +44,11 @@
 	- classifyKNNCentroid;
 	- classifyKNNCircle;
 	- getTrainTestDots.
-
+- *presentation files*:
+	- output_table (all vars fixed);
+	- output_mesh;
+	- output_table (k_fold cycle).
+	
 #### Output table (one of the best result)
 | Training dots | Test dots | k_neighbors | k_fold | Kernel functions | Metrics for configuring kNN | Spatial coordinate transformations | F1-measure | Recall | Specificity | Precision | Accuracy |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -97,7 +97,8 @@
 6) **Question:**
    What does your decision contain??
 
-   **Answer:** 
+   **Answer:**
+   Look at Program structure, also:
 - 2 [Spatial coordinate transformations](https://en.wikipedia.org/wiki/Paraboloid):
 	- [elliptic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Elliptic_paraboloid);
 	- [hyperbolic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Hyperbolic_paraboloid).
