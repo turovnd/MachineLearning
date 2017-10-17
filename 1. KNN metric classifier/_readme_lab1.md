@@ -13,7 +13,7 @@
 2) Make cross-validation; justify the choice of the number of folds for it;
 3) Perform data visualization;
 4) Configure the classifier with 2-3 metrics and 2-3 spatial transformations;
-5) To assess the quality, you can use the accuracy metric, but better - f1-measure;
+5) To assess the quality, you can use the *Accuracy* metric, but better - *F1-measure*;
 
 ### Start dataset
 [Dataset.txt](https://github.com/fedy95/MachineLearning/blob/master/1.%20KNN%20metric%20classifier/dataset.txt) - sample of objects: coordinates of the dot(x,y),class{0,1}.
