@@ -45,8 +45,8 @@
 	- classifyKNNCircle;
 	- getTrainTestDots.
 - *presentation files*:
-	- [output_table](https://github.com/fedy95/MachineLearning/blob/master/1.%20KNN%20metric%20classifier/output_table%20(all%20vars%20fixed).py) (all vars fixed);
 	- [output_mesh](https://github.com/fedy95/MachineLearning/blob/master/1.%20KNN%20metric%20classifier/output_mesh.py);
+	- [output_table](https://github.com/fedy95/MachineLearning/blob/master/1.%20KNN%20metric%20classifier/output_table%20(all%20vars%20fixed).py) (all vars fixed);
 	- [output_table](https://github.com/fedy95/MachineLearning/blob/master/1.%20KNN%20metric%20classifier/output_table%20(k_fold%20cycle).py) (k_fold cycle).
 	
 ### Output table (one of the best result)
