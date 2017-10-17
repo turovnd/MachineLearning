@@ -16,7 +16,7 @@
 5) To assess the quality, you can use the accuracy metric, but better - f1-measure;
 
 ### Start dataset
-	[Dataset.txt](https://github.com/fedy95/MachineLearning/blob/master/1.%20KNN%20metric%20classifier/dataset.txt) - set of objects: coordinates of the dot(x,y),class{0,1}.
+[Dataset.txt](https://github.com/fedy95/MachineLearning/blob/master/1.%20KNN%20metric%20classifier/dataset.txt) - set of objects: coordinates of the dot(x,y),class{0,1}.
 
 ### Program structure
 - [Plot](https://github.com/fedy95/MachineLearning/blob/master/1.%20KNN%20metric%20classifier/Plot.py):
