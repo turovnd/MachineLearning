@@ -10,15 +10,13 @@ class DatasetProcessing(object):
     def __init__(self):
         pass
 
-    """Метод обработки входного датасета и подсчета количества точек.
+    """Метод обработки входного датасета.
 
     file 'chips.txt': входной датасет, содержащий информацию о точках в виде (x,y,classDot).
     z = (x^2/a^2)+(y^2/b^2); a=1; b=1 (случае пространственного преобразования).
     
     Args:
-        t: число, обозначающее количество точек, разделяющих входной датасет
-         на обучающий, тестирующий датасет.
-         (например, 10 первых с начала и конца входят в обучающий датасет, остальные в тестирующий).
+        file: имя входного датасета.
         coordinateTransformation - пространственное преобразование:
             none - без преобразования;
             elliptic - преобразование эллиптического параболоида;
@@ -43,8 +41,25 @@ class DatasetProcessing(object):
                 dot_z = math.pow(float(dot_x), 2) - math.pow(float(dot_y), 2)
                 data.append([[float(dot_x), float(dot_y), float(dot_z)], int(dot_class)])
         f.close()
-        random.shuffle(data)
         return data
+
+    """Метод перемещивания входного массива.
+    
+    Args:
+        number_trainDots: количество тренировочных точек.
+        data: лист, содержащий входной датасет в виде ([x,y],classDot) или ([x,y,z],classDot) в зависимости от
+         coordinateTransformation.
+            
+    Returns:
+        trainDots: лист, содержащий тренировочные точки в виде ([x,y],classDot) или ([x,y,z],classDot) в зависимости от
+         coordinateTransformation.
+        testDots: лист, содержащий тестирующие точки в виде ([x,y],classDot) или ([x,y,z],classDot) в зависимости от
+         coordinateTransformation.
+    """
+    @staticmethod
+    def getTrainTestDots(number_trainDots, data):
+        random.shuffle(data)
+        return data[0:number_trainDots], data[number_trainDots + 1:len(data)]
 
     """Метод формирования датасета точек одного класса в виде ([x,y]).
     
@@ -296,9 +311,3 @@ class DatasetProcessing(object):
             training.append(unknownDots[i])
             testClasses.append(dot_class)
         return testClasses
-
-    # TODO integrate method
-    @staticmethod
-    def getTrainTestDots(t, data):
-        random.shuffle(data)
-        return data[0:t], data[t+1:len(data)]
