@@ -104,20 +104,20 @@ FAQ:
    
    **Answer:** 
      - 2 [Spatial coordinate transformations](https://en.wikipedia.org/wiki/Paraboloid):
-	- [elliptic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Elliptic_paraboloid);
-	- [hyperbolic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Hyperbolic_paraboloid).
+      - [elliptic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Elliptic_paraboloid);
+      - [hyperbolic paraboloid](https://en.wikipedia.org/wiki/Paraboloid#Hyperbolic_paraboloid).
      - 2 [Kernel functions](https://en.wikipedia.org/wiki/Kernel_(statistics)):
-	- [gaussian](https://en.wikipedia.org/wiki/Normal_distribution);
-	- [logistic](https://en.wikipedia.org/wiki/Logistic_distribution).
+      - [gaussian](https://en.wikipedia.org/wiki/Normal_distribution);
+      - [logistic](https://en.wikipedia.org/wiki/Logistic_distribution).
      - 2 Metrics for configuring kNN:
-	- [manhattan distance (p=1)](https://en.wikipedia.org/wiki/Taxicab_geometry);
-	- [euclidean distance (p=2)](https://en.wikipedia.org/wiki/Euclidean_distance).
+      - [manhattan distance (p=1)](https://en.wikipedia.org/wiki/Taxicab_geometry);
+      - [euclidean distance (p=2)](https://en.wikipedia.org/wiki/Euclidean_distance).
      - Quality assessment:
-	- [Sensitivity](https://en.wikipedia.org/wiki/Sensitivity_and_specificity#Sensitivity) or [Recall](https://en.wikipedia.org/wiki/Precision_and_recall#Recall);
-	- [Specificity](https://en.wikipedia.org/wiki/Sensitivity_and_specificity#Specificity);
-	- [Precision](https://en.wikipedia.org/wiki/Precision_and_recall#Precision);
-	- [Accuracy](https://en.wikipedia.org/wiki/Accuracy_and_precision);
-	- [F1-measure](https://en.wikipedia.org/wiki/F1_score).
+      - [Sensitivity](https://en.wikipedia.org/wiki/Sensitivity_and_specificity#Sensitivity) or [Recall](https://en.wikipedia.org/wiki/Precision_and_recall#Recall);
+      - [Specificity](https://en.wikipedia.org/wiki/Sensitivity_and_specificity#Specificity);
+      - [Precision](https://en.wikipedia.org/wiki/Precision_and_recall#Precision);
+      - [Accuracy](https://en.wikipedia.org/wiki/Accuracy_and_precision);
+      - [F1-measure](https://en.wikipedia.org/wiki/F1_score).
 
 Tasks:
 - Число фолдов для кросс-валидации определите и обоснуйте сами исходя из числа объектов в датасете.
