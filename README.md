@@ -6,7 +6,7 @@
 - Used python packeges:
 	- matplotlib v2.1.0;
 	- tabulate v0.8.1.
---------------------------------------------------- 
+	
 ### 1. KNN metric classifier.
 #### Problem
 1) Implement the metric classifier kNN;
@@ -71,7 +71,7 @@
    It is a classification algorithm, which based on the construcion of a linear separating surface. In the case of two classes of separating force is a hyperplane that divides the feature space into two half-spaces. Metric classifier is based on the concept of similarity between objects. In this task, the similarity measure between objects is *distance*.
 
 2) **Question:**
-   What is [empirical risk](https://en.wikipedia.org/wiki/Empirical_risk_minimization) ([эмпирический риск](http://www.machinelearning.ru/wiki/index.php?title=%D0%AD%D0%BC%D0%BF%D0%B8%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D1%80%D0%B8%D1%81%D0%BA))?)
+   What is [empirical risk](https://en.wikipedia.org/wiki/Empirical_risk_minimization) ([эмпирический риск](http://www.machinelearning.ru/wiki/index.php?title=%D0%AD%D0%BC%D0%BF%D0%B8%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D1%80%D0%B8%D1%81%D0%BA)))?
    
    **Answer:**
    This is the average error value of the algorithm on the training sample.
@@ -86,7 +86,7 @@
    What cross-validation is used?
    
    **Answer:**
-   Was implemented [k-fold cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)#k-fold_cross-validation).
+   Was implemented [k-fold cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)#k-fold_cross-validation)?
 
 5) **Question:**
    How to determine the optimal number of k-fold (k_fold)?
@@ -115,8 +115,8 @@
 	- [F1-measure](https://en.wikipedia.org/wiki/F1_score).
  
 #### Links
-[RESULTS](https://docs.google.com/spreadsheets/d/1IkHaIzaHMTVHIrxbvIXl9kbQINCencgx8dtkAhNKXRw/edit#gid=0)
-[Задача классификации](https://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0_%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8)
-[Кластерный анализ](https://ru.wikipedia.org/wiki/%D0%9A%D0%BB%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%BD%D1%8B%D0%B9_%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7)
-[Info](https://github.com/flyingleafe/ML-Course-ITMO/blob/master/Homework.org):
+1) [RESULTS table](https://docs.google.com/spreadsheets/d/1IkHaIzaHMTVHIrxbvIXl9kbQINCencgx8dtkAhNKXRw/edit#gid=0);
+2) [Statistical classification](https://en.wikipedia.org/wiki/Statistical_classification);
+3) [Cluster analysis](https://en.wikipedia.org/wiki/Cluster_analysis);
+4) [Info](https://github.com/flyingleafe/ML-Course-ITMO/blob/master/Homework.org).
 
