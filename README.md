@@ -8,9 +8,21 @@ Used software:
 	- tabulate v0.8.1.
 --------------------------------------------------- 
 1. KNN metric classifier.
-  Dataset.txt - set of objects: coordinates of the dot(x,y),class{0,1}.
-  ---
-Program structure:
+ ---
+ Problem
+ ---
+1) Implement the metric classifier kNN;
+2) Make cross-validation; justify the choice of the number of folds for it;
+3) Perform data visualization;
+4) Configure the classifier with 2-3 metrics and 2-3 spatial transformations;
+5) To assess the quality, you can use the accuracy metric, but better - f1-measure;
+ ---
+ Start dataset
+ ---
+Dataset.txt - set of objects: coordinates of the dot(x,y),class{0,1}.
+ ---
+Program structure
+ ---
 - Main: started point.
 - OutputMethods:
 	- outputTable.
@@ -57,7 +69,7 @@ Output table (one of the bests result)
 |30|88|10|10| none | euclidean | elliptic |0,900326|0,940909|0,839535|0,866322|0,890805|
 
  ---
-FAQ:
+FAQ
  ---
 1) **Question:**
    What is [linear classifier](https://en.wikipedia.org/wiki/Linear_classifier)?
@@ -108,9 +120,10 @@ FAQ:
 	- [Precision](https://en.wikipedia.org/wiki/Precision_and_recall#Precision);
 	- [Accuracy](https://en.wikipedia.org/wiki/Accuracy_and_precision);
 	- [F1-measure](https://en.wikipedia.org/wiki/F1_score).
-
+ ---
+ Links
+ ---
 [RESULTS](https://docs.google.com/spreadsheets/d/1IkHaIzaHMTVHIrxbvIXl9kbQINCencgx8dtkAhNKXRw/edit#gid=0)
-
 [Задача классификации](https://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0_%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8)
 [Кластерный анализ](https://ru.wikipedia.org/wiki/%D0%9A%D0%BB%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%BD%D1%8B%D0%B9_%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7)
 [Info](https://github.com/flyingleafe/ML-Course-ITMO/blob/master/Homework.org):
