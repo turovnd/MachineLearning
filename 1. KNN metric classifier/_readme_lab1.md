@@ -96,7 +96,7 @@
    Experimentally. I was get the best f1-measure (0,905819) when k_fold was equal 9 (of course, because of the random *shuffle* function, this number may vary slightly) . Think that 10 is the optimal k_fold value.
 
 6) **Question:**
-   What does your decision contain??
+   What does your decision contain?
 
    **Answer:**
    Look at [Program structure](https://github.com/fedy95/MachineLearning/blob/master/1.%20KNN%20metric%20classifier/_readme_lab1.md#program-structure), also:
