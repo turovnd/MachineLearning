@@ -56,3 +56,4 @@
 1) [линейная регрессия](http://www.machinelearning.ru/wiki/index.php?title=%D0%9B%D0%B8%D0%BD%D0%B5%D0%B9%D0%BD%D0%B0%D1%8F_%D1%80%D0%B5%D0%B3%D1%80%D0%B5%D1%81%D1%81%D0%B8%D1%8F_(%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80));
 https://ru.coursera.org/learn/supervised-learning/lecture/hCGR6/obuchieniie-linieinoi-rieghriessii
 https://basegroup.ru/deductor/function/algorithm/linear-regression
+http://www.machinelearning.ru/wiki/images/6/6d/Voron-ML-1.pdf
