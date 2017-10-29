@@ -15,7 +15,7 @@
 4) Требуется научить свой код принимать откуда-нибудь (лучше с консоли) дополнительные входные точки для проверки уже обученной модели.
 
 ### Start dataset
-[Dataset.txt](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/dataset.txt) - dependence of objects: area, number rooms, price.
+[Dataset.txt](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/dataset.txt) - dependence of objects: area, number of rooms, price.
 
 ### Program structure
 
