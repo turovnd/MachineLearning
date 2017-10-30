@@ -20,7 +20,6 @@ class Visualization(object):
         Returns:
             0: удачное исполнение.
         """
-
     @staticmethod
     def buildStartDatasetPlot(data):
         x, y, z = DatasetProcessing.getSeparetedData(data)
@@ -34,4 +33,5 @@ class Visualization(object):
         axes.set_xlabel('Area')
         axes.set_ylabel('Rooms')
         axes.set_zlabel('Price')
+        plt.show()
         return 0
