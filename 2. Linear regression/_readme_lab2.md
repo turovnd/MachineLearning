@@ -40,7 +40,7 @@ https://habrastorage.org/files/9e7/ec4/164/9e7ec41641d74a9dbcb696eeb60c1ec2.png
    
    Это *функционал ошибки*. Его преимущество (по сравнению с модулем отклюнения алгоритма/прогноза) заключается в том, что *квадрат отклонения алгоритма от истинного ответа* ![(a(x)-y)^{2}](http://latex.codecogs.com/svg.latex?%5Cfn_jvn%20%5Csmall%20%28a%28x%29-y%29%5E%7B2%7D), содержащийся в нем, является гладкой функцией (имеет производную во всех точках), что позволит использовать минимизацию градиентными методами.
    
-   Для линейной модели (вместо ![(a(x_{i})](http://latex.codecogs.com/svg.latex?%5Cfn_jvn%20%5Csmall%20a%28x_%7Bi%7D%29) подставляя ![(\left \langle w,x_{i} \right \rangle](http://latex.codecogs.com/svg.latex?%5Cfn_jvn%20%5Csmall%20%5Cleft%20%5Clangle%20w%2Cx_%7Bi%7D%20%5Cright%20%5Crangle) получается не функционал, а *функция*:
+   Для линейной модели (вместо ![(a(x_{i})](http://latex.codecogs.com/svg.latex?%5Cfn_jvn%20%5Csmall%20a%28x_%7Bi%7D%29), подставляя ![(\left \langle w,x_{i} \right \rangle](http://latex.codecogs.com/svg.latex?%5Cfn_jvn%20%5Csmall%20%5Cleft%20%5Clangle%20w%2Cx_%7Bi%7D%20%5Cright%20%5Crangle) получается не функционал, а *функция*:
    
    ![Q(w,X)=\frac{1}{l}\sum_{i=1}^{l}(\left \langle w,x_{i} \right \rangle-y_{i})^{2}.](http://latex.codecogs.com/svg.latex?%5Cfn_jvn%20Q%28w%2CX%29%3D%5Cfrac%7B1%7D%7Bl%7D%5Csum_%7Bi%3D1%7D%5E%7Bl%7D%28%5Cleft%20%5Clangle%20w%2Cx_%7Bi%7D%20%5Cright%20%5Crangle-y_%7Bi%7D%29%5E%7B2%7D.)
    
