@@ -24,7 +24,10 @@
 	- buildStartDatasetPlot.
 - [DatasetProcessing](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/DatasetProcessing.py):
 	- getDataset;
-	- getSeparetedData.
+	- getSeparetedData;
+	- getAvgData;
+	- getStandardDeviationData;
+	- getNormalizeDataset.
 - *presentation files*:
 	- [main](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/main.py).
 
