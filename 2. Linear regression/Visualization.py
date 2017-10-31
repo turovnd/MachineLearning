@@ -3,6 +3,7 @@ from DatasetProcessing import *
 import matplotlib.pyplot as plt
 import pylab
 from mpl_toolkits.mplot3d import Axes3D
+import numpy as np
 """
 """
 
@@ -26,7 +27,6 @@ class Visualization(object):
         fig = plt.figure()
         axes = Axes3D(fig)
         axes.scatter(x, y, z, color="#00CC00")
-
         # заголовок
         plt.title("Отображение входного датасета")
         # подпись осей
