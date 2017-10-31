@@ -20,14 +20,16 @@
 [Dataset.txt](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/dataset.txt) - dependence of objects: area, number of rooms, price.
 
 ### Program structure
-- [Visualization](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/Visualization.py):
-	- buildStartDatasetPlot.
 - [DatasetProcessing](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/DatasetProcessing.py):
 	- getDataset;
 	- getSeparetedData;
 	- getAvgData;
 	- getStandardDeviationData;
 	- getNormalizeDataset.
+- [GradientDescent](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/GradientDescent.py):
+	- .
+- [Visualization](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/Visualization.py):
+	- buildStartDatasetPlot.
 - *presentation files*:
 	- [main](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/main.py).
 
