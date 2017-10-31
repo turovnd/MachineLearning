@@ -148,3 +148,5 @@ https://habrastorage.org/files/9e7/ec4/164/9e7ec41641d74a9dbcb696eeb60c1ec2.png
 https://ru.coursera.org/learn/supervised-learning/lecture/hCGR6/obuchieniie-linieinoi-rieghriessii
 https://basegroup.ru/deductor/function/algorithm/linear-regression
 http://www.machinelearning.ru/wiki/images/6/6d/Voron-ML-1.pdf
+2) [London Machine Learning Stydy Group](https://www.youtube.com/watch?v=v-LJxJlBxfc);
+3) [Trace in linear algebra](https://en.wikipedia.org/wiki/Trace_(linear_algebra)).
