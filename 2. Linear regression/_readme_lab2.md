@@ -6,7 +6,8 @@
 - Project Interpreter: python 3.5.3 (amd64);
 - Used python packeges:
 	- matplotlib v2.1.0;
-	- tabulate v0.8.1.
+	- tabulate v0.8.1;
+	- numpy v1.13.3.
 
 ### Problem
 1) Реализовать *линейную регрессию*;
