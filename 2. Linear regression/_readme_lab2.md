@@ -27,9 +27,11 @@
 	- getStandardDeviationData;
 	- getNormalizeDataset.
 - [GradientDescent](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/GradientDescent.py):
-	- .
+	- calculateGradientDescent.
 - [Visualization](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/Visualization.py):
-	- buildStartDatasetPlot.
+	- buildStartDatasetPlot;
+	- buildNewDatasetPlot (+-);
+	- buildErrorDatasetPlot (+-).
 - *presentation files*:
 	- [main](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/main.py).
 
