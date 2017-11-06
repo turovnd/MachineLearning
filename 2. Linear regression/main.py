@@ -9,7 +9,16 @@ if __name__ == '__main__':
     print("Data =", data)
     print("normalizeData =", normalizeData)
     print("Rooms =", len(data))
-
+    area, rooms, price = DatasetProcessing.getSeparetedData(normalizeData)
+    print("area =", area)
+    print("rooms =", rooms)
+    print("price =", price)
     #TODO в одном ненормализованный и нормализованный
     #Visualization.buildStartDatasetPlot(normalizeData)
-    print(GradientDescent.calculateNewPrice(data, 0.05, 2000))
+    (j_hist, w, newPrice) = GradientDescent.calculateNewPrice(data, 0.99, 2650, 0.000001)
+
+    print("Nprice =", newPrice)
+    print("j_hist =", j_hist)
+
+    Visualization.buildNewDatasetPlot(normalizeData, newPrice)
+    # Visualization.buildErrorDatasetPlot(j_hist)

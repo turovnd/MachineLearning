@@ -53,13 +53,13 @@ class DatasetProcessing(object):
 
     """Метод получения средних значений составляющих листа вида (area,rooms,price).
 
-        Args:
-            data: лист, содержащий входной датасет в виде (area,rooms,price).
+    Args:
+        data: лист, содержащий входной датасет в виде (area,rooms,price).
 
-        Returns:
-            avgArea: переменная, содержащая среднюю area составляющую датасета.
-            avgRooms: переменная, содержащая среднюю rooms составляющую датасета.
-            avgPrice: переменная, содержащая среднюю price составляющую датасета.
+    Returns:
+        avgArea: переменная, содержащая среднюю area составляющую датасета.
+        avgRooms: переменная, содержащая среднюю rooms составляющую датасета.
+        avgPrice: переменная, содержащая среднюю price составляющую датасета.
     """
     @staticmethod
     def getAvgData(data):
@@ -80,13 +80,13 @@ class DatasetProcessing(object):
 
     """Метод получения стандарного отклонения составляющих листа вида (area,rooms,price).
 
-        Args:
-            data: лист, содержащий входной датасет в виде (area,rooms,price).
+    Args:
+        data: лист, содержащий входной датасет в виде (area,rooms,price).
 
-        Returns:
-            standardDeviationArea: переменная, содержащая стандартное отклонение состоявляющей area.
-            standardDeviationRooms: переменная, содержащая стандартное отклонение состоявляющей rooms.
-            standardDeviationPrice: переменная, содержащая стандартное отклонение состоявляющей price.
+    Returns:
+        standardDeviationArea: переменная, содержащая стандартное отклонение состоявляющей area.
+        standardDeviationRooms: переменная, содержащая стандартное отклонение состоявляющей rooms.
+        standardDeviationPrice: переменная, содержащая стандартное отклонение состоявляющей price.
     """
     @staticmethod
     def getStandardDeviationData(data):
@@ -130,11 +130,11 @@ class DatasetProcessing(object):
     """Метод нормализации входного датасета.
     
     Сдвиг (-) каждой составляющей на среднее значение + деление на стандарное отклонение
-        Args:
-            inputData: лист, содержащий входной датасет в виде (area,rooms,price).
+    Args:
+        inputData: лист, содержащий входной датасет в виде (area,rooms,price).
 
-        Returns:
-            normalizeData: лист, содержащий нормализованный датасет в виде (area,rooms,price).
+    Returns:
+        normalizeData: лист, содержащий нормализованный датасет в виде (area,rooms,price).
     """
     @staticmethod
     def getNormalizeDataset(inputData):
