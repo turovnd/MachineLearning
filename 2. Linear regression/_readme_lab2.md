@@ -32,7 +32,7 @@
 - [Visualization](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/Visualization.py):
 	- buildStartDatasetPlot;
 	- buildNewDatasetPlot (+-);
-	- buildErrorDatasetPlot (+-).
+	- buildMSEIterationPlot.
 - *presentation files*:
 	- [main](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/main.py).
 
