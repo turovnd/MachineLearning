@@ -62,14 +62,14 @@ class Visualization(object):
         price: лист, содержащий цену из датасета.
         newPrice: лист, содержащий пересчитанную цену.
         MSE: лист, содержащий среднеквадртичные отклоения.
-
+        lastIteration: последняя иттерация вычислений.
     Returns:
         0: удачное исполнение.
     """
     @staticmethod
-    def build2DInfo(price, newPrice, MSE):
+    def build2DInfo(price, newPrice, MSE, lastIteration):
         plt.subplot(211)
-        plt.plot(MSE, '-', color="#560EAD", linewidth=4)
+        plt.plot([MSE[i] for i in range(lastIteration)], color="#560EAD", linewidth=4)
         plt.title("Изменение среднеквадратичного отклонения с каждой итерацией")
         plt.xlabel("$iteration$")
         plt.ylabel("$J(w) - MSE$")
