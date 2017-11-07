@@ -38,8 +38,9 @@
 
 ### Output table
 https://habrastorage.org/files/9e7/ec4/164/9e7ec41641d74a9dbcb696eeb60c1ec2.png
-
+[TABLE](https://docs.google.com/spreadsheets/d/1_fdJo6_bG0gLd3Ci8oq-1gmV49EXWts24C2ImHvbD2g/edit#gid=0)
 ### FAQ
+
 1) **Question:**
    Что такое *линейная регрессия*?
    
