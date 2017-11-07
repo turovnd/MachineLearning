@@ -30,8 +30,8 @@
 - [GradientDescent](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/GradientDescent.py):
 	- calculateGradientDescent.
 - [Visualization](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/Visualization.py):
-	- buildStartDatasetPlot;
-	- buildNewDatasetPlot (+-);
+	- build3DStartDataset;
+	- build3DRegressionLinear;
 	- build2DInfo.
 - *presentation files*:
 	- [main](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/main.py).
