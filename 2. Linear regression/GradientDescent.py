@@ -25,8 +25,10 @@ class GradientDescent(object):
     Returns:
         lastIteration: число, последняя иттерация вычислений.
         J_hist.tolist(): лист, содержащий значения функционалов ошибок.
-        weight_NP.tolist(): лист, содержащий веса.
+        weight_NP.tolist(): лист, содержащий веса w0 для x0, w1 для x1, w2 для x2.
         YNew_NP.tolist(): лист, содержащий гипотезы линейной регрессии.
+        weight_hist1(): массив numpy, содержащий веса всех итераций для w1.
+        weight_hist2(): массив numpy, содержащий веса всех итераций для w2.
     """
     @staticmethod
     def calculateGradientDescent(data, kLearningRate, stepsNumber, epsilonLimitation):
@@ -48,7 +50,7 @@ class GradientDescent(object):
         weight_NP = np.array([np.ones(n)]).T
 
         J_hist = np.zeros(stepsNumber)
-        weight_hist0 = np.zeros(stepsNumber)
+        # weight_hist0 = np.zeros(stepsNumber)
         weight_hist1 = np.zeros(stepsNumber)
         weight_hist2 = np.zeros(stepsNumber)
 
@@ -63,7 +65,7 @@ class GradientDescent(object):
             alphaLearningRate = kLearningRate / (i+1)
             # print("%f %f Iteration %d, J(w): %f\n" % (weight_NP[0], weight_NP[1], i, J))
             weight_NP = weight_NP - alphaLearningRate * gradient
-            weight_hist0[i] = weight_NP[0]
+            # weight_hist0[i] = weight_NP[0]
             weight_hist1[i] = weight_NP[1]
             weight_hist2[i] = weight_NP[2]
             i = i + 1
@@ -91,4 +93,5 @@ class GradientDescent(object):
                                tablefmt='orgtbl'))
 
                 print("-----------------------------------------------------------------------------------------------")
-                return lastIteration, J_hist.tolist(), weight_NP.tolist(), YNew_NP.T.tolist()
+                return lastIteration, J_hist.tolist(), weight_NP.tolist(), YNew_NP.T.tolist(), weight_hist1, \
+                       weight_hist2

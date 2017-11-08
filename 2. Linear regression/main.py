@@ -14,46 +14,47 @@ if __name__ == '__main__':
     print("rooms =", rooms)
     print("price =", price)
 
-    # (lastIteration, MSE, w, newPrice) = \
+    #TODO подбор параметров
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
     #     GradientDescent.calculateGradientDescent(data, 20, 50000, 0.00000001)
     # print("MSE =", MSE)  # 0.35
-    # (lastIteration, MSE, w, newPrice) = \
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
     #     GradientDescent.calculateGradientDescent(data, 10, 50000, 0.00000001)
     # print("MSE =", MSE)  # 0.35
-    # (lastIteration, MSE, w, newPrice) = \
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
     #     GradientDescent.calculateGradientDescent(data, 1, 50000, 0.00000001)
     # print("MSE =", MSE)  # 0.35
-    # (lastIteration, MSE, w, newPrice) = \
-    #     GradientDescent.calculateGradientDescent(data, 0.1, 50000, 0.00000001)
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
+    #     GradientDescent.calculateGradientDescent(data, 0.1, 50000, 0.001)
     # print("MSE =", MSE)  # 0.58
-    # (lastIteration, MSE, w, newPrice) = \
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
     #     GradientDescent.calculateGradientDescent(data, 0.01, 50000, 0.00000001)
     # print("MSE =", MSE)  # 1.47
-    # (lastIteration, MSE, w, newPrice) = \
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
     #     GradientDescent.calculateGradientDescent(data, 0.05, 50000, 0.00000001)
     # print("MSE =", MSE)  # 0.9
-    (lastIteration, MSE, w, newPrice) = \
-        GradientDescent.calculateGradientDescent(data, 0.001, 50000, 0.00000001)
+    (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
+        GradientDescent.calculateGradientDescent(data, 0.001, 50000, 0.0000000000001)
     # print("MSE =", MSE)  # 1.66
-    # (lastIteration, MSE, w, newPrice) = \
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
     #     GradientDescent.calculateGradientDescent(data, 0.005, 50000, 0.00000001)
     # print("MSE =", MSE)  # 1.57
-    # (lastIteration, MSE, w, newPrice) = \
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
     #     GradientDescent.calculateGradientDescent(data, 0.0001, 50000, 0.00000001)
     # print("MSE =", MSE)  # 1.68
-    # (lastIteration, MSE, w, newPrice) = \
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
     #     GradientDescent.calculateGradientDescent(data, 0.0001, 24000, 0.00000001)
     # print("MSE =", MSE)  # 1.68
-    # (lastIteration, MSE, w, newPrice) = \
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
     #     GradientDescent.calculateGradientDescent(data, 0.0005, 50000, 0.00000001)
     # print("MSE =", MSE)  # 1.67
-    # (lastIteration, MSE, w, newPrice) = \
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
     #     GradientDescent.calculateGradientDescent(data, 0.00001, 50000, 0.00000001)
     # print("MSE =", MSE)  # 1.68
-    # (lastIteration, MSE, w, newPrice) = \
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
     #     GradientDescent.calculateGradientDescent(data, 0.00005, 50000, 0.00000001)
     # print("MSE =", MSE)  # 1.68
-    # (lastIteration, MSE, w, newPrice) = \
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
     #     GradientDescent.calculateGradientDescent(data, 0.000001, 50000, 0.00000001)
     # print("MSE =", MSE)  # --
 
@@ -62,7 +63,10 @@ if __name__ == '__main__':
     # price_NP = np.asarray(price)
     # error = newPrice_NP - price_NP
     # print(error)
+    # print(weight_hist1)
+    # print(weight_hist2)
 
+    Visualization.build3DCostFunction(weight_hist1, weight_hist2, MSE, lastIteration)
     Visualization.build3DStartDataset(data)
-    Visualization.build3DRegressionLinear(normalizeData, w, newPrice)
+    Visualization.build3DRegressionLinear(normalizeData, wLast, newPrice)
     Visualization.build2DInfo(price, newPrice, MSE, lastIteration)
