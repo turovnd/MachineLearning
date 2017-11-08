@@ -107,7 +107,7 @@ class Visualization(object):
         for i in range(n):
             for j in range(n):
                 Z[i, j] = (X[i, j] * weight_hist1[i] * X[i, j] * weight_hist1[i] + Y[i, j] * weight_hist2[i] * Y[i, j] *
-                           weight_hist2[i]) / MSE[i]
+                           weight_hist2[i])
 
         # parameters for plots
         colors = ["#00CC00", "#FFE400", "#560EAD"]
