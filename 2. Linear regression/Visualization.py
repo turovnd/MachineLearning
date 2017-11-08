@@ -73,7 +73,6 @@ class Visualization(object):
         ax1.scatter(xNormalizeData, yNormalizeData, zNew, color=colors[1], linewidth=linewidths[1],
                     label=labels[1])
         ax1.plot_wireframe(X, Y, Z, color=colors[2], label=labels[2])
-        ax1.scatter(wLast[0][0], wLast[1][0], wLast[2][0])
         # title
         plt.title("Regression plane relatively datasets")
         # label
