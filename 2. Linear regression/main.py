@@ -66,7 +66,7 @@ if __name__ == '__main__':
     # print(weight_hist1)
     # print(weight_hist2)
 
-    Visualization.build3DCostFunction(weight_hist1, weight_hist2, MSE, lastIteration)
     Visualization.build3DStartDataset(data)
+    Visualization.build3DCostFunction(weight_hist1, weight_hist2, MSE, lastIteration)
     Visualization.build3DRegressionLinear(normalizeData, wLast, newPrice)
     Visualization.build2DInfo(price, newPrice, MSE, lastIteration)
