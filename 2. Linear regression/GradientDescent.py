@@ -20,15 +20,13 @@ class GradientDescent(object):
         kLearningRate: константа для вычисления alphaLearningRate.
         stepsNumber: максимальное количество иттераций спуска.
         epsilonLimitation: максимальная разница между функционалом ошибки текущей и предыдущей иттераций
-         или весами weight_NP[0] и weight_NPх[1].
+         или весами weight_NP[1] и weight_NP[2].
 
     Returns:
         lastIteration: число, последняя иттерация вычислений.
-        J_hist: лист, содержащий значения функционалов ошибок.
-        weight_NP: лист, содержащий две последних ошибки.
-        YNew_NP: лист, содержащий гипотезы линейной регрессии.
-        weight_NP[1]: число, наилучший вес для первого параметра.
-        weight_NP[2]: число, наилучший вес для второго параметра.
+        J_hist.tolist(): лист, содержащий значения функционалов ошибок.
+        weight_NP.tolist(): лист, содержащий веса.
+        YNew_NP.tolist(): лист, содержащий гипотезы линейной регрессии.
     """
     @staticmethod
     def calculateGradientDescent(data, kLearningRate, stepsNumber, epsilonLimitation):
@@ -50,6 +48,7 @@ class GradientDescent(object):
         weight_NP = np.array([np.ones(n)]).T
 
         J_hist = np.zeros(stepsNumber)
+        weight_hist0 = np.zeros(stepsNumber)
         weight_hist1 = np.zeros(stepsNumber)
         weight_hist2 = np.zeros(stepsNumber)
 
@@ -64,6 +63,7 @@ class GradientDescent(object):
             alphaLearningRate = kLearningRate / (i+1)
             # print("%f %f Iteration %d, J(w): %f\n" % (weight_NP[0], weight_NP[1], i, J))
             weight_NP = weight_NP - alphaLearningRate * gradient
+            weight_hist0[i] = weight_NP[0]
             weight_hist1[i] = weight_NP[1]
             weight_hist2[i] = weight_NP[2]
             i = i + 1
@@ -89,6 +89,6 @@ class GradientDescent(object):
                                         "J_hist[i]", "J_hist[i-1]", "abs(J_hist[i] - J_hist[i-1])",
                                         "weight_NP[1]", "weight_NP[2]", "abs(weight_NP[1] - weight_NP[2]"],
                                tablefmt='orgtbl'))
+
                 print("-----------------------------------------------------------------------------------------------")
-                return lastIteration, J_hist.tolist(), weight_NP.tolist(), YNew_NP.T.tolist(), weight_NP[1].tolist(), \
-                       weight_NP[2].tolist()
+                return lastIteration, J_hist.tolist(), weight_NP.tolist(), YNew_NP.T.tolist()
