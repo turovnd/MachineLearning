@@ -166,7 +166,7 @@ class Visualization(object):
         # title
         plt.title("Visualization started and calculated prices")
         # label
-        plt.xlabel("$iteration$")
+        plt.xlabel("number")
         plt.ylabel("$price$")
         # legend
         plt.legend(loc=1, fontsize="small")
