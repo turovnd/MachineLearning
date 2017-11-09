@@ -100,13 +100,13 @@ class Visualization(object):
         # for plot_wireframe
         n = 20  # плотность сетки
         # x -2 4 # y -3 2 # z -4 6
-        X = np.linspace(-max(weight_hist1), max(weight_hist1), n)
-        Y = np.linspace(-max(weight_hist2), max(weight_hist2), n)
+        X = np.linspace(-max(MSE), max(MSE), n)
+        Y = np.linspace(-max(MSE), max(MSE), n)
         X, Y = np.meshgrid(X, Y)
         Z = np.zeros((n, n))
         for i in range(n):
             for j in range(n):
-                Z[i, j] = (X[i, j] * weight_hist1[i] * X[i, j] * weight_hist1[i] + Y[i, j] * weight_hist2[i] * Y[i, j] *
+                Z[i, j] = (X[i, j] * X[i, j] * weight_hist1[i] + Y[i, j] * Y[i, j] *
                            weight_hist2[i])
 
         # parameters for plots
@@ -115,7 +115,7 @@ class Visualization(object):
         labels = ["started calculate MSE", "ended calculate MSE"]
         fig = plt.figure()
         ax1 = Axes3D(fig)
-        ax1.plot_surface(X, Y, Z, cmap=cm.rainbow, alpha=.8)
+        ax1.plot_surface(X, Y, Z, cmap=cm.rainbow, alpha=.3)
         ax1.scatter(weight_hist1[0], weight_hist2[0], MSE[0], color=colors[0], linewidth=linewidths[1],
                     label=labels[0])
         ax1.scatter(weight_hist1[lastIteration], weight_hist2[lastIteration], MSE[lastIteration],
@@ -152,7 +152,7 @@ class Visualization(object):
         plt.title("Measurement of MSE with each iteration")
         # label
         plt.xlabel("$iteration$")
-        plt.ylabel("$J(w) - MSE$")
+        plt.ylabel("$MSE$")
         plt.grid(True)
 
         plt.subplot(212)

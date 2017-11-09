@@ -71,27 +71,30 @@ class GradientDescent(object):
             i = i + 1
             if (abs(weight_NP[1] - weight_NP[2]) < epsilonLimitation) or \
                     (abs(J_hist[i-1] - J_hist[i-2]) < epsilonLimitation) or (stepsNumber == i):
-                print("-----------------------------------------------------------------------------------------------")
+                # print("-----------------------------------------------------------------------------------------------")
                 print("gradient descent finished")
                 lastIteration = i - 1
                 if abs(weight_NP[1] - weight_NP[2]) < epsilonLimitation:
-                    print("condition (abs(weight_NP[0] - weight_NP[1]) < epsilonLimitation) is done")
+                    # print("condition (abs(weight_NP[0] - weight_NP[1]) < epsilonLimitation) is done")
+                    breakCriterion = "weight"
                 if abs(J_hist[lastIteration] - J_hist[lastIteration-1]) < epsilonLimitation:
-                    print("condition (abs(J_hist[i] - J_hist[i-1]) < epsilonLimitation) is done")
+                    # print("condition (abs(J_hist[i] - J_hist[i-1]) < epsilonLimitation) is done")
+                    breakCriterion = "J_hist"
                 if stepsNumber == i:
-                    print("condition (stepsNumber == i) is done")
-                table = [[lastIteration, stepsNumber, kLearningRate, alphaLearningRate, epsilonLimitation,
-                          J_hist[lastIteration], J_hist[lastIteration-1], abs(J_hist[lastIteration] - J_hist[lastIteration-1]),
+                    # print("condition (stepsNumber == i) is done")
+                    breakCriterion = "stepsNumber"
+                table = [[breakCriterion, lastIteration, stepsNumber, kLearningRate, alphaLearningRate, epsilonLimitation,
+                          J_hist[lastIteration], J_hist[lastIteration-1], J_hist[0], abs(J_hist[lastIteration] - J_hist[lastIteration-1]),
                           weight_NP[1], weight_NP[2], abs(weight_NP[1] - weight_NP[2])]]
                 print(tabulate(table,
-                               headers=["lastIteration",
+                               headers=["breakCriterion", "lastIteration",
                                         "stepsNumber", "kLearningRate",
                                         "current alphaLearningRate",
                                         "epsilonLimitation",
-                                        "J_hist[i]", "J_hist[i-1]", "abs(J_hist[i] - J_hist[i-1])",
+                                        "J_hist[i]", "J_hist[i-1]", "J_hist[0]", "abs(J_hist[i] - J_hist[i-1])",
                                         "weight_NP[1]", "weight_NP[2]", "abs(weight_NP[1] - weight_NP[2]"],
                                tablefmt='orgtbl'))
 
-                print("-----------------------------------------------------------------------------------------------")
+                # print("-----------------------------------------------------------------------------------------------")
                 return lastIteration, J_hist.tolist(), weight_NP.tolist(), YNew_NP.T.tolist(), weight_hist1, \
                        weight_hist2

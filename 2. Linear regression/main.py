@@ -13,49 +13,69 @@ if __name__ == '__main__':
     print("area =", area)
     print("rooms =", rooms)
     print("price =", price)
-
+    print("-----------------------------------------------------------------------------------------------")
     #TODO подбор параметров
     # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
-    #     GradientDescent.calculateGradientDescent(data, 20, 50000, 0.00000001)
-    # print("MSE =", MSE)  # 0.35
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.01)
+    # # print("MSE =", MSE)  # 0.35
     # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
-    #     GradientDescent.calculateGradientDescent(data, 10, 50000, 0.00000001)
-    # print("MSE =", MSE)  # 0.35
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.001)
+    # # print("MSE =", MSE)  # 0.35
     # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
-    #     GradientDescent.calculateGradientDescent(data, 1, 50000, 0.00000001)
-    # print("MSE =", MSE)  # 0.35
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.0001)
+    # # print("MSE =", MSE)  # 0.35
     # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
-    #     GradientDescent.calculateGradientDescent(data, 0.1, 50000, 0.001)
-    # print("MSE =", MSE)  # 0.58
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.00001)
+    # # print("MSE =", MSE)  # 0.58
     # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
-    #     GradientDescent.calculateGradientDescent(data, 0.01, 50000, 0.00000001)
-    # print("MSE =", MSE)  # 1.47
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.000001)
+    # # print("MSE =", MSE)  # 1.47
     # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
-    #     GradientDescent.calculateGradientDescent(data, 0.05, 50000, 0.00000001)
-    # print("MSE =", MSE)  # 0.9
-    (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
-        GradientDescent.calculateGradientDescent(data, 0.001, 50000, 0.0000000000001)
-    # print("MSE =", MSE)  # 1.66
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.0000001)
+    # # print("MSE =", MSE)  # 0.9
     # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
-    #     GradientDescent.calculateGradientDescent(data, 0.005, 50000, 0.00000001)
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.00000001)
+    # # print("MSE =", MSE)  # 1.66
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.000000001)
     # print("MSE =", MSE)  # 1.57
+    (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
+        GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.0000000001)
+    # # print("MSE =", MSE)  # 1.68
     # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
-    #     GradientDescent.calculateGradientDescent(data, 0.0001, 50000, 0.00000001)
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 24000, 0.00000000001)
+    # # print("MSE =", MSE)  # 1.68
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.000000000001)
+    # # print("MSE =", MSE)  # 1.67
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.0000000000001)
     # print("MSE =", MSE)  # 1.68
     # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
-    #     GradientDescent.calculateGradientDescent(data, 0.0001, 24000, 0.00000001)
-    # print("MSE =", MSE)  # 1.68
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.0000000001)
+    # # print("MSE =", MSE)  # 1.68
     # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
-    #     GradientDescent.calculateGradientDescent(data, 0.0005, 50000, 0.00000001)
-    # print("MSE =", MSE)  # 1.67
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.0000000001)
     # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
-    #     GradientDescent.calculateGradientDescent(data, 0.00001, 50000, 0.00000001)
-    # print("MSE =", MSE)  # 1.68
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.0000000001)
     # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
-    #     GradientDescent.calculateGradientDescent(data, 0.00005, 50000, 0.00000001)
-    # print("MSE =", MSE)  # 1.68
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.0000000001)
     # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
-    #     GradientDescent.calculateGradientDescent(data, 0.000001, 50000, 0.00000001)
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.0000000001)
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.0000000001)
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.0000000001)
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.0000000001)
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.0000000001)
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.0000000001)
+    # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
+    #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.0000000001)
+
+
     # print("MSE =", MSE)  # --
 
     # print("MSE =", MSE[1000], MSE[2000], MSE[3000], MSE[4000], MSE[5000], MSE[10000])
@@ -65,7 +85,7 @@ if __name__ == '__main__':
     # print(error)
     # print(weight_hist1)
     # print(weight_hist2)
-
+    # print("-----------------------------------------------------------------------------------------------")
     Visualization.build3DStartDataset(data)
     Visualization.build3DCostFunction(weight_hist1, weight_hist2, MSE, lastIteration)
     Visualization.build3DRegressionLinear(normalizeData, wLast, newPrice)
