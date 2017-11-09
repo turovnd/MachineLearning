@@ -40,7 +40,7 @@
 ### Output
 https://habrastorage.org/files/9e7/ec4/164/9e7ec41641d74a9dbcb696eeb60c1ec2.png
 
-[TABLE](https://docs.google.com/spreadsheets/d/1_fdJo6_bG0gLd3Ci8oq-1gmV49EXWts24C2ImHvbD2g/edit#gid=0)
+[other results](https://docs.google.com/spreadsheets/d/1_fdJo6_bG0gLd3Ci8oq-1gmV49EXWts24C2ImHvbD2g/edit#gid=303528850)
 
 ![3DStartDataset](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/1.%203DStartDataset.jpg)
 ![3DCostFunction](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/2.%203DCostFunction.jpg)
