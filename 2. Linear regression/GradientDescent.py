@@ -83,15 +83,17 @@ class GradientDescent(object):
                 if stepsNumber == i:
                     # print("condition (stepsNumber == i) is done")
                     breakCriterion = "stepsNumber"
-                table = [[breakCriterion, lastIteration, stepsNumber, kLearningRate, alphaLearningRate, epsilonLimitation,
+
+                table = [[breakCriterion, lastIteration, stepsNumber, kLearningRate, alphaLearningRate,
+                          epsilonLimitation, np.average(J_hist),
                           J_hist[lastIteration], J_hist[lastIteration-1], J_hist[0], abs(J_hist[lastIteration] - J_hist[lastIteration-1]),
                           weight_NP[1], weight_NP[2], abs(weight_NP[1] - weight_NP[2])]]
                 print(tabulate(table,
                                headers=["breakCriterion", "lastIteration",
                                         "stepsNumber", "kLearningRate",
                                         "current alphaLearningRate",
-                                        "epsilonLimitation",
-                                        "J_hist[i]", "J_hist[i-1]", "J_hist[0]", "abs(J_hist[i] - J_hist[i-1])",
+                                        "epsilonLimitation", "errorAvg(MSE)",
+                                        "MSE[i]", "MSE[i-1]", "MSE[0]", "abs(MSE[i] - MSE[i-1])",
                                         "weight_NP[1]", "weight_NP[2]", "abs(weight_NP[1] - weight_NP[2]"],
                                tablefmt='orgtbl'))
 

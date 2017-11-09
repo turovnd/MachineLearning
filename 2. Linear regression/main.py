@@ -75,7 +75,6 @@ if __name__ == '__main__':
     # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
     #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.0000000001)
 
-
     # print("MSE =", MSE)  # --
 
     # print("MSE =", MSE[1000], MSE[2000], MSE[3000], MSE[4000], MSE[5000], MSE[10000])
