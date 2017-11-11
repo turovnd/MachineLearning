@@ -66,7 +66,7 @@ class Visualization(object):
                 Z[i, j] = wLast[0][0] + X[i, j] * wLast[1][0] + Y[i, j] * wLast[2][0]
 
         # parameters for plots
-        colors = ["#00CC00", "#FF0000", "#560EAD", "#B40097"]
+        colors = ["#00CC00", "#FF0000", "#560EAD", "#FF9500"]
         linewidths = [4, 6]
         labels = ["started normalize dataset", "calculated normalize dataset", "calculated regression plane",
                   "input calculated normalize dataset"]
