@@ -148,3 +148,77 @@ class DatasetProcessing(object):
                                (rooms[i] - avgRooms) / standardDeviationRooms,
                                (price[i] - avgPrice) / standardDeviationPrice])
         return normalizeData
+
+    """Метод нормализации введенного датасета areaInput, roomsInput.
+
+    Сдвиг (-) каждой составляющей на среднее значение + деление на стандарное отклонение
+    Args:
+        areaInputList: лист, содержащий area составляющую.
+        roomsInputList: лист, содержащий rooms составляющую.
+
+    Returns:
+        normalizeAreaInput: лист, содержащий нормализованные значения areaInput.
+        normalizeRoomsInput: лист, содержащий нормализованные значения roomsInput.
+    """
+    @staticmethod
+    def getNormalizeInputDataset(areaInputList, roomsInputList):
+        sumArea = 0
+        sumRooms = 0
+
+        for i in range(len(areaInputList)):
+            sumArea = sumArea + areaInputList[i]
+            sumRooms = sumRooms + roomsInputList[i]
+
+        avgAreaInput = sumArea / len(areaInputList)
+        avgRoomsInput = sumRooms / len(roomsInputList)
+
+        differenceWithAvgArea = []
+        differenceWithAvgRooms = []
+        squareDifferenceWithAvgArea = []
+        squareDifferenceWithAvgRooms = []
+        sumSquaresDifferenceWithAvgArea = 0
+        sumSquaresDifferenceWithAvgRooms = 0
+        dispersionArea = 0
+        dispersionRooms = 0
+        for i in range(len(areaInputList)):
+            differenceWithAvgArea.append(areaInputList[i] - avgAreaInput)
+            differenceWithAvgRooms.append(roomsInputList[i] - avgRoomsInput)
+
+            squareDifferenceWithAvgArea.append((areaInputList[i] - avgAreaInput) ** 2)
+            squareDifferenceWithAvgRooms.append((roomsInputList[i] - avgRoomsInput) ** 2)
+
+            sumSquaresDifferenceWithAvgArea = sumSquaresDifferenceWithAvgArea + squareDifferenceWithAvgArea[i]
+            sumSquaresDifferenceWithAvgRooms = sumSquaresDifferenceWithAvgRooms + squareDifferenceWithAvgRooms[i]
+
+        dispersionArea = sumSquaresDifferenceWithAvgArea / (len(areaInputList) - 1)  # len(area) > 30 => n-1
+        dispersionRooms = sumSquaresDifferenceWithAvgRooms / (len(roomsInputList) - 1)
+
+        standardDeviationAreaInput = round(math.sqrt(dispersionArea))
+        standardDeviationRoomsInput = round(math.sqrt(dispersionRooms))
+        normalizeAreaInput = []
+        normalizeRoomsInput = []
+        for i in range(len(areaInputList)):
+            normalizeAreaInput.append([(areaInputList[i] - avgAreaInput) / standardDeviationAreaInput])
+            normalizeRoomsInput.append([(roomsInputList[i] - avgRoomsInput) / standardDeviationRoomsInput])
+        return normalizeAreaInput, normalizeRoomsInput
+
+    """Метод обработки введенных и рассчитанных датасетов.
+
+    Args:
+        areaInputList: лист, содержащий area составляющую.
+        roomsInputList: лист, содержащий rooms составляющую.
+        priceNormalizeInputList: лист, содержащий нормализованную price составляющую.
+
+    Returns:
+        normalizeDataInput: лист, содержащий введенные объединненные нормализованне датасеты
+         в виде (areaNormalizeInputList,roomsNormalizeInputList,priceNormalizeInputList).
+    """
+    @staticmethod
+    def getCombinedInputData(areaInputList, roomsInputList, priceNormalizeInputList):
+        areaNormalizeInputList, roomsNormalizeInputList = \
+            DatasetProcessing.getNormalizeInputDataset(areaInputList, roomsInputList)
+        normalizeDataInput = []
+        for i in range(len(areaNormalizeInputList)):
+            normalizeDataInput.append([areaNormalizeInputList[i][0],
+                                       roomsNormalizeInputList[i][0], priceNormalizeInputList[i]])
+        return normalizeDataInput

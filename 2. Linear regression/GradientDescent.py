@@ -100,3 +100,23 @@ class GradientDescent(object):
                 # print("-----------------------------------------------------------------------------------------------")
                 return lastIteration, J_hist.tolist(), weight_NP.tolist(), YNew_NP.T.tolist(), weight_hist1, \
                        weight_hist2
+
+    """Метод расчета цены по весам градиентного спуска.
+
+    Args:
+        areaInputList: лист, содержащий area составляющую.
+        roomsInputList: лист, содержащий rooms составляющую.
+        wLast: лист, содержащий веса w0 для x0, w1 для x1, w2 для x2.
+        
+    Returns:
+        priceNormalizeInputList: лист, содержащий рассчитанные нормализованные цены.
+    """
+    @staticmethod
+    def calculateInputPrice(areaInputList, roomsInputList, wLast):
+        areaNormalizeInputList, roomsNormalizeInputList = \
+            DatasetProcessing.getNormalizeInputDataset(areaInputList, roomsInputList)
+        priceNormalizeInputList = []
+        for i in range(len(areaInputList)):
+            priceNormalizeInputList.append(
+                wLast[0][0] + areaNormalizeInputList[i][0] * wLast[1][0] + roomsNormalizeInputList[i][0] * wLast[2][0])
+        return priceNormalizeInputList

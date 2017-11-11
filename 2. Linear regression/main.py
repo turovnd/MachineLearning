@@ -75,17 +75,32 @@ if __name__ == '__main__':
     # (lastIteration, MSE, wLast, newPrice, weight_hist1, weight_hist2) = \
     #     GradientDescent.calculateGradientDescent(data, 0.4459, 50000, 0.0000000001)
 
-    # print("MSE =", MSE)  # --
+    areaInputList = []
+    roomsInputList = []
+    print("write two different values")
+    while True:
+        try:
+            areaInputVar = input("write area ('q' to exit): ")
+            if areaInputVar == 'q':
+                break
+            else:
+                areaInputList.append(float(areaInputVar))
 
-    # print("MSE =", MSE[1000], MSE[2000], MSE[3000], MSE[4000], MSE[5000], MSE[10000])
-    # newPrice_NP = np.asarray(newPrice)
-    # price_NP = np.asarray(price)
-    # error = newPrice_NP - price_NP
-    # print(error)
-    # print(weight_hist1)
-    # print(weight_hist2)
-    # print("-----------------------------------------------------------------------------------------------")
+            roomsInputVar = input("write number of rooms ('q' to exit): ")
+            if roomsInputVar == 'q':
+                break
+            else:
+                roomsInputList.append(float(roomsInputVar))
+        except ValueError:
+            print("Wrong format\n")
+            continue
+
     Visualization.build3DStartDataset(data)
     Visualization.build3DCostFunction(weight_hist1, weight_hist2, MSE, lastIteration)
-    Visualization.build3DRegressionLinear(normalizeData, wLast, newPrice)
+    if (len(areaInputList) != 0):
+        priceNormalizeInputList = GradientDescent.calculateInputPrice(areaInputList, roomsInputList, wLast)
+        normalizeDataInput = DatasetProcessing.getCombinedInputData(areaInputList, roomsInputList, priceNormalizeInputList)
+        Visualization.build3DRegressionLinearPlusInput(normalizeData, wLast, newPrice, normalizeDataInput)
+    else:
+        Visualization.build3DRegressionLinear(normalizeData, wLast, newPrice)
     Visualization.build2DInfo(price, newPrice, MSE, lastIteration)

@@ -41,7 +41,63 @@ class Visualization(object):
         normalizeData: лист, содержащий нормализованный датасет в виде (area,rooms,price).
         wLast, лист, содержащий последние веса w0 для x0, w1 для x1, w2 для x2.
         zNew: лист, содержащий рассчитанные цены.
-        
+        normalizeDataInput: лист, содержащий введенные объединненные нормализованне датасеты
+         в виде (areaNormalizeInputList,roomsNormalizeInputList,priceNormalizeInputList).
+         
+    Returns:
+        0: удачное исполнение.
+    """
+    @staticmethod
+    def build3DRegressionLinearPlusInput(normalizeData, wLast, zNew, normalizeDataInput):
+        # for scatter
+        xNormalizeData, yNormalizeData, zNormalizeData = DatasetProcessing.getSeparetedData(normalizeData)
+        xInputNormalizeData, yInputNormalizeData, zInputNormalizeData = \
+            DatasetProcessing.getSeparetedData(normalizeDataInput)
+
+        # for plot_wireframe
+        n = 30  # плотность сетки
+        # x -2 4 # y -3 2 # z -4 6
+        X = np.linspace(-2, 4, n)
+        Y = np.linspace(-3, 2, n)
+        X, Y = np.meshgrid(X, Y)
+        Z = np.zeros((n, n))
+        for i in range(n):
+            for j in range(n):
+                Z[i, j] = wLast[0][0] + X[i, j] * wLast[1][0] + Y[i, j] * wLast[2][0]
+
+        # parameters for plots
+        colors = ["#00CC00", "#FF0000", "#560EAD", "#B40097"]
+        linewidths = [4, 6]
+        labels = ["started normalize dataset", "calculated normalize dataset", "calculated regression plane",
+                  "input calculated normalize dataset"]
+
+        fig = plt.figure()
+        ax1 = Axes3D(fig)
+        ax1.scatter(xNormalizeData, yNormalizeData, zNormalizeData, color=colors[0], linewidth=linewidths[0],
+                    label=labels[0])
+        ax1.scatter(xNormalizeData, yNormalizeData, zNew, color=colors[1], linewidth=linewidths[1],
+                    label=labels[1])
+        ax1.scatter(xInputNormalizeData, yInputNormalizeData, zInputNormalizeData, color=colors[3], linewidth=linewidths[1],
+                    label=labels[3])
+        ax1.plot_wireframe(X, Y, Z, color=colors[2], label=labels[2], alpha=.5)
+        # title
+        plt.title("Regression plane relatively datasets")
+        # label
+        ax1.set_xlabel("Area normalize")
+        ax1.set_ylabel("Rooms normalize")
+        ax1.set_zlabel("Price normalize")
+        # legend
+        plt.legend(loc=3, fontsize="small")
+        plt.show()
+        return 0
+
+    """Метод отображения регрессионной плоскости относительно нормализованного датасета.
+
+    Args: 
+        normalizeData: лист, содержащий нормализованный датасет в виде (area,rooms,price).
+        wLast, лист, содержащий последние веса w0 для x0, w1 для x1, w2 для x2.
+        zNew: лист, содержащий рассчитанные цены.
+            
     Returns:
         0: удачное исполнение.
     """
