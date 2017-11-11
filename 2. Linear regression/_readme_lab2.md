@@ -33,7 +33,7 @@
 	- размер потомства 
 		![размер потомства](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/5.%20evolution.jpg)
 	- процент выживаемости: 3 лучших особи
-формирование нового поколения:
+- формирование нового поколения:
 	- скрещивание (кроссовер): однородный кроссовер: у ребенка первые 3 гена от лучшей особи, после чередуются с другим родителем через одну.
 		![однородный кроссовер](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/6.%20evolution.jpg)
 	
