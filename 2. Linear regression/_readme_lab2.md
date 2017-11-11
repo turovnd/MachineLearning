@@ -26,11 +26,15 @@
 	- getSeparetedData;
 	- getAvgData;
 	- getStandardDeviationData;
-	- getNormalizeDataset.
+	- getNormalizeDataset;
+	- getNormalizeInputDataset;
+	- getCombinedInputData.
 - [GradientDescent](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/GradientDescent.py):
-	- calculateGradientDescent.
+	- calculateGradientDescent;
+	- calculateInputPrice.
 - [Visualization](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/Visualization.py):
 	- build3DStartDataset;
+	- build3DRegressionLinearPlusInput;
 	- build3DRegressionLinear;
 	- build3DCostFunction;
 	- build2DInfo.
