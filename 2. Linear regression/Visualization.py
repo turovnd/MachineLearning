@@ -230,3 +230,68 @@ class Visualization(object):
         plt.show()
         return 0
 
+    @staticmethod
+    def build2DMSEEvolution(MSE0, MSE1, MSE2, lastIteration):
+        """Метод отображения изменения MSE в ходе эволюции.
+
+        Args:
+            MSE0: число, лучшая ошибка 0 особи.
+            MSE1: число, лучшая ошибка 1 особи.
+            MSE2: число, лучшая ошибка 2 особи.
+            # MSE1: число, ошибка особи 1.
+            # MSE2: число, ошибка особи 2.
+            # MSE3: число, ошибка особи 3.
+            # MSE4: число, ошибка особи 4.
+            # MSE5: число, ошибка особи 5.
+            # MSE6: число, ошибка особи 6.
+            lastIteration: последняя иттерация вычислений.
+
+        Returns:
+            0: удачное исполнение.
+        """
+        plt.subplot(221)
+        plt.plot([MSE0[i] for i in range(lastIteration)], color="#FF0000", linewidth=1)
+        # title
+        plt.title("Measurement of MSE top0 with each iteration")
+        # label
+        plt.xlabel("$iteration$")
+        plt.ylabel("$MSE$")
+        plt.grid(True)
+
+        plt.subplot(222)
+        plt.plot([MSE1[i] for i in range(lastIteration)], color="#FF00FF", linewidth=1)
+        # title
+        plt.title("Measurement of MSE top1 with each iteration")
+        # label
+        plt.xlabel("$iteration$")
+        plt.ylabel("$MSE$")
+        plt.grid(True)
+
+        plt.subplot(223)
+        plt.plot([MSE2[i] for i in range(lastIteration)], color="#00FF00", linewidth=1)
+        # title
+        plt.title("Measurement of MSE top2 with each iteration")
+        # label
+        plt.xlabel("$iteration$")
+        plt.ylabel("$MSE$")
+        plt.grid(True)
+
+        #
+        # plt.subplot(212)
+        # colors = ["#00B945", "#FF2C00"]
+        # linewidths = [4, 4]
+        # labels = ["calculated price", "started price"]
+        # plt.plot([newPrice[0][i] for i in range(len(newPrice[0]))], color=colors[0], linewidth=linewidths[0],
+        #          label=labels[0])
+        # plt.plot([price[i] for i in range(len(price))], color=colors[1], linewidth=linewidths[1],
+        #          label=labels[1])
+        # # title
+        # plt.title("Visualization started and calculated prices")
+        # # label
+        # plt.xlabel("number")
+        # plt.ylabel("$price$")
+        # # legend
+        # plt.legend(loc=1, fontsize="small")
+        # plt.grid(True)
+        plt.show()
+        return 0
