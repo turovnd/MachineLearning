@@ -92,7 +92,7 @@ Gradient:
 ![2DInfo](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/4.%202DInfo.jpg)
 
 Evolution:
-![build2DMSEEvolution](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/8. %20build2DMSEEvolution.jpg)
+![build2DMSEEvolution](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/8.%20build2DMSEEvolution.jpg)
 
 ### FAQ
 
