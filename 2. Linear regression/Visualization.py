@@ -12,16 +12,16 @@ class Visualization(object):
     def __init__(self):
         pass
 
-    """Метод отображения полученного датасета на графике трехмерного простраства (x,y,z)=(area, rooms, price).
-        
-    Args: 
-        data: лист, содержащий входной датасет в виде (area,rooms,price).
-
-    Returns:
-        0: удачное исполнение.
-    """
     @staticmethod
     def build3DStartDataset(data):
+        """Метод отображения полученного датасета на графике трехмерного простраства (x,y,z)=(area, rooms, price).
+
+        Args:
+            data: лист, содержащий входной датасет в виде (area,rooms,price).
+
+        Returns:
+            0: удачное исполнение.
+        """
         x, y, z = DatasetProcessing.getSeparetedData(data)
         fig = plt.figure()
         axes = Axes3D(fig)
@@ -35,20 +35,20 @@ class Visualization(object):
         plt.show()
         return 0
 
-    """Метод отображения регрессионной плоскости относительно нормализованного датасета.
-
-    Args: 
-        normalizeData: лист, содержащий нормализованный датасет в виде (area,rooms,price).
-        wLast, лист, содержащий последние веса w0 для x0, w1 для x1, w2 для x2.
-        zNew: лист, содержащий рассчитанные цены.
-        normalizeDataInput: лист, содержащий введенные объединненные нормализованне датасеты
-         в виде (areaNormalizeInputList,roomsNormalizeInputList,priceNormalizeInputList).
-         
-    Returns:
-        0: удачное исполнение.
-    """
     @staticmethod
     def build3DRegressionLinearPlusInput(normalizeData, wLast, zNew, normalizeDataInput):
+        """Метод отображения регрессионной плоскости относительно нормализованного датасета.
+
+        Args:
+            normalizeData: лист, содержащий нормализованный датасет в виде (area,rooms,price).
+            wLast, лист, содержащий последние веса w0 для x0, w1 для x1, w2 для x2.
+            zNew: лист, содержащий рассчитанные цены.
+            normalizeDataInput: лист, содержащий введенные объединненные нормализованне датасеты
+             в виде (areaNormalizeInputList,roomsNormalizeInputList,priceNormalizeInputList).
+
+        Returns:
+            0: удачное исполнение.
+        """
         # for scatter
         xNormalizeData, yNormalizeData, zNormalizeData = DatasetProcessing.getSeparetedData(normalizeData)
         xInputNormalizeData, yInputNormalizeData, zInputNormalizeData = \
@@ -91,18 +91,18 @@ class Visualization(object):
         plt.show()
         return 0
 
-    """Метод отображения регрессионной плоскости относительно нормализованного датасета.
-
-    Args: 
-        normalizeData: лист, содержащий нормализованный датасет в виде (area,rooms,price).
-        wLast, лист, содержащий последние веса w0 для x0, w1 для x1, w2 для x2.
-        zNew: лист, содержащий рассчитанные цены.
-            
-    Returns:
-        0: удачное исполнение.
-    """
     @staticmethod
     def build3DRegressionLinear(normalizeData, wLast, zNew):
+        """Метод отображения регрессионной плоскости относительно нормализованного датасета.
+
+        Args:
+            normalizeData: лист, содержащий нормализованный датасет в виде (area,rooms,price).
+            wLast, лист, содержащий последние веса w0 для x0, w1 для x1, w2 для x2.
+            zNew: лист, содержащий рассчитанные цены.
+
+        Returns:
+            0: удачное исполнение.
+        """
         # for scatter
         xNormalizeData, yNormalizeData, zNormalizeData = DatasetProcessing.getSeparetedData(normalizeData)
 
@@ -140,19 +140,19 @@ class Visualization(object):
         plt.show()
         return 0
 
-    """Метод отображения графика функции стоимости и точек MSE первого вычисления и последнего.
-
-    Args: 
-        weight_hist1(): массив numpy, содержащий веса всех итераций для w1.
-        weight_hist2(): массив numpy, содержащий веса всех итераций для w2.
-        MSE: лист, содержащий среднеквадртичные отклоения.
-        lastIteration: число, последняя иттерация вычислений.
-
-    Returns:
-        0: удачное исполнение.
-    """
     @staticmethod
     def build3DCostFunction(weight_hist1, weight_hist2, MSE, lastIteration):
+        """Метод отображения графика функции стоимости и точек MSE первого вычисления и последнего.
+
+        Args:
+            weight_hist1(): массив numpy, содержащий веса всех итераций для w1.
+            weight_hist2(): массив numpy, содержащий веса всех итераций для w2.
+            MSE: лист, содержащий среднеквадртичные отклоения.
+            lastIteration: число, последняя иттерация вычислений.
+
+        Returns:
+            0: удачное исполнение.
+        """
         # for plot_wireframe
         n = 20  # плотность сетки
         # x -2 4 # y -3 2 # z -4 6
@@ -187,21 +187,21 @@ class Visualization(object):
         plt.show()
         return 0
 
-    """Метод отображения нескольких 2D графиков за один вызов.
-        1) Изменение среднеквадратичного отклонения с каждой итерацией.
-        2) Визуализация данных и вычисленных цен.
-        
-    Args: 
-        price: лист, содержащий цену из датасета.
-        newPrice: лист, содержащий пересчитанную цену.
-        MSE: лист, содержащий среднеквадртичные отклоения.
-        lastIteration: последняя иттерация вычислений.
-        
-    Returns:
-        0: удачное исполнение.
-    """
     @staticmethod
     def build2DInfo(price, newPrice, MSE, lastIteration):
+        """Метод отображения нескольких 2D графиков за один вызов.
+                1) Изменение среднеквадратичного отклонения с каждой итерацией.
+                2) Визуализация данных и вычисленных цен.
+
+        Args:
+            price: лист, содержащий цену из датасета.
+            newPrice: лист, содержащий пересчитанную цену.
+            MSE: лист, содержащий среднеквадртичные отклоения.
+            lastIteration: последняя иттерация вычислений.
+
+        Returns:
+            0: удачное исполнение.
+        """
         plt.subplot(211)
         plt.plot([MSE[i] for i in range(lastIteration)], color="#560EAD", linewidth=4)
         # title
