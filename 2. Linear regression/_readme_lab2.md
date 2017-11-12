@@ -65,7 +65,15 @@
 	- build3DRegressionLinearPlusInput;
 	- build3DRegressionLinear;
 	- build3DCostFunction;
-	- build2DInfo.
+	- build2DInfo;
+	- build2DMSEEvolution.
+- [Evolution](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/Evolution.py)::
+	- startEvolution;
+	- testEvo;
+	- weightStartIntialization;
+	- calculateMSE;
+	- selection;
+	- crossing.
 - *presentation files*:
 	- [main](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/main.py).
 
@@ -74,10 +82,17 @@ https://habrastorage.org/files/9e7/ec4/164/9e7ec41641d74a9dbcb696eeb60c1ec2.png
 
 [other results](https://docs.google.com/spreadsheets/d/1_fdJo6_bG0gLd3Ci8oq-1gmV49EXWts24C2ImHvbD2g/edit#gid=303528850)
 
+[excel table](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/results.xlsx)
+
+Gradient:
+
 ![3DStartDataset](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/1.%203DStartDataset.jpg)
 ![3DCostFunction](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/2.%203DCostFunction.jpg)
 ![3DRegressionLinear](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/3.%203DRegressionLinear.jpg)
 ![2DInfo](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/4.%202DInfo.jpg)
+
+Evolution:
+![build2DMSEEvolution](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/8. %20build2DMSEEvolution.jpg)
 
 ### FAQ
 
