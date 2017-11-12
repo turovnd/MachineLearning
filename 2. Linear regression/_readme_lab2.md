@@ -66,7 +66,8 @@
 	- build3DRegressionLinear;
 	- build3DCostFunction;
 	- build2DInfo;
-	- build2DMSEEvolution.
+	- build2DTopMSEEvolution;
+	- build2DIndividualMSEEvolution.
 - [Evolution](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/Evolution.py):
 	- startEvolution;
 	- testEvo;
@@ -92,7 +93,9 @@ Gradient:
 ![2DInfo](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/4.%202DInfo.jpg)
 
 Evolution:
-![build2DMSEEvolution](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/8.%20build2DMSEEvolution.jpg)
+![build2DTopMSEEvolution](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/8.%20build2DTopMSEEvolution.jpg)
+
+![build2DIndividualMSEEvolution](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/9.%20build2DIndividualMSEEvolution.jpg)
 
 ### FAQ
 
