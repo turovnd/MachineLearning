@@ -67,7 +67,7 @@
 	- build3DCostFunction;
 	- build2DInfo;
 	- build2DMSEEvolution.
-- [Evolution](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/Evolution.py)::
+- [Evolution](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/Evolution.py):
 	- startEvolution;
 	- testEvo;
 	- weightStartIntialization;
