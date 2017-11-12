@@ -16,37 +16,49 @@ class Evolution(object):
         weight_NP0, weight_NP1, weight_NP2, weight_NP3, weight_NP4, weight_NP5, weight_NP6 = \
             Evolution.weightStartIntialization()
 
+        MSE_histTop0 = np.zeros(numberOfIteration)
+        MSE_histTop1 = np.zeros(numberOfIteration)
+        MSE_histTop2 = np.zeros(numberOfIteration)
+
         MSE_hist0 = np.zeros(numberOfIteration)
         MSE_hist1 = np.zeros(numberOfIteration)
         MSE_hist2 = np.zeros(numberOfIteration)
-        # MSE_hist3 = np.zeros(numberOfIteration)
-        # MSE_hist4 = np.zeros(numberOfIteration)
-        # MSE_hist5 = np.zeros(numberOfIteration)
-        # MSE_hist6 = np.zeros(numberOfIteration)
+        MSE_hist3 = np.zeros(numberOfIteration)
+        MSE_hist4 = np.zeros(numberOfIteration)
+        MSE_hist5 = np.zeros(numberOfIteration)
+        MSE_hist6 = np.zeros(numberOfIteration)
         for i in range(numberOfIteration):
             # MSE0, MSE1, MSE2, MSE3, MSE4, MSE5, MSE6 = Evolution.testEvo(i)
-            MSE_top0, MSE_top1, MSE_top2 = Evolution.testEvo(i)
-            MSE_hist0[i] = MSE_top0
-            MSE_hist1[i] = MSE_top1
-            MSE_hist2[i] = MSE_top2
-            # MSE_hist3[i] = MSE3
-            # MSE_hist4[i] = MSE4
-            # MSE_hist5[i] = MSE5
-            # MSE_hist6[i] = MSE6
+            MSE_top0, MSE_top1, MSE_top2, MSE0, MSE1, MSE2, MSE3, MSE4, MSE5, MSE6 = Evolution.testEvo(i)
+            MSE_histTop0[i] = MSE_top0
+            MSE_histTop1[i] = MSE_top1
+            MSE_histTop2[i] = MSE_top2
+
+            MSE_hist0[i] = MSE0
+            MSE_hist1[i] = MSE1
+            MSE_hist2[i] = MSE2
+            MSE_hist3[i] = MSE3
+            MSE_hist4[i] = MSE4
+            MSE_hist5[i] = MSE5
+            MSE_hist6[i] = MSE6
         # Visualization.build2DMSEEvolution(MSE_hist0, MSE_hist1, MSE_hist2, MSE_hist3, MSE_hist4, MSE_hist5, MSE_hist6,
         #                                   numberOfIteration)
-        Visualization.build2DMSEEvolution(MSE_hist0, MSE_hist1, MSE_hist2, numberOfIteration)
+        print(type(MSE_hist0))
+        print(MSE_hist0)
+        Visualization.build2DTopMSEEvolution(MSE_histTop0, MSE_histTop1, MSE_histTop2, numberOfIteration)
+        Visualization.build2DIndividualMSEEvolution(MSE_hist0, MSE_hist1, MSE_hist2, MSE_hist3, MSE_hist4, MSE_hist5,
+                                                    MSE_hist6, numberOfIteration)
 
     @staticmethod
     def testEvo(iteration):
         # print(wLast) = print(np.random.rand(3, 1).tolist())
-        weight_NP0 = 0.00000000000000011 + np.random.randn(3, 1)
-        weight_NP1 = 0.00000000000000011 + np.random.randn(3, 1)
-        weight_NP2 = 0.00000000000000011 + np.random.randn(3, 1)
-        weight_NP3 = 0.00000000000000011 + np.random.randn(3, 1)
-        weight_NP4 = 0.00000000000000011 + np.random.randn(3, 1)
-        weight_NP5 = 0.00000000000000011 + np.random.randn(3, 1)
-        weight_NP6 = 0.00000000000000011 + np.random.randn(3, 1)
+        weight_NP0 = np.random.randn(3, 1)
+        weight_NP1 = np.random.randn(3, 1)
+        weight_NP2 = np.random.randn(3, 1)
+        weight_NP3 = np.random.randn(3, 1)
+        weight_NP4 = np.random.randn(3, 1)
+        weight_NP5 = np.random.randn(3, 1)
+        weight_NP6 = np.random.randn(3, 1)
         data = DatasetProcessing.getDataset('dataset.txt')
         normalizeData = DatasetProcessing.getNormalizeDataset(data)
         area, rooms, Y = DatasetProcessing.getSeparetedData(normalizeData)
@@ -62,15 +74,6 @@ class Evolution(object):
         m, n = np.shape(X_NP)
         N = Y_NP.shape[0]
 
-        # while True:
-        YNew_NP0 = X_NP.dot(weight_NP0)
-        YNew_NP1 = X_NP.dot(weight_NP1)
-        YNew_NP2 = X_NP.dot(weight_NP2)
-        YNew_NP3 = X_NP.dot(weight_NP3)
-        YNew_NP4 = X_NP.dot(weight_NP4)
-        YNew_NP5 = X_NP.dot(weight_NP5)
-        YNew_NP6 = X_NP.dot(weight_NP6)
-
         MSE0 = np.sum((X_NP.dot(weight_NP0)) ** 2) / (2 * N)
         MSE1 = np.sum((X_NP.dot(weight_NP1)) ** 2) / (2 * N)
         MSE2 = np.sum((X_NP.dot(weight_NP2)) ** 2) / (2 * N)
@@ -78,8 +81,6 @@ class Evolution(object):
         MSE4 = np.sum((X_NP.dot(weight_NP4)) ** 2) / (2 * N)
         MSE5 = np.sum((X_NP.dot(weight_NP5)) ** 2) / (2 * N)
         MSE6 = np.sum((X_NP.dot(weight_NP6)) ** 2) / (2 * N)
-
-
 
         MSE_total = []
         MSE_total.append(MSE0)
@@ -89,6 +90,14 @@ class Evolution(object):
         MSE_total.append(MSE4)
         MSE_total.append(MSE5)
         MSE_total.append(MSE6)
+        MSE_return0 = MSE0
+        MSE_return1 = MSE1
+        MSE_return2 = MSE2
+        MSE_return3 = MSE3
+        MSE_return4 = MSE4
+        MSE_return5 = MSE5
+        MSE_return6 = MSE6
+
         MSE_top = []
         MSE_place = []
         # отбор: поиск лучшего MSE
@@ -312,7 +321,8 @@ class Evolution(object):
         weight_NP6 = np.vstack((float(string00), float(string10), float(string20)))
         # print("weight_NP6", weight_NP6)
         # return MSE_return[0], MSE_return[1], MSE_return[2], MSE_return[3], MSE_return[4], MSE_return[5], MSE_return[6]
-        return MSE_top[0], MSE_top[1], MSE_top[2]
+        return MSE_top[0], MSE_top[1], MSE_top[2], MSE_return0, MSE_return1, MSE_return2, MSE_return3, \
+               MSE_return4, MSE_return5, MSE_return6
 
     @staticmethod
     def weightStartIntialization():

@@ -231,26 +231,20 @@ class Visualization(object):
         return 0
 
     @staticmethod
-    def build2DMSEEvolution(MSE0, MSE1, MSE2, lastIteration):
-        """Метод отображения изменения MSE в ходе эволюции.
+    def build2DTopMSEEvolution(MSETop0, MSETop1, MSETop2, lastIteration):
+        """Метод отображения изменения лучших MSE в ходе эволюции.
 
         Args:
-            MSE0: число, лучшая ошибка 0 особи.
-            MSE1: число, лучшая ошибка 1 особи.
-            MSE2: число, лучшая ошибка 2 особи.
-            # MSE1: число, ошибка особи 1.
-            # MSE2: число, ошибка особи 2.
-            # MSE3: число, ошибка особи 3.
-            # MSE4: число, ошибка особи 4.
-            # MSE5: число, ошибка особи 5.
-            # MSE6: число, ошибка особи 6.
+            MSETop0: лист, первая лучшая ошибка.
+            MSETop1: лист, вторая лучшая ошибка.
+            MSETop2: лист, третья лучшая ошибка.
             lastIteration: последняя иттерация вычислений.
 
         Returns:
             0: удачное исполнение.
         """
         plt.subplot(221)
-        plt.plot([MSE0[i] for i in range(lastIteration)], color="#FF0000", linewidth=1)
+        plt.plot([MSETop0[i] for i in range(lastIteration)], color="#FF0000", linewidth=1)
         # title
         plt.title("Measurement of MSE top0 with each iteration")
         # label
@@ -259,7 +253,7 @@ class Visualization(object):
         plt.grid(True)
 
         plt.subplot(222)
-        plt.plot([MSE1[i] for i in range(lastIteration)], color="#FF00FF", linewidth=1)
+        plt.plot([MSETop1[i] for i in range(lastIteration)], color="#FF00FF", linewidth=1)
         # title
         plt.title("Measurement of MSE top1 with each iteration")
         # label
@@ -268,30 +262,94 @@ class Visualization(object):
         plt.grid(True)
 
         plt.subplot(223)
-        plt.plot([MSE2[i] for i in range(lastIteration)], color="#00FF00", linewidth=1)
+        plt.plot([MSETop2[i] for i in range(lastIteration)], color="#00FF00", linewidth=1)
         # title
         plt.title("Measurement of MSE top2 with each iteration")
         # label
         plt.xlabel("$iteration$")
         plt.ylabel("$MSE$")
         plt.grid(True)
+        plt.show()
+        return 0
 
-        #
-        # plt.subplot(212)
-        # colors = ["#00B945", "#FF2C00"]
-        # linewidths = [4, 4]
-        # labels = ["calculated price", "started price"]
-        # plt.plot([newPrice[0][i] for i in range(len(newPrice[0]))], color=colors[0], linewidth=linewidths[0],
-        #          label=labels[0])
-        # plt.plot([price[i] for i in range(len(price))], color=colors[1], linewidth=linewidths[1],
-        #          label=labels[1])
-        # # title
-        # plt.title("Visualization started and calculated prices")
-        # # label
-        # plt.xlabel("number")
-        # plt.ylabel("$price$")
-        # # legend
-        # plt.legend(loc=1, fontsize="small")
-        # plt.grid(True)
+    @staticmethod
+    def build2DIndividualMSEEvolution(MSE0, MSE1, MSE2, MSE3, MSE4, MSE5, MSE6, lastIteration):
+        """Метод отображения изменения MSE особей в ходе эволюции.
+
+        Args:
+            MSE0: изменение ошибки особи 0.
+            MSE1: изменение ошибки особи 1.
+            MSE2: изменение ошибки особи 2.
+            MSE3: изменение ошибки особи 3.
+            MSE4: изменение ошибки особи 4.
+            MSE5: изменение ошибки особи 5.
+            MSE6: изменение ошибки особи 6.
+            lastIteration: последняя иттерация вычислений.
+
+        Returns:
+            0: удачное исполнение.
+        """
+        plt.subplot(241)
+        plt.plot([MSE0[i] for i in range(lastIteration)], color="#AA0000", linewidth=1)
+        # title
+        plt.title("Measurement of MSE0 with each iteration")
+        # label
+        plt.xlabel("$iteration$")
+        plt.ylabel("$MSE$")
+        plt.grid(True)
+
+        plt.subplot(242)
+        plt.plot([MSE1[i] for i in range(lastIteration)], color="#BB0000", linewidth=1)
+        # title
+        plt.title("Measurement of MSE1 with each iteration")
+        # label
+        plt.xlabel("$iteration$")
+        plt.ylabel("$MSE$")
+        plt.grid(True)
+
+        plt.subplot(243)
+        plt.plot([MSE2[i] for i in range(lastIteration)], color="#CC0000", linewidth=1)
+        # title
+        plt.title("Measurement of MSE2 with each iteration")
+        # label
+        plt.xlabel("$iteration$")
+        plt.ylabel("$MSE$")
+        plt.grid(True)
+
+        plt.subplot(244)
+        plt.plot([MSE3[i] for i in range(lastIteration)], color="#DD0000", linewidth=1)
+        # title
+        plt.title("Measurement of MSE3 with each iteration")
+        # label
+        plt.xlabel("$iteration$")
+        plt.ylabel("$MSE$")
+        plt.grid(True)
+
+        plt.subplot(245)
+        plt.plot([MSE4[i] for i in range(lastIteration)], color="#FF0000", linewidth=1)
+        # title
+        plt.title("Measurement of MSE4 with each iteration")
+        # label
+        plt.xlabel("$iteration$")
+        plt.ylabel("$MSE$")
+        plt.grid(True)
+
+        plt.subplot(246)
+        plt.plot([MSE5[i] for i in range(lastIteration)], color="#AAAA00", linewidth=1)
+        # title
+        plt.title("Measurement of MSE5 with each iteration")
+        # label
+        plt.xlabel("$iteration$")
+        plt.ylabel("$MSE$")
+        plt.grid(True)
+
+        plt.subplot(247)
+        plt.plot([MSE6[i] for i in range(lastIteration)], color="#BBBB00", linewidth=1)
+        # title
+        plt.title("Measurement of MSE6 with each iteration")
+        # label
+        plt.xlabel("$iteration$")
+        plt.ylabel("$MSE$")
+        plt.grid(True)
         plt.show()
         return 0
