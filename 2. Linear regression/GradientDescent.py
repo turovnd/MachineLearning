@@ -25,7 +25,7 @@ class GradientDescent(object):
             stepsNumber: максимальное количество иттераций спуска.
             epsilonLimitation: максимальная разница между функционалом ошибки текущей и предыдущей иттераций
              или весами weight_NP[1] и weight_NP[2].
-            writeToOutputTxt: флаг записи в таблицы в файл output.txt: 1 - включен.
+            writeToOutputTxt: флаг записи в таблицы в файл outputGradient.txt: 1 - включен.
 
         Returns:
             lastIteration: число, последняя иттерация вычислений.
@@ -60,7 +60,7 @@ class GradientDescent(object):
         i = 0
         while True:
             YNew_NP = X_NP.dot(weight_NP)
-            MSE = np.sum((X_NP.dot(weight_NP)) ** 2) / (2 * N)
+            MSE = np.sum((YNew_NP - Y_NP) ** 2) / (2 * N)
             MSE_hist[i] = MSE
 
             gradient = np.dot(XTranspose_NP, (X_NP.dot(weight_NP) - Y_NP)) / N
@@ -86,7 +86,7 @@ class GradientDescent(object):
                     breakCriterion = "stepsNumber"
 
                 if (writeToOutputTxt == 1):
-                    my_file = open('output.txt', 'a')
+                    my_file = open('outputGradient.txt', 'a')
                     table = [[breakCriterion, lastIteration, stepsNumber, kLearningRate, alphaLearningRate,
                               epsilonLimitation, np.average(MSE_hist),
                               MSE_hist[lastIteration], MSE_hist[lastIteration - 1], MSE_hist[0],
