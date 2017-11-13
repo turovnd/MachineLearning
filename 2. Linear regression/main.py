@@ -74,7 +74,6 @@ if __name__ == '__main__':
         Visualization.build3DRegressionLinearPlusInput(normalizeData, wLast, newPriceGradient, normalizeDataInput)
     else:
         Visualization.build3DRegressionLinear(normalizeData, wLast, newPriceGradient)
-    # Visualization.build2DInfo(price, newPriceGradient, MSEGradient, lastIteration)
     Visualization.build3DRegressionLinear(normalizeData, wTopEvo, newPriceEvo)
     Visualization.build2DIndividualMSEEvolution(MSE_hist0, MSE_hist1, MSE_hist2, MSE_hist3,
                                                 MSE_hist4, MSE_hist5, MSE_hist6, numberOfIterations)
