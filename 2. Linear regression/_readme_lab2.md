@@ -61,31 +61,39 @@
 	- calculateGradientDescent;
 	- calculateInputPrice.
 - [Visualization](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/Visualization.py):
-	- build3DStartDataset;
-	- build3DRegressionLinearPlusInput;
-	- build3DRegressionLinear;
-	- build3DCostFunction;
-	- build2DInfo;
-	- build2DTopMSEEvolution;
-	- build2DIndividualMSEEvolution.
+	- build3DStartDataset (start dots);
+	- build3DRegressionLinearPlusInput (gradient);
+	- build3DRegressionLinear (all);
+	- build3DRegressionLinearGradientVsEvolution (together);
+	- build3DCostFunction (gradient);
+	- build2DInfo (together);
+	- build2DIndividualMSEEvolution (evolution).
 - [Evolution](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/Evolution.py):
 	- startEvolution;
+	- calculateNewPrice (off):
 	- testEvo;
 	- weightStartIntialization;
 	- calculateMSE;
-	- selection;
-	- crossing.
+	- mutationProbability;
+	- selectionIndividuals;
+	- testEvo;
+	- selection (off);
+	- crossing (off).
 - *presentation files*:
 	- [main](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/main.py).
 
-### Output
-https://habrastorage.org/files/9e7/ec4/164/9e7ec41641d74a9dbcb696eeb60c1ec2.png
+### Output (one start)
 
-[other results](https://docs.google.com/spreadsheets/d/1_fdJo6_bG0gLd3Ci8oq-1gmV49EXWts24C2ImHvbD2g/edit#gid=303528850)
+[example-outputEvolution]()
+[example-outputGradient]()
 
-[excel table](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/results.xlsx)
+Other results:
+[outputEvolution60000-50percentMutation]()
+[outputEvolution60000-100percentMutation]()
+[outputGradient500Dynamic]()
+[google table](https://docs.google.com/spreadsheets/d/1_fdJo6_bG0gLd3Ci8oq-1gmV49EXWts24C2ImHvbD2g/edit#gid=303528850)
 
-Gradient:
+Graphics:
 
 ![3DStartDataset](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/1.%203DStartDataset.jpg)
 ![3DCostFunction](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/2.%203DCostFunction.jpg)
