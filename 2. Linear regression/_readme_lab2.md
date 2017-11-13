@@ -84,7 +84,6 @@ Graphics (example-output):
 
 Gradient descent:
 
-![3DStartDataset](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/1.%203DStartDataset.jpg)
 ![\left\{\begin{matrix} \widehat{y_i{}}=w_0{}x_0{}+w_1{}x_1{}+w_2{}x_2{}+\cdots+w_N{}x_N{} \\ x_0{}=1=const\\ \end{matrix}\right.](http://latex.codecogs.com/svg.latex?%5Cfn_jvn%20%5Cleft%5C%7B%5Cbegin%7Bmatrix%7D%20%5Cwidehat%7By_i%7B%7D%7D%3Dw_0%7B%7Dx_0%7B%7D&plus;w_1%7B%7Dx_1%7B%7D&plus;w_2%7B%7Dx_2%7B%7D&plus;%5Ccdots&plus;w_N%7B%7Dx_N%7B%7D%20%5C%5C%20x_0%7B%7D%3D1%3Dconst%5C%5C%20%5Cend%7Bmatrix%7D%5Cright.)
 
 ![\left\{\begin{matrix} x=\begin{Bmatrix}x_1{},x_2{},\cdots ,x_N{} \end{Bmatrix}^T\\
@@ -105,6 +104,23 @@ Evolution algorithm:
 ![evolution algorithm](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/0.1%20evolution%20algorithm.jpg)
 
 ![mutation + selection](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/0.2%20mutation%20%2B%20selection.jpg)
+
+![example](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/0.3%20example.jpg)
+
+1. Generate 7 coefficient vector (*np.random.randn(3, 1)*);
+
+2.1 Calculate MSE for each coefficient vector: 
+
+![MSE=\frac{1}{2N}\sum_{i=1}^{N}([x][w_i]-[y])^2](http://latex.codecogs.com/svg.latex?%5Cfn_jvn%20MSE%3D%5Cfrac%7B1%7D%7B2N%7D%5Csum_%7Bi%3D1%7D%5E%7BN%7D%28%5Bx%5D%5Bw_i%5D-%5By%5D%29%5E2)
+
+2.2 Find the top three MSE and coefficient vectors.
+
+3. Produce selection with mutation:
+- top one on step 2.2 record to new_w0 without changes/mutations;
+- other six descendats have two mandatory parents (mutation replaces first parent with probability given in main.py);
+- for one descendats possibly only one mutation (probability 33% for each chromosome).
+
+4. evolution goes through a certain number of iterations given in main.py.
 
 1) **Question:**
    Что такое *линейная регрессия*?
@@ -213,6 +229,22 @@ Evolution algorithm:
    Среднеквадратичная линейная регрессия
    
    **Answer:**
+
+ other:
+параметры сглаживания (2)
+регуляризация
+коэффициент сглаживания
+матрица весов (нули)
+градиент ошибки - производная по всем направлениям
+эвристики для подбора матрицы весов (веса в отрезке)
+критерий останова (епсилон)
+\\количество итераций (2000), ошибка (0,063)
+задача линейной регрессии
+эмпирический риск
+псевдообразная матрица (точное решение)
+
+включать случайные в алгоритм для генетического разнообразия (чтобы не застрять в локальном минимуме)
+цель - оптимизация функции ошибки (эмперического риска)
 
 ### Links
 1) [линейная регрессия](http://www.machinelearning.ru/wiki/index.php?title=%D0%9B%D0%B8%D0%BD%D0%B5%D0%B9%D0%BD%D0%B0%D1%8F_%D1%80%D0%B5%D0%B3%D1%80%D0%B5%D1%81%D1%81%D0%B8%D1%8F_(%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80));
