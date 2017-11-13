@@ -17,6 +17,34 @@
 5) Perform data visualization;
 6) Требуется научить свой код принимать откуда-нибудь (лучше с консоли) дополнительные входные точки для проверки уже обученной модели.
 
+Генетика:
+![генетика](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/7.%20evolution.jpg)
+При реализации эволюционного алгоритма особью является вектор коэффициентов Θ. Для хорошего результата достаточно делать один вид мутации - добавление к вектору коэффициентов случайного, нормально распределенного шума (в Python сгенерировать случайный вектор из нормального распределения можно с помощью функции `numpy.random.randn`[fn:4]). Можно даже без скрещивания. С размером потомства и процентом выживаемости можно поэкспериментировать, экспериментально хорошо работает увеличение популяции в 6 раз и выживаемость 1/6 популяции.
+Если вы чувствуете в себе силы, в качестве эволюционного алгоритма можно выбрать алгоритм дифференциальной эволюции[fn:5]. Он сходится лучше, чем наивная эволюция.
+Как работает ваш эволюционный алгоритм? Как вы подбирали параметры для него?
+Ответ: Как написали, так и отвечайте. Задача может решаться всевозможными эволюционными алгоритмами, описание одного из вариантов реализации можно увидеть в подпункте Hints. Гиперпараметры (размер потомства, процент выживаемости и пр.) можно попытаться подобрать с помощью кросс-валидации, но на деле лучше всего работает метод “от фонаря”.
+
+- начальная популяция: рандомная генерация [w0],[w1],[w2],[w3],[w4],[w5],[w6] [w(i)] = w0,w1,w2
+- особь: [w(i)]
+- хромосома:  0,1234567890123456 = float[-1; +1]
+- ген: число в хромосоме
+- отбор
+	**(!) минимальная MSE**
+	- размер потомства 
+		
+		![размер потомства](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/5.%20evolution.jpg)
+	- процент выживаемости: 3 лучших особи
+- формирование нового поколения:
+	- скрещивание (кроссовер): однородный кроссовер: у ребенка первые 3 гена от лучшей особи, после чередуются с другим родителем через одну.
+		
+		![однородный кроссовер](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/6.%20evolution.jpg)
+	
+	- мутация: 
+		- вероятность 5% изменения особи рандомной хромосомы (w0 [0-33] w1 (33-66) w2 [66-100]) рандомных 6 генов 
+		- лучшая особь предыдущего шага не мутирует с вероятностью 100% (элитарность)
+		- если особи совпадают на первых 0,1234567 генов, то лучшая остается, а остальные мутируют с вероятностью 100%: рандомное изменение на 13 генов (катаклизм)
+ - критерий остановки: 13 катаклизмов пройдено
+
 ### Start dataset
 [Dataset.txt](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/dataset.txt) - dependence of objects: area, number of rooms, price.
 
@@ -26,26 +54,48 @@
 	- getSeparetedData;
 	- getAvgData;
 	- getStandardDeviationData;
-	- getNormalizeDataset.
+	- getNormalizeDataset;
+	- getNormalizeInputDataset;
+	- getCombinedInputData.
 - [GradientDescent](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/GradientDescent.py):
-	- calculateGradientDescent.
+	- calculateGradientDescent;
+	- calculateInputPrice.
 - [Visualization](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/Visualization.py):
 	- build3DStartDataset;
+	- build3DRegressionLinearPlusInput;
 	- build3DRegressionLinear;
 	- build3DCostFunction;
-	- build2DInfo.
+	- build2DInfo;
+	- build2DTopMSEEvolution;
+	- build2DIndividualMSEEvolution.
+- [Evolution](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/Evolution.py):
+	- startEvolution;
+	- testEvo;
+	- weightStartIntialization;
+	- calculateMSE;
+	- selection;
+	- crossing.
 - *presentation files*:
 	- [main](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/main.py).
 
 ### Output
 https://habrastorage.org/files/9e7/ec4/164/9e7ec41641d74a9dbcb696eeb60c1ec2.png
 
-[TABLE](https://docs.google.com/spreadsheets/d/1_fdJo6_bG0gLd3Ci8oq-1gmV49EXWts24C2ImHvbD2g/edit#gid=0)
+[other results](https://docs.google.com/spreadsheets/d/1_fdJo6_bG0gLd3Ci8oq-1gmV49EXWts24C2ImHvbD2g/edit#gid=303528850)
+
+[excel table](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/results.xlsx)
+
+Gradient:
 
 ![3DStartDataset](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/1.%203DStartDataset.jpg)
 ![3DCostFunction](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/2.%203DCostFunction.jpg)
 ![3DRegressionLinear](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/3.%203DRegressionLinear.jpg)
 ![2DInfo](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/4.%202DInfo.jpg)
+
+Evolution:
+![build2DTopMSEEvolution](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/8.%20build2DTopMSEEvolution.jpg)
+
+![build2DIndividualMSEEvolution](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/9.%20build2DIndividualMSEEvolution.jpg)
 
 ### FAQ
 
@@ -177,4 +227,5 @@ https://ru.coursera.org/learn/supervised-learning/lecture/hCGR6/obuchieniie-lini
 https://basegroup.ru/deductor/function/algorithm/linear-regression
 http://www.machinelearning.ru/wiki/images/6/6d/Voron-ML-1.pdf
 2) [London Machine Learning Stydy Group. Lecture 1](https://www.youtube.com/watch?v=v-LJxJlBxfc);
-3) [Trace in linear algebra](https://en.wikipedia.org/wiki/Trace_(linear_algebra)).
+3) [Trace in linear algebra](https://en.wikipedia.org/wiki/Trace_(linear_algebra));
+4) [Evolution algohithms [RUS]](https://www.youtube.com/watch?v=65AwXU7Z68c).
