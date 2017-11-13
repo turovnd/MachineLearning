@@ -10,40 +10,12 @@
 	- numpy v1.13.3.
 
 ### Problem
-1) Реализовать *линейную регрессию*;
-2) Настроить вектор коэффициентов двумя способами - *градиентным спуском* и *генетическим алгоритмом*;
-3) Для оценки качества работы использовать *среднеквадратичное отклонение/ошибку* MSE;
-4) Выборать гиперпараметры и методы произвольно;
+1) Implement *linear regression*;
+2) Configure the coefficient vector in two ways - *gradient descent* and *evolution algorithm*;
+3) To assess the quality of use *MSE*;
+4) Select hyperparameters and methods arbitrarily;
 5) Perform data visualization;
-6) Требуется научить свой код принимать откуда-нибудь (лучше с консоли) дополнительные входные точки для проверки уже обученной модели.
-
-Генетика:
-![генетика](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/7.%20evolution.jpg)
-При реализации эволюционного алгоритма особью является вектор коэффициентов Θ. Для хорошего результата достаточно делать один вид мутации - добавление к вектору коэффициентов случайного, нормально распределенного шума (в Python сгенерировать случайный вектор из нормального распределения можно с помощью функции `numpy.random.randn`[fn:4]). Можно даже без скрещивания. С размером потомства и процентом выживаемости можно поэкспериментировать, экспериментально хорошо работает увеличение популяции в 6 раз и выживаемость 1/6 популяции.
-Если вы чувствуете в себе силы, в качестве эволюционного алгоритма можно выбрать алгоритм дифференциальной эволюции[fn:5]. Он сходится лучше, чем наивная эволюция.
-Как работает ваш эволюционный алгоритм? Как вы подбирали параметры для него?
-Ответ: Как написали, так и отвечайте. Задача может решаться всевозможными эволюционными алгоритмами, описание одного из вариантов реализации можно увидеть в подпункте Hints. Гиперпараметры (размер потомства, процент выживаемости и пр.) можно попытаться подобрать с помощью кросс-валидации, но на деле лучше всего работает метод “от фонаря”.
-
-- начальная популяция: рандомная генерация [w0],[w1],[w2],[w3],[w4],[w5],[w6] [w(i)] = w0,w1,w2
-- особь: [w(i)]
-- хромосома:  0,1234567890123456 = float[-1; +1]
-- ген: число в хромосоме
-- отбор
-	**(!) минимальная MSE**
-	- размер потомства 
-		
-		![размер потомства](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/5.%20evolution.jpg)
-	- процент выживаемости: 3 лучших особи
-- формирование нового поколения:
-	- скрещивание (кроссовер): однородный кроссовер: у ребенка первые 3 гена от лучшей особи, после чередуются с другим родителем через одну.
-		
-		![однородный кроссовер](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/6.%20evolution.jpg)
-	
-	- мутация: 
-		- вероятность 5% изменения особи рандомной хромосомы (w0 [0-33] w1 (33-66) w2 [66-100]) рандомных 6 генов 
-		- лучшая особь предыдущего шага не мутирует с вероятностью 100% (элитарность)
-		- если особи совпадают на первых 0,1234567 генов, то лучшая остается, а остальные мутируют с вероятностью 100%: рандомное изменение на 13 генов (катаклизм)
- - критерий остановки: 13 катаклизмов пройдено
+6) Teach the code to take additional points from the console to check the already trained model.
 
 ### Start dataset
 [Dataset.txt](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/dataset.txt) - dependence of objects: area, number of rooms, price.
@@ -84,26 +56,29 @@
 
 ### Output (one start)
 
-[example-outputEvolution]()
-[example-outputGradient]()
+- [example-outputGradient](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/example-outputGradient.txt)
+- [example-outputEvolution](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/example-outputEvolution.txt)
 
 Other results:
-[outputEvolution60000-50percentMutation]()
-[outputEvolution60000-100percentMutation]()
-[outputGradient500Dynamic]()
-[google table](https://docs.google.com/spreadsheets/d/1_fdJo6_bG0gLd3Ci8oq-1gmV49EXWts24C2ImHvbD2g/edit#gid=303528850)
 
-Graphics:
+- [google table](https://docs.google.com/spreadsheets/d/1_fdJo6_bG0gLd3Ci8oq-1gmV49EXWts24C2ImHvbD2g/edit#gid=303528850)
+- [outputGradient500Dynamic](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/outputGradient500Dynamic.txt)
+- [outputEvolution60000-50percentMutation](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/outputEvolution60000-50percentMutation.txt)
+- [outputEvolution60000-100percentMutation](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/outputEvolution60000-100percentMutation.txt)
+
+Graphics (example-output):
 
 ![3DStartDataset](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/1.%203DStartDataset.jpg)
-![3DCostFunction](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/2.%203DCostFunction.jpg)
-![3DRegressionLinear](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/3.%203DRegressionLinear.jpg)
+
+![3DCostFunction](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/2.1%203DCostFunction.jpg)
+
+![3DRegressionLinear (together)](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/3.1%203DRegressionLinear%20(together).jpg)
+
 ![2DInfo](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/4.%202DInfo.jpg)
 
-Evolution:
-![build2DTopMSEEvolution](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/8.%20build2DTopMSEEvolution.jpg)
+![2DIndividualMSEEvolution](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/9.%202DIndividualMSEEvolution.jpg)
 
-![build2DIndividualMSEEvolution](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/9.%20build2DIndividualMSEEvolution.jpg)
+![3DRegressionLinearGradientVsEvolution](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/10.%203DRegressionLinearGradientVsEvolution.jpg)
 
 ### FAQ
 
