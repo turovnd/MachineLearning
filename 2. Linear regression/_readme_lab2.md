@@ -82,6 +82,9 @@ Graphics (example-output):
 
 ### FAQ
 
+Gradient descent:
+
+![3DStartDataset](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/1.%203DStartDataset.jpg)
 ![\left\{\begin{matrix} \widehat{y_i{}}=w_0{}x_0{}+w_1{}x_1{}+w_2{}x_2{}+\cdots+w_N{}x_N{} \\ x_0{}=1=const\\ \end{matrix}\right.](http://latex.codecogs.com/svg.latex?%5Cfn_jvn%20%5Cleft%5C%7B%5Cbegin%7Bmatrix%7D%20%5Cwidehat%7By_i%7B%7D%7D%3Dw_0%7B%7Dx_0%7B%7D&plus;w_1%7B%7Dx_1%7B%7D&plus;w_2%7B%7Dx_2%7B%7D&plus;%5Ccdots&plus;w_N%7B%7Dx_N%7B%7D%20%5C%5C%20x_0%7B%7D%3D1%3Dconst%5C%5C%20%5Cend%7Bmatrix%7D%5Cright.)
 
 ![\left\{\begin{matrix} x=\begin{Bmatrix}x_1{},x_2{},\cdots ,x_N{} \end{Bmatrix}^T\\
@@ -96,6 +99,13 @@ y=\begin{Bmatrix}y_1{},y_2{},\cdots ,y_N{} \end{Bmatrix}^T\\ w=\begin{Bmatrix}w_
 ![\begin{pmatrix} w_1{}\\ w_2{}\\ \vdots\\ w_D{}\\ \end{pmatrix}=\begin{pmatrix} w_1{}\\ w_2{}\\ \vdots\\
 w_D{}\\ \end{pmatrix}-\alpha \begin{pmatrix} 1& 1& \cdots & 1&\\ x_{11}&  x_{21}&  \cdots & x_{N1}\\ x_{12}&  x_{22}&  \cdots & x_{N2}\\ \vdots &  \vdots &  \ddots & \vdots \\ x_{1D}&  x_{2D}&  \cdots & x_{ND}
 \end{pmatrix}\begin{pmatrix} \begin{pmatrix} 1& x_{11}&  x_{12}&  \cdots & x_{1D}\\ 1& x_{21}&  x_{22}&  \cdots & x_{2D}\\ \vdots &  \vdots & \vdots & \ddots & \vdots \\ 1& x_{N1}&  x_{N2}&  \cdots & x_{ND} \end{pmatrix}& \begin{pmatrix} w_1{}\\ w_2{}\\ \vdots\\ w_D{}\\ \end{pmatrix} -&  \begin{pmatrix} y_1{}\\ y_2{}\\ \vdots\\ y_N{}\\ \end{pmatrix} \end{pmatrix}](http://latex.codecogs.com/svg.latex?%5Cfn_jvn%20%5Cbegin%7Bpmatrix%7D%20w_1%7B%7D%5C%5C%20w_2%7B%7D%5C%5C%20%5Cvdots%5C%5C%20w_D%7B%7D%5C%5C%20%5Cend%7Bpmatrix%7D%3D%5Cbegin%7Bpmatrix%7D%20w_1%7B%7D%5C%5C%20w_2%7B%7D%5C%5C%20%5Cvdots%5C%5C%20w_D%7B%7D%5C%5C%20%5Cend%7Bpmatrix%7D-%5Calpha%20%5Cbegin%7Bpmatrix%7D%201%26%201%26%20%5Ccdots%20%26%201%26%5C%5C%20x_%7B11%7D%26%20x_%7B21%7D%26%20%5Ccdots%20%26%20x_%7BN1%7D%5C%5C%20x_%7B12%7D%26%20x_%7B22%7D%26%20%5Ccdots%20%26%20x_%7BN2%7D%5C%5C%20%5Cvdots%20%26%20%5Cvdots%20%26%20%5Cddots%20%26%20%5Cvdots%20%5C%5C%20x_%7B1D%7D%26%20x_%7B2D%7D%26%20%5Ccdots%20%26%20x_%7BND%7D%20%5Cend%7Bpmatrix%7D%5Cbegin%7Bpmatrix%7D%20%5Cbegin%7Bpmatrix%7D%201%26%20x_%7B11%7D%26%20x_%7B12%7D%26%20%5Ccdots%20%26%20x_%7B1D%7D%5C%5C%201%26%20x_%7B21%7D%26%20x_%7B22%7D%26%20%5Ccdots%20%26%20x_%7B2D%7D%5C%5C%20%5Cvdots%20%26%20%5Cvdots%20%26%20%5Cvdots%20%26%20%5Cddots%20%26%20%5Cvdots%20%5C%5C%201%26%20x_%7BN1%7D%26%20x_%7BN2%7D%26%20%5Ccdots%20%26%20x_%7BND%7D%20%5Cend%7Bpmatrix%7D%26%20%5Cbegin%7Bpmatrix%7D%20w_1%7B%7D%5C%5C%20w_2%7B%7D%5C%5C%20%5Cvdots%5C%5C%20w_D%7B%7D%5C%5C%20%5Cend%7Bpmatrix%7D%20-%26%20%5Cbegin%7Bpmatrix%7D%20y_1%7B%7D%5C%5C%20y_2%7B%7D%5C%5C%20%5Cvdots%5C%5C%20y_N%7B%7D%5C%5C%20%5Cend%7Bpmatrix%7D%20%5Cend%7Bpmatrix%7D)
+
+Evolution algorithm:
+
+![evolution algorithm](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/0.1%20evolution%20algorithm.jpg)
+
+![mutation + selection](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/images/0.2%20mutation%20%2B%20selection.jpg)
+
 1) **Question:**
    Что такое *линейная регрессия*?
    
