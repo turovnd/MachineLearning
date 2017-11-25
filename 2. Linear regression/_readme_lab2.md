@@ -152,26 +152,13 @@ Evolution algorithm:
    
    ![Q(w,X)=\frac{1}{l}\left \| Xw-y \right \|^{2}\rightarrow \min_{w}](http://latex.codecogs.com/svg.latex?%5Cfn_jvn%20Q%28w%2CX%29%3D%5Cfrac%7B1%7D%7Bl%7D%5Cleft%20%5C%7C%20Xw-y%20%5Cright%20%5C%7C%5E%7B2%7D%5Crightarrow%20%5Cmin_%7Bw%7D), где:
    
-   ![X=\begin{pmatrix}
- {x_{11}}& ...& {x_{1d}}\\ 
- ...&  ...& ...\\ 
- {x_{l1}}&  ...& {x_{ld}}
-\end{pmatrix}](http://latex.codecogs.com/svg.latex?%5Cfn_jvn%20%5Csmall%20X%3D%5Cbegin%7Bpmatrix%7D%20%7Bx_%7B11%7D%7D%26%20...%26%20%7Bx_%7B1d%7D%7D%5C%5C%20...%26%20...%26%20...%5C%5C%20%7Bx_%7Bl1%7D%7D%26%20...%26%20%7Bx_%7Bld%7D%7D%20%5Cend%7Bpmatrix%7D) - матрица "объекты-признаки".
+   ![X=\begin{pmatrix} {x_{11}}& ...& {x_{1d}}\\  ...&  ...& ...\\  {x_{l1}}&  ...& {x_{ld}} \end{pmatrix}](http://latex.codecogs.com/svg.latex?%5Cfn_jvn%20%5Csmall%20X%3D%5Cbegin%7Bpmatrix%7D%20%7Bx_%7B11%7D%7D%26%20...%26%20%7Bx_%7B1d%7D%7D%5C%5C%20...%26%20...%26%20...%5C%5C%20%7Bx_%7Bl1%7D%7D%26%20...%26%20%7Bx_%7Bld%7D%7D%20%5Cend%7Bpmatrix%7D) - матрица "объекты-признаки".
    
-   ![\begin{pmatrix}
-{x_{11}} &  ...& {x_{1d}} 
-\end{pmatrix}](http://latex.codecogs.com/svg.latex?%5Cfn_jvn%20%5Csmall%20%5Cbegin%7Bpmatrix%7D%20%7Bx_%7B11%7D%7D%20%26%20...%26%20%7Bx_%7B1d%7D%7D%20%5Cend%7Bpmatrix%7D) - все признаки i-ого объекта.
+   ![\begin{pmatrix}{x_{11}} &  ...& {x_{1d}} \end{pmatrix}](http://latex.codecogs.com/svg.latex?%5Cfn_jvn%20%5Csmall%20%5Cbegin%7Bpmatrix%7D%20%7Bx_%7B11%7D%7D%20%26%20...%26%20%7Bx_%7B1d%7D%7D%20%5Cend%7Bpmatrix%7D) - все признаки i-ого объекта.
    
-   ![\begin{pmatrix}
-{x_{11}}\\ 
-...\\ 
-{x_{l1}}
-\end{pmatrix}](http://latex.codecogs.com/svg.latex?%5Cfn_jvn%20%5Csmall%20%5Cbegin%7Bpmatrix%7D%20%7Bx_%7B11%7D%7D%5C%5C%20...%5C%5C%20%7Bx_%7Bl1%7D%7D%20%5Cend%7Bpmatrix%7D) - значения j-ого признака на всех объектах.
+   ![\begin{pmatrix}{x_{11}}\\ ...\\ {x_{l1}}\end{pmatrix}](http://latex.codecogs.com/svg.latex?%5Cfn_jvn%20%5Csmall%20%5Cbegin%7Bpmatrix%7D%20%7Bx_%7B11%7D%7D%5C%5C%20...%5C%5C%20%7Bx_%7Bl1%7D%7D%20%5Cend%7Bpmatrix%7D) - значения j-ого признака на всех объектах.
 
-   ![y=\begin{bmatrix}
-{y_{1}}\\ 
-...\\ 
-{y_{l}}
+   ![y=\begin{bmatrix}{y_{1}}\\ ...\\ {y_{l}}
 \end{bmatrix}](http://latex.codecogs.com/svg.latex?%5Cfn_jvn%20%5Csmall%20y%3D%5Cbegin%7Bbmatrix%7D%20%7By_%7B1%7D%7D%5C%5C%20...%5C%5C%20%7By_%7Bl%7D%7D%20%5Cend%7Bbmatrix%7D) -    вектор ответов.
    
 4) **Question:**
