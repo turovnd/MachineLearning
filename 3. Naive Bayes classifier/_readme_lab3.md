@@ -73,3 +73,4 @@ F-measure:  0.946236559139785
 ### Links
 1) http://datareview.info/article/6-prostyih-shagov-dlya-osvoeniya-naivnogo-bayesovskogo-algoritma-s-primerom-koda-na-python/
 2) https://www.coursera.org/learn/supervised-learning/lecture/8RMf8/spam-fil-try-i-naivnyi-baiiesovskii-klassifikator
+3) http://bazhenov.me/blog/2012/06/11/naive-bayes.html
