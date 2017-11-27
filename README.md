@@ -2,7 +2,8 @@
 
 ## Projects
 1. [KNN metric classifier](https://github.com/fedy95/MachineLearning/blob/master/1.%20KNN%20metric%20classifier/_readme_lab1.md);
-2. [Linear regression](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/_readme_lab2.md).
+2. [Linear regression](https://github.com/fedy95/MachineLearning/blob/master/2.%20Linear%20regression/_readme_lab2.md);
+3. [Naive Bayes classifier](https://github.com/fedy95/MachineLearning/blob/master/3.%20Naive%20Bayes%20classifier/_readme_lab3.md).
 
 ## Lectures
 1. [Introduction](https://github.com/fedy95/MachineLearning/blob/master/theory/Intro.pdf);
