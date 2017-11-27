@@ -48,8 +48,6 @@ class Bayes(object):
         if self.include_header:
             words += document.header
 
-        words = list(filter(lambda word: word in self.data, words))
-
         # минимальное кол-во раз появление слова в тренировочной выборке
         if self.minimum_occurrence is not None:
             words = list(filter(lambda word: self.data[word][self.SPAM] + self.data[word][self.HAM] >= self.minimum_occurrence, words))
