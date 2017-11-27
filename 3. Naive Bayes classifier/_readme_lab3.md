@@ -2,11 +2,11 @@
 [Table of contents](https://github.com/fedy95/MachineLearning/blob/master/README.md)
 
 ## Used software:
-- Python-IDE: PyCharm Community 2017.2;
+*- Python-IDE: PyCharm Community 2017.2;
 - Project Interpreter: python 3.5.3 (amd64);
 - Used python packeges:
 	- matplotlib v2.1.0;
-	- tabulate v0.8.1.
+	- tabulate v0.8.1.*
 
 ### Problem
 Задача состоит в классификации спама. Спам сообщения содержат в своем названии spmsg, нормальные сообщения содержат legit.
@@ -21,6 +21,7 @@
 
 Для написания классификатора не разрешается использовать библиотеки, наподобие weka и sklearn, а также реализации из них. Кросс-валидацию можно производить любыми средствами.
 
+![datasets text files](https://github.com/fedy95/MachineLearning/tree/master/3.%20Naive%20Bayes%20classifier/Bayes/pu1)
 
 ### Program structure
 - Documents.py
@@ -74,9 +75,8 @@ F-measure:  0.9574468085106383
 
 
 ### FAQ
-1) **Question:**
-   
-   **Answer:**
+
+Апостериорная вероятность — условная вероятность случайного события при условии того, что известны данные полученные после опыта.
 
 ### Links
 1) http://datareview.info/article/6-prostyih-shagov-dlya-osvoeniya-naivnogo-bayesovskogo-algoritma-s-primerom-koda-na-python/
