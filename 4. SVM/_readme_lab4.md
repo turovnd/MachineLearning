@@ -21,5 +21,5 @@
 ### FAQ
 
 ### Links
-1)
+1) Course of creating custom CSV: https://youtu.be/AbVtcUBlBok + https://youtu.be/QAs2olt7pJ4 + https://youtu.be/VhHLpg7ZS4Q + https://youtu.be/yrnhziJk-z8
 2)
