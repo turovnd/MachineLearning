@@ -12,7 +12,7 @@ if __name__ == "__main__":
     ##
     include_header = True       # True || False
     minimum_occurrence = 3      # None || Number        => при классификации участвуют слова, у которых минимальное кол-во раз появление слова в тренировочной выборке > minimum_occurrence
-    discard_deviation = 0.3     # None || Number < 0.5  => отбросить отклонение
+    discard_deviation = None     # None || Number < 0.5  => отбросить отклонение
     top_n = None                # None || Number        => в классификации участвуют только `top_n` слов в документе, которые имеют наивысшие веса
 
     bayes = Bayes(include_header=include_header, minimum_occurrence=minimum_occurrence,
@@ -22,9 +22,8 @@ if __name__ == "__main__":
     # For Cross Validation
     ##
     debug_print = False         # True || False
-    cross_validation = True     # True || False
 
-    f_measure, matrix = Validator.validate(bayes, documents, debug_print, cross_validation)
+    f_measure, matrix = Validator.validate(bayes, documents, debug_print)
 
     table = [["T", matrix[0][0], matrix[0][1]], ["F", matrix[1][0], matrix[1][1]]]
     print(tabulate(table,
