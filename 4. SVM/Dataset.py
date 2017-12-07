@@ -1,3 +1,4 @@
+import numpy as np
 import random
 
 
@@ -12,7 +13,9 @@ class Dataset:
 
         for line in file:
             dot_x, dot_y, dot_class = line.split(',')
-            self.data.append([[float(dot_x), float(dot_y)], int(dot_class)])
+            if int(dot_class) == 0:
+                dot_class = -1
+            self.data.append([[float(dot_x), float(dot_y)], float(dot_class)])
 
         file.close()
 
@@ -29,18 +32,17 @@ class Dataset:
         self.test = self.data[self.num_train + 1:len(self.data)]
 
     ##
-    # Get Dots By Class
-    # @mode        = train|test
-    # @mode_class  = 1|0
+    # Get Dots By Mode
+    # @mode = train|test
     ##
-    def getDotsByClass(self, mode, mode_class):
-        dots = []
-        if mode == "train":
-            for i in range(len(self.train)):
-                if self.train[i][1] == mode_class:
-                    dots.append(self.train[i][0])
-        if mode == "test":
-            for i in range(len(self.test)):
-                if self.test[i][1] == mode_class:
-                    dots.append(self.test[i][0])
-        return dots
+    def getDotsByMode(self, mode, as_npArr):
+        if as_npArr:
+            if mode == "train":
+                return np.array([self.train[i][0] for i in range(len(self.train))]), np.array([self.train[i][1] for i in range(len(self.train))])
+            if mode == "test":
+                return np.array([self.test[i][0] for i in range(len(self.test))]), np.array([self.test[i][1] for i in range(len(self.test))])
+        else:
+            if mode == "train":
+                return [self.train[i][0] for i in range(len(self.train))], [self.train[i][1] for i in range(len(self.train))]
+            if mode == "test":
+                return [self.test[i][0] for i in range(len(self.test))], [self.test[i][1] for i in range(len(self.test))]

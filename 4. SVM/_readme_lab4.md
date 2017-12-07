@@ -3,10 +3,9 @@
 
 ## Used software:
 - Python-IDE: PyCharm Community 2017.2;
-- Project Interpreter: python 3.5.3 (amd64);
+- Project Interpreter: python 2.7.* (amd64);
 - Used python packeges:
-	- matplotlib v2.1.0;
-	- tabulate v0.8.1.*
+	
 
 ### Problem
 Требуется написать SVM без библиотек, посчитать у него (разумеется) f-меру и confusion матрицу.

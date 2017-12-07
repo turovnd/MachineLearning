@@ -1,32 +1,32 @@
-import numpy as np
-from CustomSVM import CustomSVM
 from Dataset import Dataset
-from sklearn import metrics
-from sklearn.svm import SVC
+from CrossValidation import Validator
+from svm import SVM
+from knn import KNN
+
+
 if __name__ == "__main__":
+    ##
+    # kernel        => 'gaussian' || 'polynomial' || 'linear'
+    # svm_C         => Float || None
+    # k_neighbors   => Number
+    # cross_fold    => Number
+    # show_plot     => False || True
+    ##
+    kernel = 'polynomial'
+    svm_C = 1
+    cross_fold = 1
+    show_plot = False
+    k_neighbors = 5
 
-    trainDots = 50
+    data = Dataset('input/chips.txt', trainDots=80)
+    validator = Validator()
 
-    data = Dataset('input/chips.txt', trainDots)
-    data.reset()
+    print("SVM")
+    f_measure, matrix = validator.svm_validate(data, kernel, svm_C, cross_fold, show_plot)
+    print(f_measure)
+    print (matrix)
 
-    svm = CustomSVM()
-    svm.fit(data={
-        0: np.array(data.getDotsByClass('train', 0)),
-        1: np.array(data.getDotsByClass('train', 1))
-    })
-
-
-    # predict_us = [[0, 10],
-    #               [1, 3],
-    #               [3, 4],
-    #               [3, 5],
-    #               [5, 5],
-    #               [5, 6],
-    #               [6, -5],
-    #               [5, 8]]
-    #
-    # for p in predict_us:
-    #     svm.predict(p)
-
-    svm.visualize()
+    print("kNN")
+    f_measure, matrix = validator.knn_validate(data, kernel, k_neighbors, cross_fold, show_plot)
+    print(f_measure)
+    print (matrix)
