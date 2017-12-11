@@ -2,10 +2,8 @@ import numpy as np
 
 
 class Spearman(object):
-    def __init__(self, X, Y, logs=False):
+    def __init__(self, logs=False):
         self.logs = logs
-        self.__X = X
-        self.__Y = Y
         self.__coeff = []
         self.__keys = []
 
@@ -15,14 +13,13 @@ class Spearman(object):
     def getKeys(self):
         return self.__keys
 
-    def fit(self):
-        Y = self.__Y
+    def fit(self, X, Y):
         rank_dict_Y, ligaments_Y = get_rank_ligaments(Y)
-        for X in self.__X:
-            rank_dict_X, ligaments_X = get_rank_ligaments(X)
-            n = len(X)
+        for x in X:
+            rank_dict_X, ligaments_X = get_rank_ligaments(x)
+            n = len(x)
             diff_rank = 0.0
-            for i, x in enumerate(X):
+            for i, x in enumerate(x):
                 diff_rank += (rank_dict_X[x] - (n + 1) / 2) * (rank_dict_Y[Y[i]] - (n + 1) / 2)
             self.__coeff.append(float(diff_rank) / (n * (n - 1) * (n + 1) - (ligaments_X + ligaments_Y)))
 

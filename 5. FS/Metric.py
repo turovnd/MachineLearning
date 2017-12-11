@@ -13,7 +13,7 @@ class Metric(object):
             self.metric = IG
 
     def build(self, X, Y, logs=False, limit=100):
-        metric = self.metric(X, Y, logs)
-        metric.fit()
+        metric = self.metric(logs=logs)
+        metric.fit(X, Y)
         metric.process()
         return metric.getKeys()[:limit]

@@ -3,10 +3,8 @@ import math
 
 
 class IG(object):
-    def __init__(self, X, Y, logs=False):
+    def __init__(self, logs=False):
         self.logs = logs
-        self.__X = X
-        self.__Y = Y
         self.__coeff = []
         self.__keys = []
 
@@ -16,12 +14,11 @@ class IG(object):
     def getKeys(self):
         return self.__keys
 
-    def fit(self):
-        Y = self.__Y
-        for X in self.__X:
+    def fit(self, X, Y):
+        for x in X:
             Hc = get_entropy_Y(Y)
-            Sum = get_entropy_X(X)
-            M = get_entropy_Y_to_X(X, Y)
+            Sum = get_entropy_X(x)
+            M = get_entropy_Y_to_X(x, Y)
             H_C_E = (-1) * Sum * (-1) * M
             self.__coeff.append(Hc - H_C_E)
 

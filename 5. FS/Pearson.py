@@ -4,10 +4,8 @@ import math
 
 class Pearson(object):
 
-    def __init__(self, X, Y, logs=False):
+    def __init__(self, logs=False):
         self.logs = logs
-        self.__X = X
-        self.__Y = Y
         self.__coeff = []
         self.__keys = []
 
@@ -17,24 +15,14 @@ class Pearson(object):
     def getKeys(self):
         return self.__keys
 
-    def fit(self):
-        Y = self.__Y
-        for X in self.__X:
-            x_mean = X.mean()
-            y_mean = Y.mean()
-            numerator = 0
-            x_2 = 0
-            y_2 = 0
-            for i in range(len(X)):
-                x_element = X[i] - x_mean
-                y_element = Y[i] - y_mean
-                numerator += x_element * y_element
-                x_2 += x_element ** 2
-                y_2 += y_element ** 2
-            if x_2 == 0 or y_2 == 0:
-                self.__coeff.append(1)
+    def fit(self, X, Y):
+        for x in X:
+            sum_up = np.sum((x - x.mean()) * (Y - Y.mean()))
+            sum_down = np.sum((x - x.mean()) ** 2) * np.sum((Y - Y.mean()) ** 2)
+            if sum_down == 0:
+                self.__coeff.append(0)
             else:
-                self.__coeff.append(numerator / math.sqrt(x_2 * y_2))
+                self.__coeff.append(sum_up / np.sqrt(sum_down))
 
     def process(self):
         pearson_dict = {}
