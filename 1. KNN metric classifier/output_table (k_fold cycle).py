@@ -1,3 +1,4 @@
+# coding=utf-8
 from DatasetProcessing import *
 from Plot import *
 from Statistic import *
@@ -37,7 +38,7 @@ if __name__ == '__main__':
     coordinateTransformations = ["none", "elliptic", "hyperbolic"]
 
     # количетсво тренировочных точек
-    number_trainDots = 20
+    number_trainDots = 50
 
     # количество соседий
     k_neighbors = 10

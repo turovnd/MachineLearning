@@ -1,12 +1,12 @@
 import numpy as np
-
+from kernel import Kernel
 import cvxopt
 import cvxopt.solvers
-from kernel import Kernel
+
 
 class SVM(object):
     def __init__(self, kernel, C=None):
-        self.kernel = Kernel.get(kernel)
+        self.kernel = kernel
         self.C = C
         if self.C is not None: self.C = float(self.C)
 

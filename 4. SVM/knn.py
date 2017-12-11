@@ -1,9 +1,10 @@
 import numpy as np
-from kernel import Kernel
+
 
 class KNN(object):
-    def __init__(self, kernel, neighbors=5):
-        self.kernel = Kernel.get(kernel)
+    def __init__(self, kernel, metric, neighbors=5):
+        self.kernel = kernel
+        self.metric = metric
         self.neighbors = neighbors
 
     def fit(self, dots, cls):
@@ -11,37 +12,25 @@ class KNN(object):
         self.trainClass = cls
 
     def classify(self, dot):
-        testDist = []
+        distances = []
         for i in range(len(self.trainDots)):
-            testDist.append([np.math.sqrt(np.math.pow(self.trainDots[i][0] - dot[0], 2) + np.math.pow(self.trainDots[i][1] - dot[1], 2)),
-                             self.trainClass[i], dot, self.trainDots[i]])
+            distances.append([self.metric(self.trainDots[i], dot), self.trainClass[i], self.trainDots[i]])
 
-        n = 1
-        while n < len(testDist):
-            for i in range(len(testDist) - n):
-                if testDist[i][0] > testDist[i + 1][0]:
-                    testDist[i], testDist[i + 1] = testDist[i + 1], testDist[i]
-            n += 1
+        closest_distances = sorted(distances)[:self.neighbors]
 
-        class_0 = 0
-        class_1 = 0
+        class_0 = 0.0
+        class_1 = 0.0
 
-        for i in range(self.neighbors):
-            if testDist[i][1] == 1:
-                class_1 += self.kernel(np.array(testDist[i][2]), np.array(testDist[i][3]))
+        for distance in closest_distances:
+            if distance[1] == 1.0:
+                class_1 += self.kernel(np.array(dot), np.array(distance[2]))
             else:
-                class_0 += self.kernel(np.array(testDist[i][2]), np.array(testDist[i][3]))
+                class_0 += self.kernel(np.array(dot), np.array(distance[2]))
 
         if class_0 > class_1:
-            return -1
+            return [-1.0], closest_distances
         else:
-            return 1
+            return [1.0], closest_distances
 
-    def predict(self, X):
-        classes = []
-        for i in range(len(X)):
-            cls = self.classify(X[i])
-            self.trainDots.append(X[i])
-            self.trainClass.append(cls)
-            classes.append(cls)
-        return np.array(classes)
+    def predict(self, dot):
+        return self.classify(dot[0])

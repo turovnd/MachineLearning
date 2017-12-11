@@ -1,3 +1,4 @@
+# coding=utf-8
 import math
 import random
 
@@ -41,6 +42,7 @@ class DatasetProcessing(object):
                 dot_z = math.pow(float(dot_x), 2) - math.pow(float(dot_y), 2)
                 data.append([[float(dot_x), float(dot_y), float(dot_z)], int(dot_class)])
         f.close()
+        random.shuffle(data)
         return data
 
     """Метод перемещивания входного массива.

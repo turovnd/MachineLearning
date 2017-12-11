@@ -5,7 +5,7 @@
 - Python-IDE: PyCharm Community 2017.2;
 - Project Interpreter: python 2.7.* (amd64);
 - Used python packeges:
-	
+
 
 ### Problem
 Требуется написать SVM без библиотек, посчитать у него (разумеется) f-меру и confusion матрицу.

@@ -1,3 +1,4 @@
+# coding=utf-8
 from DatasetProcessing import *
 from Plot import *
 from Statistic import *
