@@ -4,6 +4,10 @@ from knn import KNN
 from Plot import Plot
 
 
+##
+# Get F-measure by Confusion Matrix
+# @matrix => [[Number, Number], [Number, Number]]
+##
 def get_f_measure(matrix):
     if matrix[0][0] != 0:
         recall = float(matrix[0][0]) / (float(matrix[0][0]) + float(matrix[1][1]))
@@ -13,6 +17,11 @@ def get_f_measure(matrix):
         return 0
 
 
+##
+# Get Metrics By Array
+# @predict  => [Number, Number]
+# @start    => [Number, Number]
+##
 def get_metrics(predict, start):
     # true positive is a spam which is predicted well
     # true negative is a not spam which is predicted well
@@ -25,10 +34,10 @@ def get_metrics(predict, start):
             if predict[i] == 1.0:
                 matrix[0][0] += 1
             else:
-                matrix[1][0] += 1
+                matrix[0][1] += 1
         else:
             if predict[i] == 1.0:
-                matrix[0][1] += 1
+                matrix[1][0] += 1
             else:
                 matrix[1][1] += 1
 
@@ -43,6 +52,7 @@ class Validator(object):
     def svm_validate(data, kernel, svm_C, show_plot):
         plot = Plot()
         matrix_full = [[0, 0], [0, 0]]
+        y_predict_arr = []
 
         for i in range(len(data)):
             data.updateTrainTest(i)
@@ -52,6 +62,7 @@ class Validator(object):
             clf = SVM(kernel=kernel, C=svm_C)
             clf.fit(trainDots, trainClass)
             y_predict = clf.predict(testDots)
+            y_predict_arr.append(y_predict[0])
 
             if show_plot:
                 plot.smv(trainDots[trainClass == 1], trainDots[trainClass == -1], clf, testDots[0], y_predict[0])
@@ -62,13 +73,13 @@ class Validator(object):
             matrix_full[1][0] += matrix[1][0]
             matrix_full[1][1] += matrix[1][1]
 
-        return get_f_measure(matrix_full), matrix_full
+        return y_predict_arr, get_f_measure(matrix_full), matrix_full
 
     @staticmethod
     def knn_validate(data, kernel, metric, k_neighbors, show_plot):
         plot = Plot()
         matrix_full = [[0, 0], [0, 0]]
-
+        y_predict_arr = []
         for i in range(len(data)):
             data.updateTrainTest(i)
             trainDots, trainClass = data.getDotsByMode('train', False)
@@ -77,8 +88,8 @@ class Validator(object):
             knn = KNN(kernel=kernel, metric=metric, neighbors=k_neighbors)
             knn.fit(trainDots, trainClass)
             y_predict, distance = knn.predict(testDots)
+            y_predict_arr.append(y_predict[0])
 
-            # print (str(y_predict[0]) + " " + str(testClass[0]) + " " + str(y_predict == testClass))
             if show_plot:
                 tDots = np.array(trainDots)
                 tCls = np.array(trainClass)
@@ -90,4 +101,4 @@ class Validator(object):
             matrix_full[1][0] += matrix[1][0]
             matrix_full[1][1] += matrix[1][1]
 
-        return get_f_measure(matrix_full), matrix_full
+        return y_predict_arr, get_f_measure(matrix_full), matrix_full

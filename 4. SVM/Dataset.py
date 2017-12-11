@@ -23,16 +23,14 @@ class Dataset:
         ff.close()
         random.shuffle(self.data)
 
-    def reset(self):
-        random.shuffle(self.data)
-
     def updateTrainTest(self, ind):
         self.train = self.data[0:ind] + self.data[ind+1:len(self.data)]
         self.test = self.data[ind]
 
     ##
     # Get Dots By Mode
-    # @mode = train|test
+    # @mode     => 'train' || 'test'
+    # @as_npArr => True || False
     ##
     def getDotsByMode(self, mode, as_npArr):
         if as_npArr:
