@@ -20,30 +20,12 @@
 
 ### Output
 ```
-kernel = Kernel.get('linear')
-keys_limit = 100
-svm_C = 1
-
-metric = Metric('pearson')
-F-measure: 0.528
-|    |   P |   N |
-|----+-----+-----|
-| T  |  33 |   8 |
-| F  |  48 |  11 |
-
-metric = Metric('spearman')
-F-measure: 0.615384615385
-|    |   P |   N |
-|----+-----+-----|
-| T  |  28 |  37 |
-| F  |  19 |  16 |
-
-metric = Metric('ig')
-F-measure: 0.517857142857
-|    |   P |   N |
-|----+-----+-----|
-| T  |  29 |  17 |
-| F  |  39 |  15 |
+Comparable Table
+| Kernel   | Metric   |   Filter limit |   SVM C |   F-mature | Confusion Matrix     |
+|----------+----------+----------------+---------+------------+----------------------|
+| linear   | pearson  |           1000 |       1 |   0.548148 | [[37, 2], [54, 7]]   |
+| linear   | spearman |           1000 |       1 |   0.615385 | [[28, 37], [19, 16]] |
+| linear   | ig       |           1000 |       1 |   0.517857 | [[29, 17], [39, 15]] |
 ```
 
 ### FAQ

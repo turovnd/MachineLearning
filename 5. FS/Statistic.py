@@ -3,7 +3,7 @@ class Statistic(object):
         pass
 
     @staticmethod
-    def get_statistics(logs, pearson_keys, spearman_keys, ig_keys):
+    def get_statistics(pearson_keys, spearman_keys, ig_keys):
         All = []
         pearson = []
         pearson_spearman = []
@@ -42,15 +42,13 @@ class Statistic(object):
             else:
                 IG.append(x)
 
-        if logs:
-            print("\n")
-            print("All: ", All)
-            print('pearson_spearman: ', pearson_spearman)
-            print('pearson_IG: ', pearson_IG)
-            print('spearman_IG: ', spearman_IG)
-            print('pearson: ', pearson)
-            print('spearman: ', spearman)
-            print('IG: ', IG)
+        print("All: ", All)
+        print('pearson_spearman: ', pearson_spearman)
+        print('pearson_IG: ', pearson_IG)
+        print('spearman_IG: ', spearman_IG)
+        print('pearson: ', pearson)
+        print('spearman: ', spearman)
+        print('IG: ', IG)
 
         return All, pearson_spearman, pearson_IG, spearman_IG, pearson, spearman, IG
 

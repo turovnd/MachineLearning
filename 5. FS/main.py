@@ -4,7 +4,8 @@ from tabulate import tabulate
 from Statistic import Statistic
 from Kernel import Kernel
 from Metric import Metric
-from svm import SVM
+from SVM import SVM
+from Plot import Plot
 
 
 def build(kernel, metric, keys_limit, svm_C, logs):
@@ -31,19 +32,18 @@ def build(kernel, metric, keys_limit, svm_C, logs):
     vX = np.array(vX)
 
     predict_arr = [clf.predict(x) for x in vX]
+
     confusion_matrix = Statistic.get_metrics(predict_arr, validY)
     f_measure = Statistic.get_f_measure(confusion_matrix)
 
-    return predict_arr, confusion_matrix, f_measure
+    return keys, confusion_matrix, f_measure
 
 
 def create_table(kernels, metrics, keys_limit, svm_C):
-    output_arr = []
     table = []
     for kernel in kernels:
         for metric in metrics:
             arr, confusion_matrix, f_measure = build(kernel, metric, keys_limit, svm_C, False)
-            output_arr.append([metric.name, arr])
             table.append([kernel.name, metric.name, keys_limit, svm_C, f_measure, confusion_matrix])
 
     print("\nComparable Table")
@@ -51,25 +51,26 @@ def create_table(kernels, metrics, keys_limit, svm_C):
                    headers=["Kernel", "Metric", "Filter limit", "SVM C", "F-mature", "Confusion Matrix"],
                    tablefmt='orgtbl'))
 
-    return output_arr
 
 ##
-# kernel        => 'gaussian' || 'polynomial' || 'linear'
-# metric        => 'pearson' || 'spearman' || 'ig'
+# kernels       => Kernel('linear') || Kernel('gaussian') || Kernel('polynomial')
+# metrics       => Metric('pearson') ||  Metric('spearman') ||  Metric('ig')
 # svm_C         => Float || None
 # keys_limit    => Number
 # show_plot     => False || True
 # logs          => False || True
 ##
 if __name__ == "__main__":
-    kernel = Kernel('linear')
-    metric = Metric('ig')
-    keys_limit = 1000
+
+    keys_limit = 30
     svm_C = 1
-    show_plot = False
+    show_plot = True
     logs = False
 
-    arrays = create_table([Kernel('linear')], [Metric('pearson'), Metric('spearman'), Metric('ig')], keys_limit, svm_C)
+    create_table([Kernel('linear')], [Metric('pearson'), Metric('spearman'), Metric('ig')], keys_limit, svm_C)
 
-
-
+    if show_plot:
+        pearson_keys, m, f = build(Kernel('linear'), Metric('pearson'), keys_limit, svm_C, False)
+        spearman_keys, m, f = build(Kernel('linear'), Metric('spearman'), keys_limit, svm_C, False)
+        ig_keys, m, f = build(Kernel('linear'), Metric('ig'), keys_limit, svm_C, False)
+        Plot().euler(pearson_keys, spearman_keys, ig_keys)
