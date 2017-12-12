@@ -5,6 +5,7 @@ from IG import IG
 
 class Metric(object):
     def __init__(self, name):
+        self.name = name
         if name == 'pearson':
             self.metric = Pearson
         elif name == 'spearman':

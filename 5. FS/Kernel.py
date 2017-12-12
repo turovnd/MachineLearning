@@ -3,8 +3,14 @@ from numpy import linalg
 
 
 class Kernel(object):
-    def __init__(self):
-        pass
+    def __init__(self, name):
+        self.name = name
+        if name == 'gaussian':
+            self.kernel = self.gaussian_kernel
+        elif name == 'polynomial':
+            self.kernel = self.polynomial_kernel
+        else:
+            self.kernel = self.linear_kernel
 
     @staticmethod
     def linear_kernel(x1, x2):
@@ -17,12 +23,3 @@ class Kernel(object):
     @staticmethod
     def gaussian_kernel(x, y, sigma=5.0):
         return np.exp(-linalg.norm(x - y) ** 2 / (2 * (sigma ** 2)))
-
-    @staticmethod
-    def get(kernel):
-        if kernel == 'gaussian':
-            return Kernel.gaussian_kernel
-        elif kernel == 'polynomial':
-            return Kernel.polynomial_kernel
-        else:
-            return Kernel.linear_kernel
