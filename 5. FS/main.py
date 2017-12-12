@@ -62,10 +62,9 @@ def create_table(kernels, metrics, keys_limit, svm_C):
 ##
 if __name__ == "__main__":
 
-    keys_limit = 30
+    keys_limit = 1000
     svm_C = 1
     show_plot = True
-    logs = False
 
     create_table([Kernel('linear')], [Metric('pearson'), Metric('spearman'), Metric('ig')], keys_limit, svm_C)
 
