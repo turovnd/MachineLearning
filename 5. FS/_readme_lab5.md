@@ -19,9 +19,17 @@
 ### Program structure
 
 ### Output
+```
+Comparable Table
+| Kernel   | Metric   |   Filter limit |   SVM C |   F-mature | Confusion Matrix     |
+|----------+----------+----------------+---------+------------+----------------------|
+| linear   | pearson  |           1000 |       1 |   0.548148 | [[37, 2], [54, 7]]   |
+| linear   | spearman |           1000 |       1 |   0.615385 | [[28, 37], [19, 16]] |
+| linear   | ig       |           1000 |       1 |   0.517857 | [[29, 17], [39, 15]] |
+```
 
 ### FAQ
 
 ### Links
-1)
-2)
+1) Коэффициент корреляции Спирмена: http://www.machinelearning.ru/wiki/index.php?title=%D0%9A%D0%BE%D1%8D%D1%84%D1%84%D0%B8%D1%86%D0%B8%D0%B5%D0%BD%D1%82_%D0%BA%D0%BE%D1%80%D1%80%D0%B5%D0%BB%D1%8F%D1%86%D0%B8%D0%B8_%D0%A1%D0%BF%D0%B8%D1%80%D0%BC%D0%B5%D0%BD%D0%B0
+2) Коэффициент корреляции Пирсона: http://www.machinelearning.ru/wiki/index.php?title=%D0%9A%D0%BE%D1%8D%D1%84%D1%84%D0%B8%D1%86%D0%B8%D0%B5%D0%BD%D1%82_%D0%BA%D0%BE%D1%80%D1%80%D0%B5%D0%BB%D1%8F%D1%86%D0%B8%D0%B8_%D0%9F%D0%B8%D1%80%D1%81%D0%BE%D0%BD%D0%B0
